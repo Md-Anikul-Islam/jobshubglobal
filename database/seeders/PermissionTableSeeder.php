@@ -38,6 +38,35 @@ class PermissionTableSeeder extends Seeder
             'news-edit',
             'news-delete',
 
+            //For Slider
+            'slider-list',
+            'slider-create',
+            'slider-edit',
+            'slider-delete',
+
+            //For Category
+            'category-list',
+            'category-create',
+            'category-edit',
+            'category-delete',
+
+            //For Location
+            'location-list',
+            'location-create',
+            'location-edit',
+            'location-delete',
+
+            //For Review
+            'review-list',
+            'review-create',
+            'review-edit',
+            'review-delete',
+
+            //about Setting
+            'about-list',
+
+
+
             //Site Setting
             'site-setting',
 
