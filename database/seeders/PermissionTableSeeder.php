@@ -72,6 +72,7 @@ class PermissionTableSeeder extends Seeder
 
             //Dashboard
             'login-log-list',
+            'cart-list',
 
 
         ];

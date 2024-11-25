@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\NewsController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
+use App\Http\Controllers\company\CompanyRegistrationController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -19,8 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Account Manage
+Route::get('/company-registration', [CompanyRegistrationController::class, 'showCompanyRegistrationForm'])->name('company.registration');
+Route::post('/company-registration-store', [CompanyRegistrationController::class, 'storeCompanyRegisterInfo'])->name('company.registration.store');
+Route::get('/company-verify', [CompanyRegistrationController::class, 'showVerificationForm'])->name('company.verification');
+Route::post('/company-verify-complete', [CompanyRegistrationController::class, 'verify'])->name('company.verify.complete');
 
-Route::middleware('auth')->group(callback: function () {
+
+Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/unauthorized-action', [AdminDashboardController::class, 'unauthorized'])->name('unauthorized.action');
     //News Section

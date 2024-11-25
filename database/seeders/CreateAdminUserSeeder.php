@@ -18,6 +18,9 @@ class CreateAdminUserSeeder extends Seeder
         $user = User::create([
             'name' => 'Job Hub Admin',
             'email' => 'job.hub@admin.com',
+            'is_registration_by' => 'Admin',
+            'status' => 1,
+            'email_verified_at' => now(),
             'password' => bcrypt('jobhub@2025')
         ]);
 
