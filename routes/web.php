@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\company\CompanyRegistrationController;
+use App\Http\Controllers\company\JobController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -60,6 +61,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::put('/review-update/{id}', [ReviewController::class, 'update'])->name('review.update');
     Route::get('/review-delete/{id}', [ReviewController::class, 'destroy'])->name('review.destroy');
 
+
+    //Job Section
+    Route::get('/job-section', [JobController::class, 'index'])->name('job.section');
+    Route::post('/job-store', [JobController::class, 'store'])->name('job.store');
+    Route::put('/job-update/{id}', [JobController::class, 'update'])->name('job.update');
+    Route::get('/job-delete/{id}', [JobController::class, 'destroy'])->name('job.destroy');
 
 
     //Role and User Section

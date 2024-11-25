@@ -20,8 +20,6 @@ class CompanyRegistrationController extends Controller
 
     public function storeCompanyRegisterInfo(Request $request)
     {
-
-        //dd($request->all());
         // Validate input
         $this->validate($request, [
             'is_registration_by' => 'required',

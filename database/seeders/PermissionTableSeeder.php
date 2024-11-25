@@ -62,6 +62,12 @@ class PermissionTableSeeder extends Seeder
             'review-edit',
             'review-delete',
 
+            //For Job
+            'job-list',
+            'job-create',
+            'job-edit',
+            'job-delete',
+
             //about Setting
             'about-list',
 

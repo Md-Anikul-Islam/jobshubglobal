@@ -158,6 +158,16 @@
                 @endcan
 
 
+                @can('job-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('job.section')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span> Post Job </span>
+                        </a>
+                    </li>
+                @endcan
+
+
 
                 @can('site-setting')
                     <li class="side-nav-item">
@@ -167,6 +177,8 @@
                         </a>
                     </li>
                 @endcan
+
+
 
 
                 @can('role-and-permission-list')
