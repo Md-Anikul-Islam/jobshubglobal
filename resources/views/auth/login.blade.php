@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+@php
+    $siteSetting = DB::table('site_settings')->first();
+@endphp
 <head>
     <meta charset="utf-8" />
     <title>Log In | Jobs Hub Global Admin</title>
@@ -24,15 +27,16 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="d-flex flex-column h-100">
-                                <div class="auth-brand p-4">
-{{--                                    <a href="{{ url('/') }}" class="logo-light">--}}
-{{--                                        <img src="#" alt="logo" height="100">--}}
-{{--                                    </a>--}}
-{{--                                    <a href="{{ url('/') }}" class="logo-dark">--}}
-{{--                                        <img src="#" alt="dark logo" height="100">--}}
-{{--                                    </a>--}}
-                                    <h3>Jobs Hub Global</h3>
-                                </div>
+                                @if(!empty($siteSetting))
+                                    <div class="auth-brand p-4">
+                                        <a href="{{asset($siteSetting->logo)}}" class="logo-light">
+                                            <img src="{{asset($siteSetting->logo)}}" alt="logo" height="100">
+                                        </a>
+                                        <a href="#" class="logo-dark">
+                                            <img src="{{asset($siteSetting->logo)}}" alt="dark logo" height="100">
+                                        </a>
+                                    </div>
+                                @endif
                                 <div class="p-4 pt-0 my-auto">
                                     <h4 class="fs-20">Sign In</h4>
                                     <p class="text-muted mb-3">Enter your email address and password to access

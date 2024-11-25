@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+@php
+    $siteSetting = DB::table('site_settings')->first();
+@endphp
 <head>
     <meta charset="utf-8" />
     <title>Dashboard | Jobs Hub Global</title>
@@ -84,17 +87,17 @@
     </div>
 
     <div class="leftside-menu">
+        @if(!empty($siteSetting))
         <a href="{{route('dashboard')}}" class="logo logo-light">
             <span class="logo-lg">
-{{--                <img src="#" alt="logo" style="height: 50px;">--}}
-                 <h3>Jobs Hub Global</h3>
+               <img src="{{asset($siteSetting->logo)}}" alt="logo" height="100">
             </span>
             <span class="logo-sm">
-{{--                <img src="#" alt="small logo">--}}
-                 <h3>Jobs</h3>
+                <img src="{{asset($siteSetting->logo)}}" alt="dark logo" height="100">
             </span>
-
         </a>
+        @endif
+
 
         <div class="h-100" id="leftside-menu-container" data-simplebar>
             <ul class="side-nav">
