@@ -18,7 +18,9 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-end">
+                    @can('company-create')
                     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewModalId">Add New</button>
+                    @endcan
                 </div>
             </div>
             <div class="card-body">
@@ -49,8 +51,18 @@
                             <td>{{$companyData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
+                                    @can('company-under-posted-job')
+                                    <a class="btn btn-success" href="{{route('company.under.posted.job',$companyData->id)}}">Jobs</a>
+                                    @endcan
+
+
+                                    @can('company-edit')
                                     <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editNewModalId{{$companyData->id}}">Edit</button>
+                                    @endcan
+
+                                    @can('company-delete')
                                     <a href="{{route('company.destroy',$companyData->id)}}" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$companyData->id}}">Delete</a>
+                                    @endcan
                                 </div>
                             </td>
                             <!--Edit Modal -->

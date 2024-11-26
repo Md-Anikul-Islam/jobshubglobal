@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Job;
+use App\Models\Location;
 use App\Models\News;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -157,6 +160,16 @@ class CompanyController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
+    }
+
+
+    public function companyUnderPostedJob($id)
+    {
+        $location = Location::latest()->get();
+        $category = Category::latest()->get();
+        $job = Job::where('company_id', $id)->with('company')->latest()->get();
+        $company = User::findOrFail($id);
+        return view('admin.pages.company.companyUnderPostedJob', compact('job', 'location', 'category', 'company'));
     }
 
 }

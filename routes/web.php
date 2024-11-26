@@ -75,6 +75,11 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::put('/company-update/{id}', [CompanyController::class, 'update'])->name('company.update');
     Route::get('/company-delete/{id}', [CompanyController::class, 'destroy'])->name('company.destroy');
 
+    Route::get('/company-under-posted-job/{id}', [CompanyController::class, 'companyUnderPostedJob'])->name('company.under.posted.job');
+    Route::post('/company-under-job-store', [CompanyController::class, 'store'])->name('company.under.job.store');
+    Route::put('/company-under-job-update/{id}', [CompanyController::class, 'update'])->name('company.under.job.update');
+    Route::get('/company-under-job-delete/{id}', [CompanyController::class, 'destroy'])->name('company.under.job.destroy');
+
 
     //Role and User Section
     Route::resource('roles', RoleController::class);
