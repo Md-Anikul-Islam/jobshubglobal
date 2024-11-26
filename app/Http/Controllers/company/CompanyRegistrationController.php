@@ -47,6 +47,7 @@ class CompanyRegistrationController extends Controller
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'phone' => $input['phone'],
+                'address' => $input['address'],
                 'tread_licence' => $input['tread_licence'],
                 'password' => $input['password'],
                 'verification_code' => $verificationCode,

@@ -168,6 +168,16 @@
                 @endcan
 
 
+                @can('company-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('company.section')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span> Manage Company </span>
+                        </a>
+                    </li>
+                @endcan
+
+
 
                 @can('site-setting')
                     <li class="side-nav-item">
