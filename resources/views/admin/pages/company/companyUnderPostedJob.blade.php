@@ -6,10 +6,16 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Job Portal</a></li>
-                        <li class="breadcrumb-item active">Job!</li>
+                        <li class="breadcrumb-item active">Company Job!</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Job!</h4>
+                <h4 class="page-title">
+                    @if ($company)
+                        {{ $company->name }} Job List
+                    @else
+                        Company Not Found or No Jobs Posted
+                    @endif
+                </h4>
             </div>
         </div>
     </div>
@@ -18,8 +24,8 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-end">
-                    @can('job-create')
-                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewModalId">Add New</button>
+                    @can('company-under-create-job')
+                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewModalId">Add Job Admin</button>
                     @endcan
                 </div>
             </div>
@@ -49,11 +55,11 @@
                             <td>{{$jobData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
-                                    @can('job-edit')
-                                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editNewModalId{{$jobData->id}}">Edit</button>
+                                    @can('company-under-edit-job')
+                                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editNewModalId{{$jobData->id}}">Edit Job Admin</button>
                                     @endcan
-                                    @can('job-delete')
-                                    <a href="{{route('job.destroy',$jobData->id)}}"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$jobData->id}}">Delete</a>
+                                    @can('company-under-delete-job')
+                                        <a href="{{route('company.under.job.destroy',$jobData->id)}}"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$jobData->id}}">Delete Job Admin</a>
                                     @endcan
                                 </div>
                             </td>
@@ -66,7 +72,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="post" action="{{route('job.update',$jobData->id)}}" enctype="multipart/form-data">
+                                            <form method="post" action="{{route('company.under.job.update',$jobData->id)}}" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="row">
@@ -193,7 +199,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <a href="{{route('job.destroy',$jobData->id)}}" class="btn btn-danger">Delete</a>
+                                            <a href="{{route('company.under.job.destroy',$jobData->id)}}" class="btn btn-danger">Delete</a>
                                         </div>
                                     </div>
                                 </div>
@@ -215,9 +221,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{route('job.store')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('company.under.job.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
+                            <input hidden="" name="company_id" value="{{$company->id}}">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label for="example-select" class="form-label">Category</label>

@@ -4,6 +4,7 @@
 use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\NewsController;
 use App\Http\Controllers\admin\ReviewController;
@@ -67,6 +68,17 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/job-store', [JobController::class, 'store'])->name('job.store');
     Route::put('/job-update/{id}', [JobController::class, 'update'])->name('job.update');
     Route::get('/job-delete/{id}', [JobController::class, 'destroy'])->name('job.destroy');
+
+    //Company Manage
+    Route::get('/company-list', [CompanyController::class, 'index'])->name('company.section');
+    Route::post('/company-store', [CompanyController::class, 'store'])->name('company.store');
+    Route::put('/company-update/{id}', [CompanyController::class, 'update'])->name('company.update');
+    Route::get('/company-delete/{id}', [CompanyController::class, 'destroy'])->name('company.destroy');
+
+    Route::get('/company-under-posted-job/{id}', [CompanyController::class, 'companyUnderPostedJob'])->name('company.under.posted.job');
+    Route::post('/company-under-job-store', [CompanyController::class, 'storeCompanyUnderPostedJob'])->name('company.under.job.store');
+    Route::put('/company-under-job-update/{id}', [CompanyController::class, 'updateCompanyUnderPostedJob'])->name('company.under.job.update');
+    Route::get('/company-under-job-delete/{id}', [CompanyController::class, 'destroyCompanyUnderPostedJob'])->name('company.under.job.destroy');
 
 
     //Role and User Section
