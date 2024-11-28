@@ -186,9 +186,20 @@
                     </li>
                 @endcan
 
+                @can('migration-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('migration.section')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span> Migration </span>
+                        </a>
+                    </li>
+                @endcan
 
 
-                @can('site-setting')
+
+
+
+            @can('site-setting')
                     <li class="side-nav-item">
                         <a href="{{route('site.setting')}}" class="side-nav-link">
                             <i class="ri-drag-move-fill"></i>
