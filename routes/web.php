@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\NewsController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
+use App\Http\Controllers\admin\TrainingController;
 use App\Http\Controllers\company\CompanyRegistrationController;
 use App\Http\Controllers\company\JobController;
 use App\Http\Controllers\RoleController;
@@ -74,6 +75,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/company-store', [CompanyController::class, 'store'])->name('company.store');
     Route::put('/company-update/{id}', [CompanyController::class, 'update'])->name('company.update');
     Route::get('/company-delete/{id}', [CompanyController::class, 'destroy'])->name('company.destroy');
+
+    //Company Manage
+    Route::get('/training-list', [TrainingController::class, 'index'])->name('training.section');
+    Route::post('/training-store', [TrainingController::class, 'store'])->name('training.store');
+    Route::put('/training-update/{id}', [TrainingController::class, 'update'])->name('training.update');
+    Route::get('/training-delete/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
 
     Route::get('/company-under-posted-job/{id}', [CompanyController::class, 'companyUnderPostedJob'])->name('company.under.posted.job');
     Route::post('/company-under-job-store', [CompanyController::class, 'storeCompanyUnderPostedJob'])->name('company.under.job.store');

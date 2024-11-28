@@ -74,6 +74,12 @@ class PermissionTableSeeder extends Seeder
             'company-edit',
             'company-delete',
 
+            //For Training
+            'training-list',
+            'training-create',
+            'training-edit',
+            'training-delete',
+
             //For Company Under Posted Job
             'company-under-posted-job',
             'company-under-create-job',
