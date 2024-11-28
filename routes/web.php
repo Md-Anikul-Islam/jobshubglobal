@@ -82,6 +82,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::put('/training-update/{id}', [TrainingController::class, 'update'])->name('training.update');
     Route::get('/training-delete/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
 
+    //Company migration
+    Route::get('/migration-list', [TrainingController::class, 'index'])->name('migration.section');
+    Route::post('/migration-store', [TrainingController::class, 'store'])->name('migration.store');
+    Route::put('/migration-update/{id}', [TrainingController::class, 'update'])->name('migration.update');
+    Route::get('/migration-delete/{id}', [TrainingController::class, 'destroy'])->name('migration.destroy');
+
     Route::get('/company-under-posted-job/{id}', [CompanyController::class, 'companyUnderPostedJob'])->name('company.under.posted.job');
     Route::post('/company-under-job-store', [CompanyController::class, 'storeCompanyUnderPostedJob'])->name('company.under.job.store');
     Route::put('/company-under-job-update/{id}', [CompanyController::class, 'updateCompanyUnderPostedJob'])->name('company.under.job.update');
