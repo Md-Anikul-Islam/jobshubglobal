@@ -117,11 +117,6 @@
                     </a>
                     <div class="collapse" id="sidebarPages">
                         <ul class="side-nav-second-level">
-                            @can('news-list')
-                            <li>
-                                <a href="{{route('news.section')}}">News</a>
-                            </li>
-                            @endcan
 
                             @can('slider-list')
                                 <li>
