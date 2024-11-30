@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\News;
+use App\Models\VisaMigration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use Toastr;
-class NewsController extends Controller
+use Yoeunes\Toastr\Facades\Toastr;
+
+class VisaMigrationController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
         $this->middleware(function ($request, $next) {
-            if (!Gate::allows('news-list')) {
+            if (!Gate::allows('migration-list')) {
                 return redirect()->route('unauthorized.action');
             }
             return $next($request);
@@ -21,8 +22,8 @@ class NewsController extends Controller
     }
     public function index()
     {
-        $news = News::latest()->get();
-        return view('admin.pages.news.index', compact('news'));
+        $migration = VisaMigration::latest()->get();
+        return view('admin.pages.visaMigration.index', compact('migration'));
     }
 
     public function store(Request $request)
@@ -31,19 +32,21 @@ class NewsController extends Controller
             $request->validate([
                 'title' => 'required',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+
             ]);
             $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('images/news'), $imageName);
-            $news = new News();
-            $news->title = $request->title;
-            $news->title_bn = $request->title_bn;
-            $news->link = $request->link;
-            $news->date = $request->date;
-            $news->details = $request->details;
-            $news->details_bn = $request->details_bn;
-            $news->image = $imageName;
-            $news->save();
-            Toastr::success('News Added Successfully', 'Success');
+            $request->image->move(public_path('images/migration'), $imageName);
+            $migration = new VisaMigration();
+            $migration->title = $request->title;
+            $migration->title_bn = $request->title_bn;
+            $migration->link = $request->link;
+            $migration->date = $request->date;
+            $migration->details = $request->details;
+            $migration->details_bn = $request->details_bn;
+            $migration->image = $imageName;
+            $migration->save();
+            Toastr::success('Visa Migration Added Successfully', 'Success');
             return redirect()->back();
         } catch (\Exception $e) {
             // Handle the exception here
@@ -57,23 +60,23 @@ class NewsController extends Controller
             $request->validate([
                 'title' => 'required',
             ]);
-            $news = News::find($id);
-            $news->title = $request->title;
-            $news->title_bn = $request->title_bn;
-            $news->link = $request->link;
-            $news->date = $request->date;
-            $news->details = $request->details;
-            $news->details_bn = $request->details_bn;
-            $news->status = $request->status;
+            $migration = VisaMigration::find($id);
+            $migration->title = $request->title;
+            $migration->title_bn = $request->title_bn;
+            $migration->link = $request->link;
+            $migration->date = $request->date;
+            $migration->details = $request->details;
+            $migration->details_bn = $request->details_bn;
+            $migration->status = $request->status;
 
             if($request->image){
                 $imageName = time().'.'.$request->image->extension();
-                $request->image->move(public_path('images/news'), $imageName);
-                $news->image = $imageName;
+                $request->image->move(public_path('images/migration'), $imageName);
+                $migration->image = $imageName;
             }
 
-            $news->save();
-            Toastr::success('News Updated Successfully', 'Success');
+            $migration->save();
+            Toastr::success('Visa Migration Updated Successfully', 'Success');
             return redirect()->back();
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
@@ -83,13 +86,13 @@ class NewsController extends Controller
     public function destroy($id)
     {
         try {
-            $news = News::find($id);
-            $imagePath = public_path('images/news/' . $news->image);
+            $migration = VisaMigration::find($id);
+            $imagePath = public_path('images/migration/' . $migration->image);
             if (file_exists($imagePath)) {
                 unlink($imagePath);
             }
-            $news->delete();
-            Toastr::success('News Deleted Successfully', 'Success');
+            $migration->delete();
+            Toastr::success('Visa Migration Deleted Successfully', 'Success');
             return redirect()->back();
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());

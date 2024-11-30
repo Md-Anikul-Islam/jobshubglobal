@@ -32,12 +32,6 @@ class PermissionTableSeeder extends Seeder
             'user-edit',
             'user-delete',
 
-            //For News
-            'news-list',
-            'news-create',
-            'news-edit',
-            'news-delete',
-
             //For Slider
             'slider-list',
             'slider-create',
@@ -73,6 +67,18 @@ class PermissionTableSeeder extends Seeder
             'company-create',
             'company-edit',
             'company-delete',
+
+            //For Training
+            'training-list',
+            'training-create',
+            'training-edit',
+            'training-delete',
+
+            //For Migration
+            'migration-list',
+            'migration-create',
+            'migration-edit',
+            'migration-delete',
 
             //For Company Under Posted Job
             'company-under-posted-job',

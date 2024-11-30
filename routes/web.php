@@ -6,10 +6,11 @@ use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\LocationController;
-use App\Http\Controllers\admin\NewsController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
+use App\Http\Controllers\admin\TrainingController;
+use App\Http\Controllers\admin\VisaMigrationController;
 use App\Http\Controllers\company\CompanyRegistrationController;
 use App\Http\Controllers\company\JobController;
 use App\Http\Controllers\RoleController;
@@ -32,11 +33,6 @@ Route::post('/company-verify-complete', [CompanyRegistrationController::class, '
 Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/unauthorized-action', [AdminDashboardController::class, 'unauthorized'])->name('unauthorized.action');
-    //News Section
-    Route::get('/news-section', [NewsController::class, 'index'])->name('news.section');
-    Route::post('/news-store', [NewsController::class, 'store'])->name('news.store');
-    Route::put('/news-update/{id}', [NewsController::class, 'update'])->name('news.update');
-    Route::get('/news-delete/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
 
     //Slider Section
     Route::get('/slider-section', [SliderController::class, 'index'])->name('slider.section');
@@ -74,6 +70,18 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/company-store', [CompanyController::class, 'store'])->name('company.store');
     Route::put('/company-update/{id}', [CompanyController::class, 'update'])->name('company.update');
     Route::get('/company-delete/{id}', [CompanyController::class, 'destroy'])->name('company.destroy');
+
+    //Company Manage
+    Route::get('/training-list', [TrainingController::class, 'index'])->name('training.section');
+    Route::post('/training-store', [TrainingController::class, 'store'])->name('training.store');
+    Route::put('/training-update/{id}', [TrainingController::class, 'update'])->name('training.update');
+    Route::get('/training-delete/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
+
+    //Company migration
+    Route::get('/migration-list', [VisaMigrationController::class, 'index'])->name('migration.section');
+    Route::post('/migration-store', [VisaMigrationController::class, 'store'])->name('migration.store');
+    Route::put('/migration-update/{id}', [VisaMigrationController::class, 'update'])->name('migration.update');
+    Route::get('/migration-delete/{id}', [VisaMigrationController::class, 'destroy'])->name('migration.destroy');
 
     Route::get('/company-under-posted-job/{id}', [CompanyController::class, 'companyUnderPostedJob'])->name('company.under.posted.job');
     Route::post('/company-under-job-store', [CompanyController::class, 'storeCompanyUnderPostedJob'])->name('company.under.job.store');
