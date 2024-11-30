@@ -121,14 +121,13 @@ class CompanyController extends Controller
             // Profile image upload if provided
             if ($request->hasFile('profile')) {
                 $profileFilePath = public_path('images/logo/' . $company->profile);
-                if (file_exists($profileFilePath)) {
+                if (!empty($company->profile) && file_exists($profileFilePath)) {
                     unlink($profileFilePath);
                 }
                 $profileFile = time() . '.' . $request->profile->extension();
                 $request->profile->move(public_path('images/logo'), $profileFile);
                 $company->profile = $profileFile;
             }
-
             $company->save();
             Toastr::success('Company Updated Successfully', 'Success');
             return redirect()->back();

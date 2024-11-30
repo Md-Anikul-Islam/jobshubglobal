@@ -46,7 +46,7 @@
                             <td>{{$companyData->email}}</td>
                             <td>{{$companyData->phone}}</td>
                             <td>
-                                <img src="{{asset('images/LOGO/'. $companyData->profile )}}" alt="Current Image" style="max-width: 50px;">
+                                <img src="{{asset('images/logo/'. $companyData->profile )}}" alt="Current Image" style="max-width: 50px;">
                             </td>
                             <td>{{$companyData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
