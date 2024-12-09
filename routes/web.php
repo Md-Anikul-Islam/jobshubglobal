@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\TrainingController;
 use App\Http\Controllers\admin\VisaMigrationController;
 use App\Http\Controllers\company\CompanyRegistrationController;
 use App\Http\Controllers\company\JobController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,8 @@ Route::post('/company-registration-store', [CompanyRegistrationController::class
 Route::get('/company-verify', [CompanyRegistrationController::class, 'showVerificationForm'])->name('company.verification');
 Route::post('/company-verify-complete', [CompanyRegistrationController::class, 'verify'])->name('company.verify.complete');
 
+//home
+Route::get('/', [FrontendController::class, 'home'])->name('home');
 
 Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');

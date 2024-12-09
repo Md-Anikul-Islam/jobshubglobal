@@ -28,6 +28,7 @@
                     <thead>
                     <tr>
                         <th>S/N</th>
+                        <th>Image</th>
                         <th>Name En</th>
                         <th>Name Bn</th>
                         <th>Status</th>
@@ -38,6 +39,13 @@
                     @foreach($category as $key=>$categoryData)
                         <tr>
                             <td>{{$key+1}}</td>
+                            <td>
+                                @if($categoryData->image!=null)
+                                    <img src="{{asset('images/category/'. $categoryData->image )}}" alt="Current Image" style="max-width: 50px;">
+                                @else
+                                    N/A
+                                @endif
+                            </td>
                             <td>{{$categoryData->name}}</td>
                             <td>{{$categoryData->name_bn}}</td>
                             <td>{{$categoryData->status==1? 'Active':'Inactive'}}</td>
@@ -79,6 +87,17 @@
                                                                    class="form-control" placeholder="Enter Name Bn" required>
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-12">
+                                                        <div class="mb-3">
+                                                            <label for="example-fileinput" class="form-label">Image</label>
+                                                            <input type="file" name="image" id="example-fileinput" class="form-control" >
+                                                            @if($categoryData->image!=null)
+                                                                <img src="{{asset('images/category/'. $categoryData->image )}}" alt="File or  Image" class="mt-2" style="max-width: 50px;">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+
 
                                                     <div class="col-12">
                                                         <div class="mb-3">
@@ -148,6 +167,12 @@
                                     <label for="name_bn" class="form-label">Name (Bn)</label>
                                     <input type="text" id="name_bn" name="name_bn"
                                            class="form-control" placeholder="Enter Name Bn" required>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="example-fileinput" class="form-label">Image</label>
+                                    <input type="file" name="image" id="example-fileinput" class="form-control">
                                 </div>
                             </div>
                         </div>
