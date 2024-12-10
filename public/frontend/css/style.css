@@ -504,9 +504,9 @@ input:focus,
 			Responsive Style
 =========================================*/
 @media screen and (max-width: 1300px) {
-    body {
-        font-size: 14px;
-    }
+	body {
+		font-size: 14px;
+	}
     .info-card {
         padding: 10px 30px;
     }
