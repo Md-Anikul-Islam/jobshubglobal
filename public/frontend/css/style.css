@@ -361,6 +361,18 @@ input:focus,
     padding: 15px;
     margin-bottom: 24px;
 }
+.company-logo {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 100px;
+    height: 100px;
+}
+.company-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 .job-card h3 a {
     font-size: 20px;
     font-weight: 700;
@@ -680,6 +692,12 @@ input:focus,
     .menu-area ul li a {
         display: block;
         padding: 5px 15px;
+    }
+    .company-logo {
+        right: 5px;
+        top: 5px;
+        width: 70px;
+        height: 70px;
     }
 }
 @media screen and (max-width: 575px) {

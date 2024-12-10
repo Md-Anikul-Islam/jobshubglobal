@@ -86,7 +86,10 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-12">
-                <div class="job-card">
+                <div class="job-card position-relative">
+					<div class="company-logo">
+						<img src="frontend/images/company-logo.png" alt="Company Name">
+					</div>
                     <h3>
                         <a href="#">Senior UX/UI Designer</a>
                     </h3>
@@ -208,7 +211,10 @@
                 </div>
             </div>
             <div class="col-md-6 col-12">
-                <div class="job-card">
+				<div class="job-card position-relative">
+					<div class="company-logo">
+						<img src="frontend/images/company-logo.png" alt="Company Name">
+					</div>
                     <h3>
                         <a href="#">Senior UX/UI Designer</a>
                     </h3>
@@ -332,7 +338,10 @@
                 </div>
             </div>
             <div class="col-md-6 col-12">
-                <div class="job-card">
+				<div class="job-card position-relative">
+					<div class="company-logo">
+						<img src="frontend/images/company-logo.png" alt="Company Name">
+					</div>
                     <h3>
                         <a href="#">Senior UX/UI Designer</a>
                     </h3>
@@ -454,7 +463,10 @@
                 </div>
             </div>
             <div class="col-md-6 col-12">
-                <div class="job-card">
+				<div class="job-card position-relative">
+					<div class="company-logo">
+						<img src="frontend/images/company-logo.png" alt="Company Name">
+					</div>
                     <h3>
                         <a href="#">Senior UX/UI Designer</a>
                     </h3>
