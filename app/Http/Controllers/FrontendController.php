@@ -15,4 +15,9 @@ class FrontendController extends Controller
         $categories = Category::where('status',1)->latest()->get();
         return view('frontend.home',compact('locations','categories'));
     }
+
+	public function about()
+	{
+		return view('frontend.about');
+	}
 }

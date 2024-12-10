@@ -7,13 +7,16 @@
         <div class="swiper-wrapper">
             @foreach ($sliders as $slider)
                 <div class="swiper-slide">
-                    <div class="slider-image">
-                        <img
-                            src="{{asset('images/slider/'. $slider->image )}}"
-                            draggable="false"
-                            class="img-fluid"
-                            alt=""
-                        />
+                    <div class="slider-image slider-bg-image" style="background-image: url('{{asset('images/slider/'. $slider->image )}}')">
+						<div class="container">
+							<div class="slider-content">
+								<h2>Largest Platform for the rising workforce</h2>
+								<p>
+									We provide online instant cash loans with quick
+									approval that suit your term length
+								</p>
+							</div>
+						</div>
                     </div>
                 </div>
             @endforeach
@@ -24,12 +27,6 @@
     <div class="container">
         <div class="hero-container-wrapper">
             <div class="hero-content">
-                <h3>Explore your dream job</h3>
-                <h2>Largest Platform for the rising workforce</h2>
-                <p>
-                    We provide online instant cash loans with quick
-                    approval that suit your term length
-                </p>
                 <form class="find-a-jobs-wrap">
                     <div class="input-group search-jobs">
                         <div class="search-icon">

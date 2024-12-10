@@ -53,6 +53,19 @@ input:focus,
     line-height: 30px;
     margin-bottom: 0px;
 }
+@keyframes tpfadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.tpfadeInDown {
+    animation: tpfadeInDown 1s ease-out forwards;
+}
 
 /* Ads Banner Design */
 .alert-wrap {
@@ -78,7 +91,16 @@ input:focus,
 }
 /* Header Style */
 .header-wrapper {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 20px rgb(0 0 0 / 5%);
+    background-color: #ffff;
+}
+.header-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    -webkit-animation: 0.7s ease-in-out 0s normal none 1 running tpfadeInDown;
+    animation: 0.7s ease-in-out 0s normal none 1 running tpfadeInDown;
 }
 .logo-area a img {
     max-width: 170px;
@@ -110,11 +132,6 @@ input:focus,
     color: #fff;
 }
 /* Hero section */
-.slider-image img {
-    width: 100%;
-    object-fit: cover;
-    height: 500px;
-}
 .heroSlider .swiper-button-prev,
 .heroSlider .swiper-button-next {
     width: 40px;
@@ -144,27 +161,30 @@ input:focus,
 }
 .hero-container-wrapper {
     position: absolute;
-    top: 50%;
     z-index: 1;
-    transform: translateY(-50%);
+    bottom: 80px;
 }
-.hero-content {
+.hero-content,
+.slider-content {
     max-width: 610px;
     width: 100%;
 }
-.hero-content h3 {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 12px;
+.slider-bg-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
-.hero-content h2 {
+.slider-content {
+    padding: 150px 0px;
+}
+.slider-content h2 {
     font-size: 56px;
     font-weight: 500;
     color: #fff;
     line-height: 120%;
     margin-bottom: 20px;
 }
-.hero-content p {
+.slider-content p {
     color: #fff;
     max-width: 461px;
     width: 100%;
@@ -501,12 +521,103 @@ input:focus,
 }
 
 /*=======================================
+			About us page
+=========================================*/
+.about-section-area {
+    width: 100%;
+    height: 618px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+}
+.about-us-hero-content-wrap {
+    max-width: 623px;
+    width: 100%;
+}
+.about-us-hero-content-wrap h1 {
+    font-size: 56px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.about-us-hero-content-wrap p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 0px;
+}
+/* Mission vision */
+.our-mission-and-vision-section-area {
+    padding: 100px 0px;
+}
+.mission-vision-image img {
+    border-radius: 12px;
+}
+.mission-bottom {
+    margin-bottom: 50px;
+}
+.mission-vision-content h2 {
+    font-size: 56px;
+    font-weight: 600;
+    color: #121212;
+    margin-bottom: 20px;
+}
+.mission-vision-content p {
+    font-size: 20px;
+    line-height: 150%;
+    color: var(--nb-body-color);
+}
+/* what-we-value */
+.what-we-value-section {
+    padding-bottom: 50px;
+}
+.what-we-value-heading h2 {
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 130%;
+    margin-bottom: 30px;
+}
+.card-svg-icon {
+    color: var(--nb-green);
+    background-color: #ebf4f6;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.card-svg-icon svg {
+    width: 40px;
+    height: 40px;
+}
+.value-card {
+    border: 1px solid var(--nb-green);
+    padding: 25px;
+    border-radius: 8px;
+}
+.value-card h3 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 130%;
+    color: var(--nb-text-color);
+    margin-bottom: 12px;
+}
+.value-card p {
+    color: #868686;
+    margin-bottom: 0px;
+}
+/*=======================================
 			Responsive Style
 =========================================*/
 @media screen and (max-width: 1300px) {
-	body {
-		font-size: 14px;
-	}
+    body {
+        font-size: 14px;
+    }
     .info-card {
         padding: 10px 30px;
     }
@@ -520,6 +631,30 @@ input:focus,
     .district-wrap {
         gap: 10px;
         justify-content: center;
+    }
+    .slider-content,
+    .find-a-jobs-wrap {
+        margin-left: 30px;
+    }
+    .slider-content {
+        max-width: 500px;
+    }
+    .slider-content h2 {
+        font-size: 30px;
+    }
+    /* About us */
+    .about-us-hero-content-wrap h1,
+    .what-we-value-heading h2 {
+        font-size: 40px;
+    }
+    .about-us-hero-content-wrap p {
+        font-size: 16px;
+    }
+    .mission-vision-content h2 {
+        font-size: 35px;
+    }
+    .mission-vision-content p {
+        font-size: 17px;
     }
 }
 @media screen and (max-width: 991px) {
@@ -548,6 +683,10 @@ input:focus,
     }
 }
 @media screen and (max-width: 575px) {
+    .slider-content {
+        padding: 40px 0px;
+        max-width: 300px;
+    }
     .footer-about-area {
         margin-bottom: 30px;
     }
@@ -555,8 +694,19 @@ input:focus,
         flex-direction: column;
         gap: 20px;
     }
-    .hero-content h2 {
+    .slider-content h2 {
         font-size: 25px;
+    }
+    .heroSlider .swiper-button-prev {
+        left: 10px;
+    }
+    .heroSlider .swiper-button-next {
+        right: 10px;
+    }
+    .heroSlider .swiper-button-prev,
+    .heroSlider .swiper-button-next {
+        width: 25px;
+        height: 25px;
     }
     .hero-content {
         padding: 30px 0px;
@@ -587,5 +737,38 @@ input:focus,
     }
     .slider-image img {
         height: auto;
+    }
+    /* About us */
+    .about-section-area {
+        height: auto;
+        padding: 50px 0px;
+    }
+    .about-us-hero-content-wrap h1,
+    .what-we-value-heading h2 {
+        font-size: 30px;
+    }
+    .about-us-hero-content-wrap p {
+        font-size: 15px;
+    }
+    .our-mission-and-vision-section-area {
+        padding: 50px 0px;
+    }
+    .mission-vision-image img {
+        margin-bottom: 20px;
+    }
+    .mission-vision-content h2 {
+        font-size: 25px;
+    }
+    .mission-vision-content p {
+        font-size: 16px;
+    }
+    .mission-bottom {
+        margin-bottom: 20px;
+    }
+    .mobile-row {
+        flex-wrap: wrap-reverse;
+    }
+    .value-card {
+        margin-bottom: 24px;
     }
 }

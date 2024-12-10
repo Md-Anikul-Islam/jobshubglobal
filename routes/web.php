@@ -32,6 +32,8 @@ Route::post('/company-verify-complete', [CompanyRegistrationController::class, '
 
 //home
 Route::get('/', [FrontendController::class, 'home'])->name('home');
+// About
+Route::get('/about-us', [FrontendController::class, 'about'])->name('about');
 
 Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');

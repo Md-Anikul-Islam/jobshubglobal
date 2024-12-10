@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BD Jobs</title>
+    <title>Job Hub Global</title>
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap-icons.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/css/swiper-bundle.min.css')}}" />
@@ -41,7 +41,7 @@
     </button>
 </div>
 <!-- Header -->
-<header class="header-wrapper">
+<header class="header-wrapper" id="job-hub-global">
     <div class="container">
         <div class="row">
             <div
@@ -49,7 +49,7 @@
             >
                 @if(!empty($siteSetting))
                 <div class="logo-area">
-                    <a href="/">
+                    <a href="{{route('home')}}">
                         <img
                             src="{{asset($siteSetting->logo)}}"
                             draggable="false"
@@ -60,7 +60,7 @@
                 @endif
                 <nav class="d-none d-lg-block">
                     <ul class="d-flex align-items-center">
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="{{route('about')}}">About Us</a></li>
                         <li><a href="#">My Jobs</a></li>
                         <li><a href="#">E-Learning</a></li>
                         <li><a href="#">Sign in or Register</a></li>
@@ -108,16 +108,18 @@
     aria-labelledby="offcanvasNavbarLabel"
 >
     <div class="offcanvas-header">
+		@if(!empty($siteSetting))
         <div class="jobs-portal-logo">
-            <a href="#">
+            <a href="{{route('home')}}">
                 <img
-                    src="{{URL::to('frontend/images/logo.svg')}}"
+                    src="{{asset($siteSetting->logo)}}"
                     class="img-fluid"
                     alt="Logo"
                     draggable="false"
                 />
             </a>
         </div>
+		@endif
         <button
             type="button"
             class="btn-close"
@@ -128,7 +130,7 @@
     <div class="offcanvas-body">
         <div class="menu-area">
             <ul class="d-flex flex-column">
-                <li><a href="#">About Us</a></li>
+                <li><a href="{{route('about')}}">About Us</a></li>
                 <li><a href="#">My Jobs</a></li>
                 <li><a href="#">E-Learning</a></li>
                 <li><a href="#">Sign in or Register</a></li>
