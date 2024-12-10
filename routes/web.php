@@ -34,6 +34,7 @@ Route::post('/company-verify-complete', [CompanyRegistrationController::class, '
 Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::get('/about-us', [FrontendController::class, 'about'])->name('about');
 Route::get('/my-jobs', [FrontendController::class, 'myJobs'])->name('myJobs');
+Route::get('/e-learning', [FrontendController::class, 'eLearning'])->name('eLearning');
 
 Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
