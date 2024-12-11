@@ -39,13 +39,13 @@
 			<div class="col-lg-3 col-md-6 col-12">
 				<div class="learning-card">
 					<div class="learning-card-image">
-						<a href="#">
+						<a href="{{route('details')}}">
 							<img src="frontend/images/mission.png" alt="">
 						</a>
 					</div>
 					<div class="learning-card-content">
 						<div class="top">
-							<a href="#">
+							<a href="{{route('details')}}">
 								<h3>Training or Event Name</h3>
 							</a>
 							<p>Lorem ipsum dolor sit amet consectetur. Non pellentesque id est turpis feugiat porta faucibus diam.</p>

@@ -752,7 +752,104 @@ input:focus,
     border-radius: 8px;
     font-size: 14px;
 }
-
+/*=======================================
+			E-Learning details page
+=========================================*/
+.learning-details-section-area {
+    background-color: var(--nb-svg-color);
+    color: #fff;
+    padding: 40px 0px 50px;
+}
+.learning-details-hero-content h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.learning-details-hero-content h1 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.learning-details-hero-content ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.learning-details-hero-content ul li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.learning-details-pricing {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.12);
+    padding: 50px 20px;
+    border-radius: 8px;
+    width: 383px;
+    text-align: center;
+    right: 0;
+    top: 40px;
+}
+.learning-details-pricing h2 {
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--nb-text-color);
+    margin-bottom: 0px;
+}
+.learning-details-pricing p {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--nb-body-color);
+    margin-bottom: 30px;
+}
+.learning-details-pricing a {
+    background-color: var(--nb-green);
+    width: 100%;
+    display: inline-block;
+    color: #fff;
+    border-radius: 4px;
+    padding: 12px 20px;
+    margin-bottom: 30px;
+}
+.contact-details {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid #eaeaea;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.contact-item h3 {
+    font-size: 16px;
+    color: var(--nb-body-color);
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.learning-details-content-wrap h2,
+.related-content-heading h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--nb-text-color);
+    margin-bottom: 12px;
+}
+.learning-details-content-wrap p {
+    margin-bottom: 20px;
+    color: var(--nb-body-color);
+}
+.related-traning-wrapper {
+    padding-bottom: 50px;
+}
+.related-content-heading {
+    margin-bottom: 30px;
+}
 /*=======================================
 			Responsive Style
 =========================================*/
@@ -930,5 +1027,16 @@ input:focus,
     .learning-card-image {
         width: 100%;
         min-height: 200px;
+    }
+    /* E-Learning Details */
+    .learning-details-pricing {
+        position: static;
+        width: 100%;
+        margin-top: 30px;
+    }
+    .learning-details-hero-content h1,
+    .learning-details-content-wrap h2,
+    .related-content-heading h2 {
+        font-size: 20px;
     }
 }
