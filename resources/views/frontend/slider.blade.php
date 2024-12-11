@@ -10,10 +10,9 @@
                     <div class="slider-image slider-bg-image" style="background-image: url('{{asset('images/slider/'. $slider->image )}}')">
 						<div class="container">
 							<div class="slider-content">
-								<h2>Largest Platform for the rising workforce</h2>
+                                <h2>{{$slider->title}}</h2>
 								<p>
-									We provide online instant cash loans with quick
-									approval that suit your term length
+                                    {!! $slider->details  !!}
 								</p>
 							</div>
 						</div>
@@ -59,15 +58,15 @@
         </div>
         <div class="jobs-information">
             <div class="info-card">
-                <h2><span class="number">150</span></h2>
+                <h2><span class="number">{{$jobVacancy}}</span></h2>
                 <h4>Vacancies</h4>
             </div>
             <div class="info-card">
-                <h2><span class="number">330</span>+</h2>
+                <h2><span class="number">{{$company}}</span>+</h2>
                 <h4>Company</h4>
             </div>
             <div class="info-card">
-                <h2><span class="number">76</span>+</h2>
+                <h2><span class="number">{{$jobTotal}}</span>+</h2>
                 <h4>Live Jobs</h4>
             </div>
         </div>

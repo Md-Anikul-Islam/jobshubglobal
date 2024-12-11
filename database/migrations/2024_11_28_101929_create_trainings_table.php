@@ -21,6 +21,7 @@ return new class extends Migration
             $table->time('training_time');
             $table->string('training_duration');
             $table->string('training_fee');
+            $table->string('image')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

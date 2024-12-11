@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\VisaMigrationController;
 use App\Http\Controllers\company\CompanyRegistrationController;
 use App\Http\Controllers\company\JobController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\JobManageController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -32,8 +33,19 @@ Route::post('/company-verify-complete', [CompanyRegistrationController::class, '
 
 //home
 Route::get('/', [FrontendController::class, 'home'])->name('home');
+Route::get('/jobs-category-wise/{categoryId?}', [JobManageController::class, 'myJobsCategory'])->name('myJobsCategory');
+Route::get('/jobs-location-wise/{locationId?}', [JobManageController::class, 'myJobsLocation'])->name('myJobsLocation');
+
+
+
+
+
+
+
+
+
 Route::get('/about-us', [FrontendController::class, 'about'])->name('about');
-Route::get('/my-jobs', [FrontendController::class, 'myJobs'])->name('myJobs');
+
 Route::get('/e-learning', [FrontendController::class, 'eLearning'])->name('eLearning');
 Route::get('learning-details', [FrontendController::class, 'details'])->name('details');
 

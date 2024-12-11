@@ -171,6 +171,7 @@ input:focus,
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    height: 518px;
 }
 .slider-content {
     padding: 150px 0px;
@@ -645,7 +646,7 @@ input:focus,
     line-height: 130%;
     margin-bottom: 20px;
 }
-.jobs-search-form input {
+.jobs-search-form input,  .jobs-search-form select{
     height: 35px;
     padding: 8px 12px;
     border-radius: 4px;

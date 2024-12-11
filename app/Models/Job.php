@@ -28,4 +28,15 @@ class Job extends Model
     {
         return $this->belongsTo(User::class,'company_id');
     }
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class, 'location_id');
+    }
+
+
 }

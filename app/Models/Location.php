@@ -13,4 +13,10 @@ class Location extends Model
         'name_bn',
         'status',
     ];
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class, 'location_id');
+    }
+
 }

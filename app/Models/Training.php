@@ -17,6 +17,7 @@ class Training extends Model
         'training_time',
         'training_duration',
         'training_fee',
+        'image',
         'status',
     ];
 }

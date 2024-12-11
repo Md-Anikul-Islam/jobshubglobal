@@ -14,4 +14,10 @@ class Category extends Model
         'name_bn',
         'status',
     ];
+
+    public function jobs()
+    {
+        return $this->hasMany(Job::class, 'category_id');
+    }
+
 }
