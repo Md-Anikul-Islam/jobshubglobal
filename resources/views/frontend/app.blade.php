@@ -22,6 +22,7 @@
             class="img-fluid"
             draggable="false"
             alt="Ads"
+            style="height: 100px;"
         />
     </a>
 
@@ -61,12 +62,12 @@
                 <nav class="d-none d-lg-block">
                     <ul class="d-flex align-items-center">
                         <li><a href="{{route('about')}}">About Us</a></li>
-                        <li><a href="{{route('myJobsLocation')}}">My Jobs</a></li>
+                        <li><a href="{{route('all.jobs')}}">My Jobs</a></li>
                         <li><a href="{{route('eLearning')}}">E-Learning</a></li>
-                        <li><a href="#">Sign in or Register</a></li>
+                        <li><a href="{{route('login')}}">Sign in or Register</a></li>
                         <li><a href="#">Contact Us</a></li>
                         <li>
-                            <a href="#" class="post-a-job"
+                            <a href="{{route('company.registration')}}" class="post-a-job"
                             >Post a Job</a
                             >
                         </li>
@@ -131,9 +132,9 @@
         <div class="menu-area">
             <ul class="d-flex flex-column">
                 <li><a href="{{route('about')}}">About Us</a></li>
-                <li><a href="{{route('myJobsLocation')}}">My Jobs</a></li>
+                <li><a href="{{route('all.jobs')}}">My Jobs</a></li>
                 <li><a href="{{route('eLearning')}}">E-Learning</a></li>
-                <li><a href="#">Sign in or Register</a></li>
+                <li><a href="{{route('login')}}">Sign in or Register</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li>
                     <a href="#" class="post-a-job">Post a Job</a>
@@ -161,10 +162,9 @@
                 @endif
 
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Nullam dictum aliquet accumsan porta lectus
-                    ridiculus in mattis. Netus sodales in volutpat
-                    ullamcorper amet adipiscing fermentum.
+                    At Job Hub Global, we are committed to
+                    connecting talented professionals with
+                    the right opportunities.
                 </p>
                 <ul class="d-flex align-items-center">
                     <li>
@@ -231,9 +231,9 @@
                 <div class="company-link">
                     <h3>Company</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">My Jobs</a></li>
-                        <li><a href="#">Training</a></li>
+                        <li><a href="{{route('about')}}">About Us</a></li>
+                        <li><a href="{{route('all.jobs')}}">My Jobs</a></li>
+                        <li><a href="{{route('eLearning')}}">Training</a></li>
                         <li><a href="#">Migration</a></li>
                     </ul>
                 </div>
@@ -255,7 +255,7 @@
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
-                        , Bdjobs, All Rights Reserved
+                        , JobHubGlobal, All Rights Reserved
                     </p>
                 </div>
             </div>

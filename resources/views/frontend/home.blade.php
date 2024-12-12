@@ -7,7 +7,7 @@
         <ul class="district-wrap">
             @foreach($locations as $location)
                 <li>
-                    <a href="{{ route('myJobsLocation', ['locationId' => $location->id]) }}">
+                    <a href="{{ route('all.jobs', ['locationId' => $location->id]) }}">
                         {{ $location->name }} ({{ $location->jobs()->where('status', 1)->count() }})
                     </a>
                 </li>
@@ -29,7 +29,7 @@
         </div>
         <div class="category-card-wrap d-flex flex-wrap">
             @foreach($categories as $category)
-                <a href="{{ route('myJobsCategory', ['categoryId' => $category->id]) }}" class="category-card d-flex align-items-center">
+                <a href="{{ route('all.jobs', ['categoryId' => $category->id]) }}" class="category-card d-flex align-items-center">
                     <div class="category-image-wrap">
                         <img
                             src="{{ asset('images/category/' . $category->image) }}"
@@ -222,7 +222,7 @@
                 <div class="training-wrap">
                     <h2>Training</h2>
                     @foreach($training as $trainingData)
-                    <a href="#" class="training-item d-flex">
+                    <a href="{{route('eLearning.details',$trainingData->id)}}" class="training-item d-flex">
                         <div class="icon-wrap">
                             <img
                                 src="{{asset('images/training/'. $trainingData->image )}}"
@@ -242,7 +242,7 @@
                 <div class="training-wrap">
                     <h2>Migration</h2>
                     @foreach($visaMigration as $visaMigrationData)
-                    <a href="#" class="training-item d-flex">
+                    <a href="{{route('visa.migration.details',$visaMigrationData->id)}}" class="training-item d-flex">
                         <div class="icon-wrap">
                             <img
                                 src="{{asset('images/migration/'. $visaMigrationData->image )}}"

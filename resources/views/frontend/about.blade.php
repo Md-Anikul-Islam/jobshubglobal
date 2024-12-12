@@ -5,8 +5,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="about-us-hero-content-wrap">
-					<h1>Leading Job Platform in Bangladesh</h1>
-					<p>Lorem ipsum dolor sit amet consectetur. At ut suspendisse leo vitae eu vulputate tellus mauris tincidunt aenean. Senectus sed sed  elementum diam. Ultricies nunc sollicitudin neque dolor no. Imperdiet enim viverra rhoncus augue pulvinar ut</p>
+					<h1>Leading Job Hub Global Platform in Bangladesh</h1>
 				</div>
 			</div>
 		</div>
@@ -18,26 +17,13 @@
 		<div class="row mission-bottom">
 			<div class="col-md-7 col-12">
 				<div class="mission-vision-image">
-					<img src="frontend/images/mission.png" class="img-fluid" alt="">
+					<img src="{{asset($about? $about->image:'' )}}" class="img-fluid" alt="">
 				</div>
 			</div>
 			<div class="col-md-5 col-12">
 				<div class="mission-vision-content">
-					<h2>Our Mission</h2>
-					<p>Lorem ipsum dolor sit amet consectetur. At ut suspendisse leo vitae eu vulputate tellus mauris tincidunt aenean. nectus sed sed  elementum diam. Ultricies nunc sollicitudin neque dolor no. Imperdiet enim viverra rhoncus augue pulvinar ut Lorem ipsum dolor sit amet consectetur. At ut suspendisse leo vitae eu vulputate tellus mauris tincidunt aenean. ectus sed sed  elementum diam. Ultricies nunc sollicitudin neque dolor no. Imperdiet enim viverra rhoncus augue pulvinar ut</p>
-				</div>
-			</div>
-		</div>
-		<div class="row mobile-row">
-			<div class="col-md-5 col-12">
-				<div class="mission-vision-content">
-					<h2>Our Mission</h2>
-					<p>Lorem ipsum dolor sit amet consectetur. At ut suspendisse leo vitae eu vulputate tellus mauris tincidunt aenean. nectus sed sed  elementum diam. Ultricies nunc sollicitudin neque dolor no. Imperdiet enim viverra rhoncus augue pulvinar ut Lorem ipsum dolor sit amet consectetur. At ut suspendisse leo vitae eu vulputate tellus mauris tincidunt aenean. ectus sed sed  elementum diam. Ultricies nunc sollicitudin neque dolor no. Imperdiet enim viverra rhoncus augue pulvinar ut</p>
-				</div>
-			</div>
-			<div class="col-md-7 col-12">
-				<div class="mission-vision-image">
-					<img src="frontend/images/mission.png" class="img-fluid" alt="">
+					<h2>{{$about->title}}</h2>
+					<p>{!! $about->details !!}</p>
 				</div>
 			</div>
 		</div>

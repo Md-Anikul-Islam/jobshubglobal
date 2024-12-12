@@ -18,9 +18,6 @@ class FrontendController extends Controller
         $jobTotal = Job::where('deadline', '>=', now()->toDateString())->count();
         $company = User::where('is_registration_by','=','Company')->count();
         $jobVacancy = Job::whereNotNull('vacancy')->count();
-
-
-
         $locations = Location::where('status',1)->latest()->get();
         $categories = Category::where('status',1)->latest()->get();
         $job = Job::with('company')->where('deadline', '>=', now()->toDateString())->latest()->limit(50)->get();
@@ -30,20 +27,4 @@ class FrontendController extends Controller
         'jobTotal','job','company','jobVacancy','training','visaMigration'));
     }
 
-	public function about()
-	{
-		return view('frontend.about');
-	}
-
-
-
-	public function eLearning()
-	{
-		return view('frontend.elearning');
-	}
-
-	public function details()
-	{
-		return view('frontend.learning-details');
-	}
 }

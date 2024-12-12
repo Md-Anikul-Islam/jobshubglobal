@@ -6,10 +6,8 @@
 			<div class="col-lg-3 col-md-4 col-12">
 				<div class="quick-search">
 					<h2>Quick Search</h2>
-					<form class="jobs-search-form">
-						<input type="text" name="job_title" placeholder="Job Title" />
-
-
+                    <form class="jobs-search-form" method="GET" action="{{ route('all.jobs') }}">
+                        <input type="text" name="job_title" placeholder="Job Title" value="{{ request('job_title') }}" />
                         <select name="locationId">
                             <option value="">Select Location</option>
                             @foreach($locations as $location)
@@ -18,13 +16,6 @@
                                 </option>
                             @endforeach
                         </select>
-
-
-
-
-
-
-
                         <select name="categoryId">
                             <option value="">Select Category</option>
                             @foreach($categories as $category)
@@ -33,20 +24,14 @@
                                 </option>
                             @endforeach
                         </select>
-
-						<button>Search Jobs</button>
-					</form>
-
-
-
-
-
+                        <button type="submit">Search Jobs</button>
+                    </form>
                 </div>
 			</div>
 			<div class="col-lg-9 col-md-8">
 				<div class="jobs-card-wrapper">
 					<div class="found-jobs-count-wrap">
-						<h3>We found <span>(1,123)</span> jobs</h3>
+						<h3>We found <span>({{$jobVacancy}})</span> jobs</h3>
 					</div>
 					<div class="jobs-card-wrap">
                         <div class="row">
@@ -177,7 +162,11 @@
                             @endforeach
                         </div>
 					</div>
-				</div>
+                    <div class="pagination-wrapper">
+                        {{ $jobs->links('pagination::bootstrap-4') }}
+                    </div>
+
+                </div>
 			</div>
 		</div>
 	</div>

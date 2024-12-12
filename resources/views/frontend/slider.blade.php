@@ -26,7 +26,7 @@
     <div class="container">
         <div class="hero-container-wrapper">
             <div class="hero-content">
-                <form class="find-a-jobs-wrap">
+                <form class="find-a-jobs-wrap" method="GET" action="{{ route('all.jobs') }}">
                     <div class="input-group search-jobs">
                         <div class="search-icon">
                             <svg
@@ -46,9 +46,10 @@
                         </div>
                         <input
                             type="text"
-                            name="find_job"
+                            name="job_title"
                             class="form-control"
-                            placeholder="Job Title, Company Name, Keywords"
+                            placeholder="Job Title"
+                            value="{{ request('job_title') }}"
                         />
                     </div>
                     <button type="submit">Find Job</button>
