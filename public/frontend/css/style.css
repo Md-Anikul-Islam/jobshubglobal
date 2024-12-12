@@ -1040,4 +1040,16 @@ input:focus,
     .related-content-heading h2 {
         font-size: 20px;
     }
+    .slider-bg-image {
+        height: 260px;
+    }
+    .heroSlider .container,
+    .slider-content {
+        height: 100%;
+    }
+    .slider-content {
+        padding: 40px 0px;
+        max-width: 300px;
+        align-content: center;
+    }
 }
