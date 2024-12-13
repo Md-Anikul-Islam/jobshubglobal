@@ -18,6 +18,7 @@ use App\Http\Controllers\ElearningController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\JobManageController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\user\UserAccountController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,12 @@ Route::get('/company-registration', [CompanyRegistrationController::class, 'show
 Route::post('/company-registration-store', [CompanyRegistrationController::class, 'storeCompanyRegisterInfo'])->name('company.registration.store');
 Route::get('/company-verify', [CompanyRegistrationController::class, 'showVerificationForm'])->name('company.verification');
 Route::post('/company-verify-complete', [CompanyRegistrationController::class, 'verify'])->name('company.verify.complete');
+
+//User Account
+Route::get('/user-registration', [UserAccountController::class, 'showUserRegistrationForm'])->name('user.registration');
+Route::post('/user-registration-store', [UserAccountController::class, 'storeUserRegisterInfo'])->name('user.registration.store');
+Route::get('/user-verify', [UserAccountController::class, 'showVerificationFormUser'])->name('user.verification');
+Route::post('/user-verify-complete', [UserAccountController::class, 'verifyUser'])->name('user.verify.complete');
 
 //home
 Route::get('/', [FrontendController::class, 'home'])->name('home');
