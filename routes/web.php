@@ -42,6 +42,11 @@ Route::post('/user-verify-complete', [UserAccountController::class, 'verifyUser'
 
 //home
 Route::get('/', [FrontendController::class, 'home'])->name('home');
+
+// Job  Details create by Naeem
+Route::get('/job-details', [FrontendController::class, 'jobDetails'])->name('jobDetails');
+
+
 Route::get('/all-jobs', [JobManageController::class, 'searchJobs'])->name('all.jobs');
 Route::get('/about-us', [AboutUsController::class, 'about'])->name('about');
 Route::get('/e-learning', [ElearningController::class, 'eLearning'])->name('eLearning');

@@ -27,4 +27,9 @@ class FrontendController extends Controller
         'jobTotal','job','company','jobVacancy','training','visaMigration'));
     }
 
+	public function jobDetails()
+	{
+		return view('frontend.job-details');
+	}
+
 }
