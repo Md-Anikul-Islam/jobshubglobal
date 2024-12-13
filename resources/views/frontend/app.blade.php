@@ -22,7 +22,7 @@
             class="img-fluid"
             draggable="false"
             alt="Ads"
-            style="height: 100px;"
+            style="height: 100px;  width: 1900px;"
         />
     </a>
 
