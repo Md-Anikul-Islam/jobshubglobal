@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap-icons.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/css/swiper-bundle.min.css')}}" />
+	<script src="https://kit.fontawesome.com/06f61db76e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}" />
 </head>
 <body>

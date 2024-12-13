@@ -32,4 +32,9 @@ class FrontendController extends Controller
 		return view('frontend.job-details');
 	}
 
+	public function contactUs()
+	{
+		return view('frontend.contact-us');
+	}
+
 }
