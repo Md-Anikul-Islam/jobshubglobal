@@ -41,7 +41,7 @@ class JobManageController extends Controller
 
 
         // Include related data and paginate results
-        $jobs = $jobs->with(['category', 'location'])->where('status', 1)->paginate(100);
+        $jobs = $jobs->with(['category', 'location'])->where('deadline', '>=', now()->toDateString())->where('status', 1)->paginate(100);
         return view('frontend.jobs', compact('jobs', 'locations', 'categories','jobVacancy'));
     }
 

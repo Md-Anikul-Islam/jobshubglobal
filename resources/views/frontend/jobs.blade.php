@@ -41,10 +41,12 @@
                                 <div class="col-md-6 col-12">
                                     <div class="job-card position-relative">
                                         <div class="company-logo">
-                                            <img src="{{asset('images/logo/'. $jobData->company->profile )}}" alt="Company Name">
+                                            <a href="{{route('job.details',$jobData->id)}}">
+                                                <img src="{{asset('images/logo/'. $jobData->company->profile )}}" alt="Company Name">
+                                            </a>
                                         </div>
                                         <h3>
-                                            <a href="#">{{$jobData->title}}</a>
+                                            <a href="{{route('job.details',$jobData->id)}}">{{$jobData->title}}</a>
                                         </h3>
                                         <div class="company-info">
                                             <h4>{{$jobData->company->name}}.</h4>
@@ -156,7 +158,7 @@
 
                                             </div>
                                             <div class="apply-btn">
-                                                <a href="#">Apply Now</a>
+                                                <a href="{{ route('jobs.apply', $jobData->id) }}">Apply Now</a>
                                             </div>
                                         </div>
                                     </div>
