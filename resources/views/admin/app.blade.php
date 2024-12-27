@@ -147,6 +147,13 @@
                                     <a href="{{route('about.section')}}">About</a>
                                 </li>
                             @endcan
+
+                            @can('join-category-list')
+                                <li>
+                                    <a href="{{route('join.category.section')}}">Join Category</a>
+                                </li>
+                            @endcan
+
                         </ul>
                     </div>
                 </li>

@@ -28,9 +28,27 @@ class JobManageController extends Controller
         if ($request->job_title) {
             $jobs->where('title', 'like', '%' . $request->job_title . '%');
         }
+
+        // Filter by minimum salary if provided
+        if ($request->min_salary) {
+            $jobs->where('salary', '>=', $request->min_salary);
+        }
+
+        // Filter by maximum salary if provided
+        if ($request->max_salary) {
+            $jobs->where('salary', '<=', $request->max_salary);
+        }
+
+
         // Include related data and paginate results
         $jobs = $jobs->with(['category', 'location'])->where('status', 1)->paginate(100);
         return view('frontend.jobs', compact('jobs', 'locations', 'categories','jobVacancy'));
+    }
+
+    public function jobDetails($id)
+    {
+        $job = Job::with(['category', 'location'])->where('id', $id)->first();
+        return view('frontend.job-details', compact('job'));
     }
 
 

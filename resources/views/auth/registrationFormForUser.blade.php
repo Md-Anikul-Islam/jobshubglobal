@@ -58,6 +58,17 @@
                                         </div>
 
 
+                                        <div class="mb-3">
+                                            <label  class="form-label">Join As</label>
+                                            <select name="join_category_id" class="form-select">
+                                                <option selected>Join Us our Platform As Select</option>
+                                                @foreach($joinCategories as $joinCategory)
+                                                    <option value="{{$joinCategory->id}}">{{$joinCategory->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+
 
                                         <div class="mb-3">
                                             <label class="form-label">Address</label>

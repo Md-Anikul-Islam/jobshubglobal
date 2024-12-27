@@ -86,11 +86,14 @@ class PermissionTableSeeder extends Seeder
             'company-under-edit-job',
             'company-under-delete-job',
 
+            //Join Category
+            'join-category-list',
+            'join-category-create',
+            'join-category-edit',
+            'join-category-delete',
 
             //about Setting
             'about-list',
-
-
 
             //Site Setting
             'site-setting',
@@ -98,8 +101,6 @@ class PermissionTableSeeder extends Seeder
             //Dashboard
             'login-log-list',
             'cart-list',
-
-
         ];
         foreach ($permissions as $permission) {
             if (!Permission::where('name', $permission)->exists()) {

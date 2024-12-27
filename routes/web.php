@@ -6,12 +6,14 @@ use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CompanyController;
+use App\Http\Controllers\admin\JoinCategoryController;
 use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\TrainingController;
 use App\Http\Controllers\admin\VisaMigrationController;
+use App\Http\Controllers\ApplyJobController;
 use App\Http\Controllers\company\CompanyRegistrationController;
 use App\Http\Controllers\company\JobController;
 use App\Http\Controllers\ElearningController;
@@ -40,9 +42,15 @@ Route::post('/user-registration-store', [UserAccountController::class, 'storeUse
 Route::get('/user-verify', [UserAccountController::class, 'showVerificationFormUser'])->name('user.verification');
 Route::post('/user-verify-complete', [UserAccountController::class, 'verifyUser'])->name('user.verify.complete');
 
+//Apply Job
+Route::get('/jobs/apply/{job}', [ApplyJobController::class, 'applyJob'])->name('jobs.apply');
+
 //home
 Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::get('/all-jobs', [JobManageController::class, 'searchJobs'])->name('all.jobs');
+
+Route::get('/job-details/{id}', [JobManageController::class, 'jobDetails'])->name('job.details');
+
 Route::get('/about-us', [AboutUsController::class, 'about'])->name('about');
 Route::get('/e-learning', [ElearningController::class, 'eLearning'])->name('eLearning');
 Route::get('learning-details/{id}', [ElearningController::class, 'detailsTraining'])->name('eLearning.details');
@@ -63,6 +71,14 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/category-store', [CategoryController::class, 'store'])->name('category.store');
     Route::put('/category-update/{id}', [CategoryController::class, 'update'])->name('category.update');
     Route::get('/category-delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+
+    //Join Category Section
+    Route::get('/join-category-section', [JoinCategoryController::class, 'index'])->name('join.category.section');
+    Route::post('/join-category-store', [JoinCategoryController::class, 'store'])->name('join.category.store');
+    Route::put('/join-category-update/{id}', [JoinCategoryController::class, 'update'])->name('join.category.update');
+    Route::get('/join-category-delete/{id}', [JoinCategoryController::class, 'destroy'])->name('join.category.destroy');
+
 
     //Location Section
     Route::get('/location-section', [LocationController::class, 'index'])->name('location.section');

@@ -17,6 +17,7 @@ class User extends Authenticatable
         'name',
         'name_bn',
         'email',
+        'join_category_id',
         'password',
         'is_registration_by',
         'phone',

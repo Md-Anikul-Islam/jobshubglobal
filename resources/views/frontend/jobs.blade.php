@@ -24,6 +24,8 @@
                                 </option>
                             @endforeach
                         </select>
+                        <input type="number" name="min_salary" placeholder="Minimum Salary" value="{{ request('min_salary') }}" />
+                        <input type="number" name="max_salary" placeholder="Maximum Salary" value="{{ request('max_salary') }}" />
                         <button type="submit">Search Jobs</button>
                     </form>
                 </div>

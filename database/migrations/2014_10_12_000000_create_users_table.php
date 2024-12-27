@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name_bn')->nullable();
             $table->string('email')->unique();
             $table->string('phone')->nullable();
+            $table->integer('join_category_id')->nullable();
             $table->string('address')->nullable();
             $table->string('tread_licence')->nullable();
             $table->string('profile')->nullable();

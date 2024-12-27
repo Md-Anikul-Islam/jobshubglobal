@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Mail\AccountVerificationMail;
+use App\Models\JoinCategory;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class UserAccountController extends Controller
 {
     public function showUserRegistrationForm()
     {
-        return view('auth.registrationFormForUser');
+        $joinCategories = JoinCategory::where('status', 1)->get();
+        return view('auth.registrationFormForUser', compact('joinCategories'));
     }
 
     public function storeUserRegisterInfo(Request $request)
@@ -42,6 +44,7 @@ class UserAccountController extends Controller
                 'email' => $input['email'],
                 'phone' => $input['phone'],
                 'address' => $input['address'],
+                'join_category_id' => $input['join_category_id'],
                 'password' => $input['password'],
                 'verification_code' => $verificationCode,
                 'status' => 0,
