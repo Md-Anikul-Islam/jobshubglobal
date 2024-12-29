@@ -33,6 +33,7 @@
                         <th>No Of Vacancy</th>
                         <th>Deadline</th>
                         <th>Salary</th>
+                        <th>Job Type</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -46,6 +47,7 @@
                             <td>{{$jobData->vacancy}}</td>
                             <td>{{$jobData->deadline}}</td>
                             <td>{{$jobData->salary}}</td>
+                            <td>{{$jobData->job_type== 1 ? 'Part Time':'Full Time'}}</td>
                             <td>{{$jobData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
@@ -115,6 +117,17 @@
                                                                    class="form-control" placeholder="Enter Vacancy" required>
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-6">
+                                                        <div class="mb-3">
+                                                            <label for="example-select" class="form-label">Job Type</label>
+                                                            <select name="job_type" class="form-select">
+                                                                <option value="1" {{ $jobData->job_type === 1 ? 'selected' : '' }}>Part Time</option>
+                                                                <option value="2" {{ $jobData->job_type === 2 ? 'selected' : '' }}>Full Time</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
                                                     <div class="col-6">
                                                         <div class="mb-3">
                                                             <label for="salary" class="form-label">Salary</label>
@@ -267,6 +280,17 @@
                                            class="form-control" placeholder="Enter Vacancy" required>
                                 </div>
                             </div>
+
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Job Type</label>
+                                    <select name="job_type" class="form-select">
+                                        <option value="1">Part Time</option>
+                                        <option value="2">Full Time</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label for="salary" class="form-label">Salary</label>

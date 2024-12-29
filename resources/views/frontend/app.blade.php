@@ -62,7 +62,7 @@
                 <nav class="d-none d-lg-block">
                     <ul class="d-flex align-items-center">
                         <li><a href="{{route('about')}}">About Us</a></li>
-                        <li><a href="{{route('all.jobs')}}">My Jobs</a></li>
+                        <li><a href="{{route('all.jobs')}}">All Jobs</a></li>
                         <li><a href="{{route('eLearning')}}">E-Learning</a></li>
                         <li><a href="{{route('user.registration')}}">Sign in or Register</a></li>
                         <li><a href="#">Contact Us</a></li>
@@ -132,7 +132,7 @@
         <div class="menu-area">
             <ul class="d-flex flex-column">
                 <li><a href="{{route('about')}}">About Us</a></li>
-                <li><a href="{{route('all.jobs')}}">My Jobs</a></li>
+                <li><a href="{{route('all.jobs')}}">All Jobs</a></li>
                 <li><a href="{{route('eLearning')}}">E-Learning</a></li>
                 <li><a href="{{route('user.registration')}}">Sign in or Register</a></li>
                 <li><a href="#">Contact Us</a></li>

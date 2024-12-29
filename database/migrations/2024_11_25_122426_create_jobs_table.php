@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('title_bn')->nullable();
             $table->integer('vacancy');
+            $table->string('job_type')->nullable();
             $table->string('address');
             $table->string('address_bn')->nullable();
             $table->string('salary');

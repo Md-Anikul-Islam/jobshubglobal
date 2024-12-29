@@ -15,6 +15,7 @@ class Job extends Model
         'title',
         'title_bn',
         'vacancy',
+        'job_type',
         'address',
         'address_bn',
         'salary',

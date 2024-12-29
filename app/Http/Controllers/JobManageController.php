@@ -24,6 +24,11 @@ class JobManageController extends Controller
         if ($request->locationId) {
             $jobs->where('location_id', $request->locationId);
         }
+
+        if ($request->job_type) {
+            $jobs->where('job_type', $request->job_type);
+        }
+
         // Filter by job title if provided
         if ($request->job_title) {
             $jobs->where('title', 'like', '%' . $request->job_title . '%');

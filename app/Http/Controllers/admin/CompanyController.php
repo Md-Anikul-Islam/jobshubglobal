@@ -186,6 +186,7 @@ class CompanyController extends Controller
             $job->address = $request->address;
             $job->address_bn = $request->address_bn;
             $job->vacancy = $request->vacancy;
+            $job->job_type = $request->job_type;
             $job->salary = $request->salary;
             $job->deadline = $request->deadline;
             $job->details = $request->details;
@@ -214,6 +215,7 @@ class CompanyController extends Controller
             $job->address = $request->address;
             $job->address_bn = $request->address_bn;
             $job->vacancy = $request->vacancy;
+            $job->job_type = $request->job_type;
             $job->salary = $request->salary;
             $job->deadline = $request->deadline;
             $job->details = $request->details;
