@@ -52,7 +52,7 @@
 
 
                                         <div class="mb-3">
-                                            {{--<a href="{{ route('password.request') }}" class="text-muted float-end"><small>Forgot your password?</small></a>--}}
+                                            <a href="{{ route('password.request') }}" class="text-muted float-end"><small>Forgot your password?</small></a>
                                             <label for="password" class="form-label">Password</label>
                                             <div class="input-group">
                                                 <input class="form-control" type="password" required id="password" name="password" placeholder="Enter your password">
