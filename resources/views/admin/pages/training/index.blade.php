@@ -32,8 +32,8 @@
                     <tr>
                         <th>S/N</th>
                         <th>Image</th>
+                        <th>Title Category</th>
                         <th>Title En</th>
-                        <th>Title Bn</th>
                         <th>Training Date</th>
                         <th>Training Time</th>
                         <th>Training Duration</th>
@@ -49,8 +49,8 @@
                             <td>
                                 <img src="{{asset('images/training/'. $trainingData->image )}}" alt="Current Image" style="max-width: 50px;">
                             </td>
+                            <td>{{$trainingData->trainingCategory->name}}</td>
                             <td>{{$trainingData->title}}</td>
-                            <td>{{$trainingData->title_bn}}</td>
                             <td>{{$trainingData->training_date}}</td>
 
                             <td>{{$trainingData->training_time}}</td>
@@ -81,6 +81,17 @@
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="mb-3">
+                                                            <label for="example-select" class="form-label">Training Category</label>
+                                                            <select name="training_category_id" class="form-select">
+
+                                                                @foreach($trainingCategory as $category)
+                                                                    <option value="{{$category->id}}" {{ $trainingData->training_category_id === $category->id ? 'selected' : '' }}>{{$category->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                     <div class="col-6">
                                                         <div class="mb-3">
                                                             <label for="title" class="form-label">Title En</label>
@@ -204,6 +215,19 @@
                     <form method="post" action="{{route('training.store')}}">
                         @csrf
                         <div class="row">
+
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Training Category</label>
+                                    <select name="training_category_id" class="form-select">
+                                        <option selected>Select Training Category</option>
+                                        @foreach($trainingCategory as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label for="title" class="form-label">Title En</label>

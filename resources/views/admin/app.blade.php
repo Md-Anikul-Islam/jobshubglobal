@@ -179,14 +179,38 @@
                     </li>
                 @endcan
 
-                @can('training-list')
+
+                @can('training-manage')
                     <li class="side-nav-item">
-                        <a href="{{route('training.section')}}" class="side-nav-link">
-                            <i class="ri-drag-move-fill"></i>
-                            <span> Training </span>
+                        <a data-bs-toggle="collapse" href="#sidebarPages1000" aria-expanded="false" aria-controls="sidebarPages1000" class="side-nav-link">
+                            <i class="ri-rotate-lock-line"></i>
+                            <span>Training Manage </span>
+                            <span class="menu-arrow"></span>
                         </a>
+                        <div class="collapse" id="sidebarPages1000">
+                            <ul class="side-nav-second-level">
+
+
+                                @can('training-category-list')
+                                    <li>
+                                        <a href="{{route('training.category.section')}}">Training Category</a>
+                                    </li>
+                                @endcan
+
+                                @can('training-list')
+                                    <li>
+                                        <a href="{{route('training.section')}}">Training</a>
+                                    </li>
+                                @endcan
+                            </ul>
+                        </div>
                     </li>
                 @endcan
+
+
+
+
+
 
                 @can('migration-list')
                     <li class="side-nav-item">

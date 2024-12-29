@@ -9,6 +9,7 @@ class Training extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'training_category_id',
         'title',
         'title_bn',
         'details',
@@ -20,4 +21,9 @@ class Training extends Model
         'image',
         'status',
     ];
+
+    public function trainingCategory()
+    {
+        return $this->belongsTo(TrainingCategory::class);
+    }
 }

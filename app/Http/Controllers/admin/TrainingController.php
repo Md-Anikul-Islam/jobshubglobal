@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Training;
+use App\Models\TrainingCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Yoeunes\Toastr\Facades\Toastr;
@@ -23,7 +24,8 @@ class TrainingController extends Controller
     public function index()
     {
         $training = Training::latest()->get();
-        return view('admin.pages.training.index', compact('training'));
+        $trainingCategory = TrainingCategory::with('trainingCategory')->latest()->get();
+        return view('admin.pages.training.index', compact('training', 'trainingCategory'));
     }
 
     public function store(Request $request)
@@ -31,6 +33,7 @@ class TrainingController extends Controller
        // dd($request->all());
         try {
             $request->validate([
+                'training_category_id' => 'required',
                 'title' => 'required',
                 'details' => 'required',
                 'training_date' => 'required',
@@ -41,6 +44,7 @@ class TrainingController extends Controller
 
 
             $training = new Training();
+            $training->training_category_id = $request->training_category_id;
             $training->title = $request->title;
             $training->title_bn = $request->title_bn;
             $training->details = $request->details;
@@ -67,6 +71,7 @@ class TrainingController extends Controller
     {
         try {
             $request->validate([
+
                 'title' => 'required',
                 'details' => 'required',
                 'training_date' => 'required',
@@ -76,6 +81,7 @@ class TrainingController extends Controller
 
             ]);
             $training = Training::find($id);
+            $training->training_category_id = $request->training_category_id;
             $training->title = $request->title;
             $training->title_bn = $request->title_bn;
             $training->details = $request->details;

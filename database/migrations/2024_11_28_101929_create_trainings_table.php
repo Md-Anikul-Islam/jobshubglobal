@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
+            $table->integer('training_category_id');
             $table->string('title');
             $table->string('title_bn')->nullable();
             $table->text('details');

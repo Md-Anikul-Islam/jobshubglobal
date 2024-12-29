@@ -68,11 +68,18 @@ class PermissionTableSeeder extends Seeder
             'company-edit',
             'company-delete',
 
+            //For Training Manage
+            'training-manage',
             //For Training
             'training-list',
             'training-create',
             'training-edit',
             'training-delete',
+            //For Training Category
+            'training-category-list',
+            'training-category-create',
+            'training-category-edit',
+            'training-category-delete',
 
             //For Migration
             'migration-list',
