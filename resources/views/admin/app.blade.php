@@ -179,6 +179,16 @@
                     </li>
                 @endcan
 
+
+                @can('training-category-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('training.category.section')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span> Training Category</span>
+                        </a>
+                    </li>
+                @endcan
+
                 @can('training-list')
                     <li class="side-nav-item">
                         <a href="{{route('training.section')}}" class="side-nav-link">

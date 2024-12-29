@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
+use App\Http\Controllers\admin\TrainingCategoryController;
 use App\Http\Controllers\admin\TrainingController;
 use App\Http\Controllers\admin\VisaMigrationController;
 use App\Http\Controllers\ApplyJobController;
@@ -110,6 +111,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/training-store', [TrainingController::class, 'store'])->name('training.store');
     Route::put('/training-update/{id}', [TrainingController::class, 'update'])->name('training.update');
     Route::get('/training-delete/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
+
+    //Training Category Section
+    Route::get('/training-category-section', [TrainingCategoryController::class, 'index'])->name('training.category.section');
+    Route::post('/training-category-store', [TrainingCategoryController::class, 'store'])->name('training.category.store');
+    Route::put('/training-category-update/{id}', [TrainingCategoryController::class, 'update'])->name('training.category.update');
+    Route::get('/training-category-delete/{id}', [TrainingCategoryController::class, 'destroy'])->name('training.category.destroy');
 
     //Company migration
     Route::get('/migration-list', [VisaMigrationController::class, 'index'])->name('migration.section');
