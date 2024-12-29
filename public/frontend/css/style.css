@@ -754,6 +754,23 @@ input:focus,
     border-radius: 8px;
     font-size: 14px;
 }
+
+.category_wrap ul li {
+    border-bottom: 1px solid #f2f1f1;
+}
+.category_wrap ul li:last-child {
+    border-bottom: 0;
+}
+.category_wrap ul li a {
+    color: var(--nb-body-color);
+    display: block;
+    padding: 10px 0px;
+    transition: 0.3s;
+}
+.category_wrap ul li a:hover {
+    color: var(--nb-primary);
+}
+
 /*=======================================
 			E-Learning details page
 =========================================*/
