@@ -289,6 +289,15 @@
                     </li>
                 @endcan
 
+                @can('apply-job-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('job.apply')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span> Apply Job </span>
+                        </a>
+                    </li>
+                @endcan
+
 
             </ul>
             <div class="clearfix"></div>

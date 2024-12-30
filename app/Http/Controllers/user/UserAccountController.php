@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Mail\AccountVerificationMail;
+use App\Models\JobApplication;
 use App\Models\JoinCategory;
 use App\Models\User;
 use Illuminate\Database\QueryException;
@@ -61,6 +62,13 @@ class UserAccountController extends Controller
             }
             return back()->withErrors(['email' => 'An error occurred. Please try again later.']);
         }
+    }
+
+
+    public function applyJobList()
+    {
+        $candidate = JobApplication::where('user_id',auth()->user()->id)->with('company','job')->get();
+        return view('admin.pages.applyJob.index',compact('candidate'));
     }
 
 }

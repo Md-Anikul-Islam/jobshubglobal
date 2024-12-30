@@ -127,6 +127,9 @@ class PermissionTableSeeder extends Seeder
             'skill-edit',
             'skill-delete',
 
+            //Apply Job
+            'apply-job-list',
+
         ];
         foreach ($permissions as $permission) {
             if (!Permission::where('name', $permission)->exists()) {

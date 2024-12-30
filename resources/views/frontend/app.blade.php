@@ -240,7 +240,7 @@
                 <div class="help-link">
                     <h3>Help</h3>
                     <ul>
-                        <li><a href="#">Customer Support</a></li>
+                        <li><a href="{{route('contact.us')}}">Contact</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
