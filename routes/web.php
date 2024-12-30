@@ -17,6 +17,7 @@ use App\Http\Controllers\admin\VisaMigrationController;
 use App\Http\Controllers\ApplyJobController;
 use App\Http\Controllers\company\CompanyRegistrationController;
 use App\Http\Controllers\company\JobController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ElearningController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\JobManageController;
@@ -59,6 +60,9 @@ Route::get('/about-us', [AboutUsController::class, 'about'])->name('about');
 Route::get('/e-learning', [ElearningController::class, 'eLearning'])->name('eLearning');
 Route::get('learning-details/{id}', [ElearningController::class, 'detailsTraining'])->name('eLearning.details');
 Route::get('visa-migration-details/{id}', [ElearningController::class, 'detailsVisaMigration'])->name('visa.migration.details');
+
+Route::get('/contact-us', [ContactUsController::class, 'contactUs'])->name('contact.us');
+
 
 Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
@@ -165,6 +169,8 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/skill-store', [SkillController::class, 'store'])->name('skill.store');
     Route::put('/skill-update/{id}', [SkillController::class, 'update'])->name('skill.update');
     Route::get('/skill-delete/{id}', [SkillController::class, 'destroy'])->name('skill.destroy');
+
+
 });
 
 require __DIR__.'/auth.php';

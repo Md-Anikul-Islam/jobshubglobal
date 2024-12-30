@@ -65,7 +65,7 @@
                         <li><a href="{{route('all.jobs')}}">All Jobs</a></li>
                         <li><a href="{{route('eLearning')}}">E-Learning</a></li>
                         <li><a href="{{route('user.registration')}}">Sign in or Register</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{{route('contact.us')}}">Contact Us</a></li>
                         <li>
                             <a href="{{route('company.registration')}}" class="post-a-job"
                             >Post a Job</a
@@ -135,7 +135,7 @@
                 <li><a href="{{route('all.jobs')}}">All Jobs</a></li>
                 <li><a href="{{route('eLearning')}}">E-Learning</a></li>
                 <li><a href="{{route('user.registration')}}">Sign in or Register</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="{{route('contact.us')}}">Contact Us</a></li>
                 <li>
                     <a href="{{route('company.registration')}}" class="post-a-job">Post a Job</a>
                 </li>

@@ -9,15 +9,6 @@ use Illuminate\Http\Request;
 
 class ElearningController extends Controller
 {
-//    public function eLearning(Request $request)
-//    {
-//        $query = Training::query();
-//        if ($request->has('find_job') && $request->find_job != '') {
-//            $query->where('title', 'LIKE', '%' . $request->find_job . '%');
-//        }
-//        $training = $query->latest()->paginate(12);
-//        return view('frontend.elearning', compact('training'));
-//    }
 
     public function eLearning(Request $request)
     {
