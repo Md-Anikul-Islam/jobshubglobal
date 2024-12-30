@@ -225,7 +225,7 @@
 
 
 
-            @can('site-setting')
+                @can('site-setting')
                     <li class="side-nav-item">
                         <a href="{{route('site.setting')}}" class="side-nav-link">
                             <i class="ri-drag-move-fill"></i>
@@ -261,6 +261,35 @@
                     </div>
                 </li>
                 @endcan
+
+                @can('education-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('education.section')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span> Education </span>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('experience-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('experience.section')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span> Experience </span>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('skill-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('skill.section')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span> Skill </span>
+                        </a>
+                    </li>
+                @endcan
+
+
             </ul>
             <div class="clearfix"></div>
         </div>

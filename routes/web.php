@@ -21,6 +21,9 @@ use App\Http\Controllers\ElearningController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\JobManageController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\user\EducationController;
+use App\Http\Controllers\user\ExperienceController;
+use App\Http\Controllers\user\SkillController;
 use App\Http\Controllers\user\UserAccountController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -141,6 +144,27 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     //Site About
     Route::get('/about', [AboutController::class, 'index'])->name('about.section');
     Route::post('/about-update/{id?}', [AboutController::class, 'createOrUpdateAbout'])->name('about.createOrUpdate');
+
+
+    //user
+    //Education Section
+    Route::get('/education', [EducationController::class, 'index'])->name('education.section');
+    Route::post('/education-store', [EducationController::class, 'store'])->name('education.store');
+    Route::put('/education-update/{id}', [EducationController::class, 'update'])->name('education.update');
+    Route::get('/education-delete/{id}', [EducationController::class, 'destroy'])->name('education.destroy');
+
+    //Experience
+    Route::get('/experience', [ExperienceController::class, 'index'])->name('experience.section');
+    Route::post('/experience-store', [ExperienceController::class, 'store'])->name('experience.store');
+    Route::put('/experience-update/{id}', [ExperienceController::class, 'update'])->name('experience.update');
+    Route::get('/experience-delete/{id}', [ExperienceController::class, 'destroy'])->name('experience.destroy');
+
+
+    //Skill Section
+    Route::get('/skill', [SkillController::class, 'index'])->name('skill.section');
+    Route::post('/skill-store', [SkillController::class, 'store'])->name('skill.store');
+    Route::put('/skill-update/{id}', [SkillController::class, 'update'])->name('skill.update');
+    Route::get('/skill-delete/{id}', [SkillController::class, 'destroy'])->name('skill.destroy');
 });
 
 require __DIR__.'/auth.php';

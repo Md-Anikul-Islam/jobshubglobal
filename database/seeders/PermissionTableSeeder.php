@@ -108,6 +108,25 @@ class PermissionTableSeeder extends Seeder
             //Dashboard
             'login-log-list',
             'cart-list',
+
+            //For Education
+            'education-list',
+            'education-create',
+            'education-edit',
+            'education-delete',
+
+            //For Experience
+            'experience-list',
+            'experience-create',
+            'experience-edit',
+            'experience-delete',
+
+            //For Skill
+            'skill-list',
+            'skill-create',
+            'skill-edit',
+            'skill-delete',
+
         ];
         foreach ($permissions as $permission) {
             if (!Permission::where('name', $permission)->exists()) {

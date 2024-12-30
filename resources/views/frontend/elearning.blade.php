@@ -1,5 +1,6 @@
 @extends('frontend.app')
 @section('content')
+
 <div class="elearning-page-area section-padding">
 	<div class="container">
 		<div class="row">
@@ -130,13 +131,25 @@
                 <div class="category_wrap section-heading">
                     <h2>Category</h2>
                     <ul>
-                        <li><a href="#">Category 1</a></li>
-                        <li><a href="#">Category 1</a></li>
-                        <li><a href="#">Category 1</a></li>
-                        <li><a href="#">Category 1</a></li>
+                        <li>
+                            <a href="{{ route('eLearning') }}"
+                               class="{{ request('category_id') ? '' : 'active-category' }}">
+                                All Categories
+                            </a>
+                        </li>
+                        @foreach($categories as $category)
+                            <li>
+                                <a href="{{ route('eLearning', ['category_id' => $category->id]) }}"
+                                   class="{{ request('category_id') == $category->id ? 'active-category' : '' }}">
+                                    {{ $category->name }}
+                                </a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
+
+
         </div>
         <div class="pagination-wrapper">
             {{ $training->links('pagination::bootstrap-4') }}
