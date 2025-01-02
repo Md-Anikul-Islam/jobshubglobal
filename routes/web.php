@@ -171,6 +171,8 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::get('/skill-delete/{id}', [SkillController::class, 'destroy'])->name('skill.destroy');
 
     //Apply Job User
+    Route::get('/user-account', [UserAccountController::class, 'userAccount'])->name('user.account');
+    Route::post('/user-account-create-or-update/{id?}', [UserAccountController::class, 'createOrUpdateUserAccount'])->name('user.account.create.update');
     Route::get('/applied-job-list', [UserAccountController::class, 'applyJobList'])->name('job.apply');
 
 

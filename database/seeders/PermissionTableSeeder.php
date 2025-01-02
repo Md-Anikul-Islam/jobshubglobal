@@ -128,6 +128,7 @@ class PermissionTableSeeder extends Seeder
             'skill-delete',
 
             //Apply Job
+            'user-account',
             'apply-job-list',
 
         ];

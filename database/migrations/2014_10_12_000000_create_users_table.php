@@ -26,6 +26,24 @@ return new class extends Migration
             $table->string('is_registration_by')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            //user extra field
+            $table->string('father_name')->nullable();
+            $table->string('father_name_bn')->nullable();
+            $table->string('mother_name')->nullable();
+            $table->string('mother_name_bn')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('nationality_bn')->nullable();
+            $table->string('blood_group')->nullable();
+            $table->string('nid')->nullable();
+            $table->date('dob')->nullable();
+            $table->string('cv')->nullable();
+            $table->string('resume')->nullable();
+            $table->string('address_bn')->nullable();
+            $table->string('details')->nullable();
+            $table->string('details_bn')->nullable();
+
+
             $table->rememberToken();
             $table->timestamps();
         });

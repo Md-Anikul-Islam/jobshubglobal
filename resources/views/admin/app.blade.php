@@ -262,6 +262,16 @@
                 </li>
                 @endcan
 
+
+                @can('user-account')
+                    <li class="side-nav-item">
+                        <a href="{{route('user.account')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span> Account </span>
+                        </a>
+                    </li>
+                @endcan
+
                 @can('education-list')
                     <li class="side-nav-item">
                         <a href="{{route('education.section')}}" class="side-nav-link">

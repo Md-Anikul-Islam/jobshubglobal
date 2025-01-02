@@ -26,7 +26,23 @@ class User extends Authenticatable
         'profile',
         'email_verified_at',
         'verification_code',
-        'status'
+        'status',
+
+        //user extra field
+        'father_name',
+        'father_name_bn',
+        'mother_name',
+        'mother_name_bn',
+        'nationality',
+        'nationality_bn',
+        'blood_group',
+        'nid',
+        'dob',
+        'cv',
+        'resume',
+        'address',
+        'address_bn',
+
     ];
 
 
