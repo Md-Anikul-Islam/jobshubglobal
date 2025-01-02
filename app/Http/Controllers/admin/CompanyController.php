@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Job;
+use App\Models\JobApplication;
 use App\Models\Location;
 use App\Models\News;
 use App\Models\User;
@@ -235,6 +236,25 @@ class CompanyController extends Controller
             $job = Job::find($id);
             $job->delete();
             Toastr::success('Job Deleted Successfully', 'Success');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
+        }
+    }
+
+    public function companyUnderJobApplyCandidate($id)
+    {
+        $jobApplication = JobApplication::where('job_id', $id)->with('user')->latest()->get();
+        $jobApplicationCount = JobApplication::where('job_id', $id)->count();
+        return view('admin.pages.company.job.companyUnderJobApplication', compact('jobApplication', 'jobApplicationCount'));
+    }
+
+    public function companyUnderJobApplyCandidateDestroy($id)
+    {
+        try {
+            $jobApplication = JobApplication::find($id);
+            $jobApplication->delete();
+            Toastr::success('Job Application Deleted Successfully', 'Success');
             return redirect()->back();
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());

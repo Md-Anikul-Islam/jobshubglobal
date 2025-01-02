@@ -57,6 +57,10 @@
                                     @can('job-delete')
                                     <a href="{{route('job.destroy',$jobData->id)}}"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$jobData->id}}">Delete</a>
                                     @endcan
+
+                                    <a href="{{route('company.under.job.application',$jobData->id)}}" class="btn btn-success btn-sm">Candidate</a>
+
+
                                 </div>
                             </td>
                             <!--Edit Modal -->
