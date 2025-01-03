@@ -6,6 +6,7 @@ use App\Models\Training;
 use App\Models\TrainingCategory;
 use App\Models\VisaMigration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ElearningController extends Controller
 {
@@ -35,13 +36,15 @@ class ElearningController extends Controller
     {
         $trainingAll = Training::latest()->limit(4)->get();
         $training = Training::where('id',$id)->first();
-        return view('frontend.learning-details',compact('training','trainingAll'));
+        $siteSetting = DB::table('site_settings')->first();
+        return view('frontend.learning-details',compact('training','trainingAll','siteSetting'));
     }
 
     public function detailsVisaMigration($id)
     {
         $visaMigration = VisaMigration::where('id',$id)->first();
-        return view('frontend.visa-migration-details',compact('visaMigration'));
+        $siteSetting = DB::table('site_settings')->first();
+        return view('frontend.visa-migration-details',compact('visaMigration','siteSetting'));
     }
 
 

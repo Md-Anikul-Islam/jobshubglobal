@@ -12,6 +12,7 @@ class JobManageController extends Controller
 
     public function searchJobs(Request $request)
     {
+        //dd($request->all());
         $jobVacancy = Job::whereNotNull('vacancy')->count();
         $locations = Location::all();
         $categories = Category::all();

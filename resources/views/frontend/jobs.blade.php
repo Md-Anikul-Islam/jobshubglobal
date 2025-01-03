@@ -26,7 +26,7 @@
                         </select>
 
                         <select name="job_type">
-                            <option selected>Job Type</option>
+                            <option selected value="">Job Type</option>
                             <option value="1">Part Time</option>
                             <option value="2">Full Time</option>
                         </select>

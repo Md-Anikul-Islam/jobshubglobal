@@ -31,7 +31,7 @@
 					</ul>
 					<div class="learning-details-pricing">
 						<h2>Price: TK  {{$training->training_fee}}</h2>
-						<a href="#">Register</a>
+						<a href="{{route('login')}}">Register</a>
 						<div class="contact-details">
 							<div class="contact-item">
 								<h3>
@@ -41,7 +41,7 @@
 									</svg>
 									Contact
 								</h3>
-								<h3>0177777777, 01726463655</h3>
+								<h3>{{$siteSetting->phone}}</h3>
 							</div>
 							<div class="contact-item">
 								<h3>
@@ -50,7 +50,7 @@
 									</svg>
 									Email
 								</h3>
-								<h3>info@jobshubglobal.com</h3>
+								<h3>{{$siteSetting->email}}</h3>
 							</div>
 						</div>
 					</div>

@@ -23,8 +23,8 @@ class TrainingController extends Controller
     }
     public function index()
     {
-        $training = Training::latest()->get();
-        $trainingCategory = TrainingCategory::with('trainingCategory')->latest()->get();
+        $training = Training::with('trainingCategory')->latest()->get();
+        $trainingCategory = TrainingCategory::latest()->get();
         return view('admin.pages.training.index', compact('training', 'trainingCategory'));
     }
 

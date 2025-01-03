@@ -120,7 +120,7 @@
                                     </div>
                                 </div>
                                 <div class="register-now">
-                                    <a href="#">Register</a>
+                                    <a href="{{route('login')}}">Register</a>
                                 </div>
                             </div>
                         </div>
