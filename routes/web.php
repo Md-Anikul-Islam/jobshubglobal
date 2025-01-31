@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\JoinCategoryController;
 use App\Http\Controllers\admin\LocationController;
+use App\Http\Controllers\admin\MigrationCategoryController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
@@ -59,6 +60,8 @@ Route::get('/job-details/{id}', [JobManageController::class, 'jobDetails'])->nam
 Route::get('/about-us', [AboutUsController::class, 'about'])->name('about');
 Route::get('/e-learning', [ElearningController::class, 'eLearning'])->name('eLearning');
 Route::get('learning-details/{id}', [ElearningController::class, 'detailsTraining'])->name('eLearning.details');
+
+Route::get('/visa-migration', [ElearningController::class, 'visaMigration'])->name('visa.migration');
 Route::get('visa-migration-details/{id}', [ElearningController::class, 'detailsVisaMigration'])->name('visa.migration.details');
 
 Route::get('/contact-us', [ContactUsController::class, 'contactUs'])->name('contact.us');
@@ -87,6 +90,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::put('/join-category-update/{id}', [JoinCategoryController::class, 'update'])->name('join.category.update');
     Route::get('/join-category-delete/{id}', [JoinCategoryController::class, 'destroy'])->name('join.category.destroy');
 
+
+    //Migration Category Section
+    Route::get('/migration-category-section', [MigrationCategoryController::class, 'index'])->name('migration.category.section');
+    Route::post('/migration-category-store', [MigrationCategoryController::class, 'store'])->name('migration.category.store');
+    Route::put('/migration-category-update/{id}', [MigrationCategoryController::class, 'update'])->name('migration.category.update');
+    Route::get('/migration-category-delete/{id}', [MigrationCategoryController::class, 'destroy'])->name('migration.category.destroy');
 
     //Location Section
     Route::get('/location-section', [LocationController::class, 'index'])->name('location.section');

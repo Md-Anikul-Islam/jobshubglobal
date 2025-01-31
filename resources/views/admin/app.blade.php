@@ -211,6 +211,14 @@
 
 
 
+                @can('migration-category-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('migration.category.section')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span> Migration Category</span>
+                        </a>
+                    </li>
+                @endcan
 
                 @can('migration-list')
                     <li class="side-nav-item">

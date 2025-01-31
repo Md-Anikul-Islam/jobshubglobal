@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\MigrationCategory;
 use App\Models\VisaMigration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -22,8 +23,10 @@ class VisaMigrationController extends Controller
     }
     public function index()
     {
-        $migration = VisaMigration::latest()->get();
-        return view('admin.pages.visaMigration.index', compact('migration'));
+        $migration = VisaMigration::with('migrationCategory')->latest()->get();
+        $migrationCategory = MigrationCategory::all();
+
+        return view('admin.pages.visaMigration.index', compact('migration', 'migrationCategory'));
     }
 
     public function store(Request $request)
@@ -38,6 +41,7 @@ class VisaMigrationController extends Controller
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('images/migration'), $imageName);
             $migration = new VisaMigration();
+            $migration->migration_category_id = $request->migration_category_id;
             $migration->title = $request->title;
             $migration->title_bn = $request->title_bn;
             $migration->link = $request->link;
@@ -61,6 +65,7 @@ class VisaMigrationController extends Controller
                 'title' => 'required',
             ]);
             $migration = VisaMigration::find($id);
+            $migration->migration_category_id = $request->migration_category_id;
             $migration->title = $request->title;
             $migration->title_bn = $request->title_bn;
             $migration->link = $request->link;

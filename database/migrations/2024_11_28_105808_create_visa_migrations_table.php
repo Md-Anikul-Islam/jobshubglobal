@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('visa_migrations', function (Blueprint $table) {
             $table->id();
+            $table->integer('migration_category_id')->nullable();
             $table->string('title');
             $table->string('title_bn')->nullable();
             $table->date('date')->nullable();

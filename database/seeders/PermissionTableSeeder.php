@@ -99,6 +99,12 @@ class PermissionTableSeeder extends Seeder
             'join-category-edit',
             'join-category-delete',
 
+            //Migration Category
+            'migration-category-list',
+            'migration-category-create',
+            'migration-category-edit',
+            'migration-category-delete',
+
             //about Setting
             'about-list',
 

@@ -31,6 +31,7 @@
                     <thead>
                     <tr>
                         <th>S/N</th>
+                        <th>Category</th>
                         <th>Title En</th>
                         <th>Title Bn</th>
                         <th>Date</th>
@@ -45,6 +46,7 @@
                     @foreach($migration as $key=>$migrationData)
                         <tr>
                             <td>{{$key+1}}</td>
+                            <td>{{$migrationData->migrationCategory->name??''}}</td>
                             <td>{{$migrationData->title}}</td>
                             <td>{{$migrationData->title_bn}}</td>
                             <td>{{$migrationData->date}}</td>
@@ -77,6 +79,20 @@
                                                 @csrf
                                                 @method('PUT')
                                                 <div class="row">
+
+                                                    <div class="col-6">
+                                                        <div class="mb-3">
+                                                            <label for="example-select" class="form-label">Migration Category</label>
+                                                            <select name="migration_category_id" class="form-select">
+                                                                <option selected>Select Migration Category</option>
+                                                                @foreach($migrationCategory as $category)
+                                                                    <option value="{{$category->id}}" {{ $migrationData->migration_category_id === $category->id ? 'selected' : '' }}>{{$category->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
                                                     <div class="col-6">
                                                         <div class="mb-3">
                                                             <label for="title" class="form-label">Title En</label>
@@ -186,6 +202,22 @@
                     <form method="post" action="{{route('migration.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
+
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Migration Category</label>
+                                    <select name="migration_category_id" class="form-select">
+                                        <option selected>Select Migration Category</option>
+                                        @foreach($migrationCategory as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label for="title" class="form-label">Title En</label>
@@ -214,16 +246,14 @@
                                            class="form-control" placeholder="Enter Link/Source">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-6">
                                 <div class="mb-3">
                                     <label for="example-fileinput" class="form-label">Image</label>
                                     <input type="file" name="image" id="example-fileinput" class="form-control">
                                 </div>
                             </div>
-
                         </div>
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">

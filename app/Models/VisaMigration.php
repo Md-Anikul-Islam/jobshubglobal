@@ -9,6 +9,7 @@ class VisaMigration extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'migration_category_id',
         'title',
         'title_bn',
         'date',
@@ -18,4 +19,9 @@ class VisaMigration extends Model
         'details_bn',
         'status',
     ];
+
+    public function migrationCategory()
+    {
+        return $this->belongsTo(MigrationCategory::class);
+    }
 }
