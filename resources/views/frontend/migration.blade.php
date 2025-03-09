@@ -54,9 +54,9 @@
                                             <a href="{{route('visa.migration.details',$migrationData->id)}}">
                                                 <h3>{{$migrationData->title}}</h3>
                                             </a>
-                                            <p>
-                                                {{ \Illuminate\Support\Str::limit(strip_tags($migrationData->details), 150) }}
-                                            </p>
+{{--                                            <p>--}}
+{{--                                                {{ \Illuminate\Support\Str::limit(strip_tags($migrationData->details), 150) }}--}}
+{{--                                            </p>--}}
                                             <div class="deadline d-flex align-items-center">
                                                 <svg
                                                     width="18"

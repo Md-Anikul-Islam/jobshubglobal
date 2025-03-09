@@ -36,8 +36,6 @@
                         <th>Title Bn</th>
                         <th>Date</th>
                         <th>Image</th>
-                        <th>Details En</th>
-                        <th>Details Bn</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -53,8 +51,6 @@
                             <td>
                                 <img src="{{asset('images/migration/'. $migrationData->image )}}" alt="Current Image" style="max-width: 50px;">
                             </td>
-                            <td>{!! Str::limit($migrationData->details, 30) !!}</td>
-                            <td>{!! Str::limit($migrationData->details_bn, 30) !!}</td>
                             <td>{{$migrationData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">

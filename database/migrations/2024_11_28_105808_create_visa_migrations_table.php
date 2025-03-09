@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('date')->nullable();
             $table->string('image')->nullable();
             $table->string('link')->nullable();
-            $table->text('details')->nullable();
+            $table->longText('details')->nullable();
             $table->text('details_bn')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
