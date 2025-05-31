@@ -14,11 +14,12 @@
 </head>
 <body>
 <!-- Ads Alert -->
+@if(!empty($siteSetting) && $siteSetting->advisement_image && $siteSetting->advisement_link)
 <div class="alert alert-wrap fade show" role="alert">
 
-    <a href="#">
+    <a href="{{asset($siteSetting? $siteSetting->advisement_link:'' )}}">
         <img
-            src="{{URL::to('frontend/images/ads.jpg')}}"
+            src="{{asset($siteSetting? $siteSetting->advisement_image:'' )}}"
             class="img-fluid"
             draggable="false"
             alt="Ads"
@@ -41,6 +42,7 @@
         </svg>
     </button>
 </div>
+@endif
 <!-- Header -->
 <header class="header-wrapper" id="job-hub-global">
     <div class="container">
@@ -72,6 +74,38 @@
                             >Post a Job</a
                             >
                         </li>
+
+                      {{--multiple language Switcher--}}
+
+{{--                        <li class="language-switcher">--}}
+{{--                            <div class="dropdown">--}}
+{{--                                <button--}}
+{{--                                    class="btn dropdown-toggle"--}}
+{{--                                    type="button"--}}
+{{--                                    id="dropdownMenuButton1"--}}
+{{--                                    data-bs-toggle="dropdown"--}}
+{{--                                    aria-expanded="false"--}}
+{{--                                >--}}
+{{--                                    {{app()->getLocale()}}--}}
+{{--                                </button>--}}
+{{--                                <ul--}}
+{{--                                    class="dropdown-menu"--}}
+{{--                                    aria-labelledby="dropdownMenuButton1"--}}
+{{--                                >--}}
+{{--                                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
+{{--                                        <li>--}}
+{{--                                            <a rel="alternate" hreflang="{{ $localeCode }}"--}}
+{{--                                               href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"--}}
+{{--                                               class="dropdown-item {{ LaravelLocalization::getCurrentLocale() == $localeCode ? 'active' : '' }}">--}}
+{{--                                                {{ $properties['native'] }}--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                    @endforeach--}}
+{{--                                </ul>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+
+
                     </ul>
                 </nav>
                 <div class="d-block d-lg-none">

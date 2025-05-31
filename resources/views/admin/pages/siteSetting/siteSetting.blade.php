@@ -8,7 +8,7 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Form Elements</li>
+                                <li class="breadcrumb-item active">Setting Elements</li>
                             </ol>
                         </div>
                         <h4 class="page-title">Site Setting</h4>
@@ -77,19 +77,9 @@
                                                placeholder="Enter Email">
                                     </div>
                                     <div class="mb-3 col-md-4">
-                                        <label for="address" class="form-label">Address En</label>
+                                        <label for="address" class="form-label">Address</label>
                                         <input type="text" class="form-control" name="address" value="{{$siteSettings?$siteSettings->address:''}}"
                                                placeholder="Enter Address">
-                                    </div>
-                                    <div class="mb-3 col-md-4">
-                                        <label for="address" class="form-label">Address Bn</label>
-                                        <input type="text" class="form-control" name="address_bn" value="{{$siteSettings?$siteSettings->address_bn:''}}"
-                                               placeholder="Enter Address">
-                                    </div>
-                                    <div class="mb-3 col-md-4">
-                                        <label for="short_description" class="form-label">Short Description</label>
-                                        <input type="text" class="form-control" name="short_description" value="{{$siteSettings?$siteSettings->short_description:''}}"
-                                               placeholder="Short Description">
                                     </div>
                                 </div>
 
@@ -129,74 +119,30 @@
                                     </div>
 
                                     <div class="mb-3 col-md-12">
-                                        <label for="linkedin_link" class="form-label">Meta Description</label>
-                                        <textarea class="form-control" name="meta_description" rows="5" placeholder="Enter the Description">{{ strip_tags($siteSettings?$siteSettings->details:'') }}</textarea>
+                                        <label for="meta_description" class="form-label">Meta Description</label>
+                                        <textarea class="form-control" name="meta_description" rows="5" placeholder="Enter the Description">{{ strip_tags($siteSettings?$siteSettings->meta_description:'') }}</textarea>
                                     </div>
 
 
 
                                     <div class="mb-3 col-md-4">
-                                        <label for="logo" class="form-label">Team Banner</label>
-                                        <input type="file" class="form-control" name="team_banner" value="{{$siteSettings?$siteSettings->team_banner:''}}">
-                                        @if($siteSettings? $siteSettings->team_banner:'')
-                                            <img src="{{asset($siteSettings? $siteSettings->team_banner:'' )}}" alt="Current Image" class="mt-2" style="max-width: 100px;">
-                                        @endif
-                                    </div>
-
-                                    <div class="mb-3 col-md-4">
-                                        <label for="logo" class="form-label">Notice Banner</label>
-                                        <input type="file" class="form-control" name="notice_banner" value="{{$siteSettings?$siteSettings->notice_banner:''}}">
-                                        @if($siteSettings? $siteSettings->notice_banner:'')
-                                            <img src="{{asset($siteSettings?$siteSettings->notice_banner:'')}}" alt="Current Image" class="mt-2" style="max-width: 100px;">
-                                        @endif
-                                    </div>
-                                    <div class="mb-3 col-md-4">
-                                        <label for="favicon" class="form-label">News Banner</label>
-                                        <input type="file" class="form-control" name="news_banner" value="{{$siteSettings?$siteSettings->news_banner:''}}">
-                                        @if($siteSettings?$siteSettings->news_banner:'')
-                                            <img src="{{asset($siteSettings?$siteSettings->news_banner:'')}}" alt="Current Image" class="mt-2" style="max-width: 100px;">
-                                        @endif
-                                    </div>
-                                    <div class="mb-3 col-md-4">
-                                        <label for="logo" class="form-label">Project Banner</label>
-                                        <input type="file" class="form-control" name="project_banner" value="{{$siteSettings?$siteSettings->project_banner:''}}">
-                                        @if($siteSettings? $siteSettings->project_banner:'')
-                                            <img src="{{asset($siteSettings?$siteSettings->project_banner:'')}}" alt="Current Image" class="mt-2" style="max-width: 100px;">
-                                        @endif
-                                    </div>
-                                    <div class="mb-3 col-md-4">
-                                        <label for="favicon" class="form-label">Contact Banner</label>
-                                        <input type="file" class="form-control" name="contact_banner" value="{{$siteSettings?$siteSettings->contact_banner:''}}">
-                                        @if($siteSettings?$siteSettings->contact_banner:'')
-                                            <img src="{{asset($siteSettings?$siteSettings->contact_banner:'')}}" alt="Current Image" class="mt-2" style="max-width: 100px;">
-                                        @endif
-                                    </div>
-
-                                    <div class="mb-3 col-md-4">
-                                        <label for="favicon" class="form-label">Training Banner</label>
-                                        <input type="file" class="form-control" name="training_banner" value="{{$siteSettings?$siteSettings->training_banner:''}}">
-                                        @if($siteSettings?$siteSettings->training_banner:'')
-                                            <img src="{{asset($siteSettings?$siteSettings->training_banner:'')}}" alt="Current Image" class="mt-2" style="max-width: 100px;">
+                                        <label for="advisement_image" class="form-label">Advisement Image</label>
+                                        <input type="file" class="form-control" name="advisement_image" value="{{$siteSettings?$siteSettings->advisement_image:''}}">
+                                        @if($siteSettings? $siteSettings->advisement_image:'')
+                                            <img src="{{asset($siteSettings? $siteSettings->advisement_image:'' )}}" alt="Current Image" class="mt-2" style="max-width: 300px;">
+                                            <br><br> <a href="{{route('advisement.destroy',$siteSettings->id)}}"class="btn btn-danger btn-sm">Delete Advisement Image</a>
                                         @endif
                                     </div>
 
 
-                                    <div class="mb-3 col-md-4">
-                                        <label for="favicon" class="form-label">Object Of Program 1</label>
-                                        <input type="file" class="form-control" name="object_of_project_image_1" value="{{$siteSettings?$siteSettings->object_of_project_image_1:''}}">
-                                        @if($siteSettings?$siteSettings->object_of_project_image_1:'')
-                                            <img src="{{asset($siteSettings?$siteSettings->object_of_project_image_1:'')}}" alt="Current Image" class="mt-2" style="max-width: 100px;">
-                                        @endif
-                                    </div>
+
+
 
                                     <div class="mb-3 col-md-4">
-                                        <label for="favicon" class="form-label">Object Of Program 2</label>
-                                        <input type="file" class="form-control" name="object_of_project_image_2" value="{{$siteSettings?$siteSettings->object_of_project_image_2:''}}">
-                                        @if($siteSettings?$siteSettings->object_of_project_image_2:'')
-                                            <img src="{{asset($siteSettings?$siteSettings->object_of_project_image_2:'')}}" alt="Current Image" class="mt-2" style="max-width: 100px;">
-                                        @endif
+                                        <label for="advisement_link" class="form-label">Advisement Link</label>
+                                        <input type="text" class="form-control" name="advisement_link" value="{{$siteSettings?$siteSettings->advisement_link:''}}"
+                                               placeholder="Advisement Link">
                                     </div>
-
 
 
                                 </div>

@@ -40,14 +40,14 @@ class SiteSettingController extends Controller
             'email' => 'nullable|email',
             'phone' => 'nullable',
             'address' => 'nullable',
-            'address_bn' => 'nullable',
-            'short_description' => 'nullable',
             'site_link' => 'nullable',
             'facebook_link' => 'nullable|url',
             'twitter_link' => 'nullable|url',
             'linkedin_link' => 'nullable|url',
             'instagram_link' => 'nullable|url',
             'youtube_link' => 'nullable|url',
+            'advisement_image' => 'nullable|image|mimes:jpeg,png,jpg,svg,gif|max:5120',
+            'advisement_link' => 'nullable|url',
         ];
 
         // Validate the request data
@@ -60,10 +60,10 @@ class SiteSettingController extends Controller
         // Check if the setting with the provided ID exists
         if ($id) {
             $setting = SiteSetting::findOrFail($id);
-            $setting->update($request->except(['favicon', 'logo', 'site_preview_image','team_banner','notice_banner','news_banner','project_banner','contact_banner','training_banner','object_of_project_image_1','object_of_project_image_2'])); // Exclude image fields from update
+            $setting->update($request->except(['favicon', 'logo', 'site_preview_image','advisement_image'])); // Exclude image fields from update
         } else {
             // If no ID provided, create a new setting
-            $setting = new SiteSetting($request->except(['favicon', 'logo', 'site_preview_image','team_banner','notice_banner','news_banner','project_banner','contact_banner','training_banner','object_of_project_image_1','object_of_project_image_2'])); // Exclude image fields from creation
+            $setting = new SiteSetting($request->except(['favicon', 'logo', 'site_preview_image','advisement_image'])); // Exclude image fields from creation
         }
 
         // Handle favicon upload
@@ -88,62 +88,32 @@ class SiteSettingController extends Controller
         }
 
         // Team Banner
-        if ($request->hasFile('team_banner')) {
-            $teamName = time().'.'.$request->file('team_banner')->extension();
-            $request->file('team_banner')->move(public_path('images/team_banner'), $teamName);
-            $setting->team_banner = 'images/team_banner/'.$teamName;
-        }
-        // Notice Banner
-        if ($request->hasFile('notice_banner')) {
-            $noticeName = time().'.'.$request->file('notice_banner')->extension();
-            $request->file('notice_banner')->move(public_path('images/notice_banner'), $noticeName);
-            $setting->notice_banner = 'images/notice_banner/'.$noticeName;
-        }
-        // News Banner
-        if ($request->hasFile('news_banner')) {
-            $newsName = time().'.'.$request->file('news_banner')->extension();
-            $request->file('news_banner')->move(public_path('images/news_banner'), $newsName);
-            $setting->news_banner = 'images/news_banner/'.$newsName;
-        }
-        // Project Banner
-        if ($request->hasFile('project_banner')) {
-            $projectName = time().'.'.$request->file('project_banner')->extension();
-            $request->file('project_banner')->move(public_path('images/project_banner'), $projectName);
-            $setting->project_banner = 'images/project_banner/'.$projectName;
-        }
-
-        // Contact Banner
-        if ($request->hasFile('contact_banner')) {
-            $contactName = time().'.'.$request->file('contact_banner')->extension();
-            $request->file('contact_banner')->move(public_path('images/contact_banner'), $contactName);
-            $setting->contact_banner = 'images/contact_banner/'.$contactName;
-        }
-
-        // Training Banner
-        if ($request->hasFile('training_banner')) {
-            $trainingName = time().'.'.$request->file('training_banner')->extension();
-            $request->file('training_banner')->move(public_path('images/training_banner'), $trainingName);
-            $setting->training_banner = 'images/training_banner/'.$trainingName;
-        }
-
-        // Object Of Project image 1
-        if ($request->hasFile('object_of_project_image_1')) {
-            $object1Name = time().'.'.$request->file('object_of_project_image_1')->extension();
-            $request->file('object_of_project_image_1')->move(public_path('images/object'), $object1Name);
-            $setting->object_of_project_image_1 = 'images/object/'.$object1Name;
-        }
-
-        // Object Of Project image 2
-        if ($request->hasFile('object_of_project_image_2')) {
-            $object2Name = time().'.'.$request->file('object_of_project_image_2')->extension();
-            $request->file('object_of_project_image_2')->move(public_path('images/object'), $object2Name);
-            $setting->object_of_project_image_2 = 'images/object/'.$object2Name;
+        if ($request->hasFile('advisement_image')) {
+            $teamName = time().'.'.$request->file('advisement_image')->extension();
+            $request->file('advisement_image')->move(public_path('images/advisement_image'), $teamName);
+            $setting->advisement_image = 'images/advisement_image/'.$teamName;
         }
 
 
         $setting->save();
         $message = $id ? 'Site settings updated successfully!' : 'Site settings created successfully!';
         return redirect()->back()->with('success', $message);
+    }
+
+    //need advisement_image delete option
+    public function deleteAdvisementImage($id)
+    {
+        $siteSetting = SiteSetting::findOrFail($id);
+        if ($siteSetting->advisement_image) {
+            $imagePath = public_path($siteSetting->advisement_image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+            $siteSetting->advisement_image = null;
+            $siteSetting->save();
+            return redirect()->back()->with('success', 'Advisement image deleted successfully!');
+        }
+        return redirect()->back()->with('error', 'Advisement image not found!');
     }
 
 }

@@ -29,12 +29,26 @@ use App\Http\Controllers\user\SkillController;
 use App\Http\Controllers\user\UserAccountController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+//Route::group([
+//    'prefix' => LaravelLocalization::setLocale(),
+//    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+//], function() {
+//
+//    Route::get('/', function () {
+//        return view('welcome');
+//    });
+//
+//});
+
 
 //Account Manage
 Route::get('/company-registration', [CompanyRegistrationController::class, 'showCompanyRegistrationForm'])->name('company.registration');
@@ -154,6 +168,7 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     //Site Setting
     Route::get('/site-setting', [SiteSettingController::class, 'index'])->name('site.setting');
     Route::post('/site-settings-store-update/{id?}', [SiteSettingController::class, 'createOrUpdate'])->name('site-settings.createOrUpdate');
+    Route::get('/advisement-delete/{id}', [SiteSettingController::class, 'deleteAdvisementImage'])->name('advisement.destroy');
 
     //Site About
     Route::get('/about', [AboutController::class, 'index'])->name('about.section');

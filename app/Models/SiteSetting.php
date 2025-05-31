@@ -18,8 +18,6 @@ class SiteSetting extends Model
         'email',
         'phone',
         'address',
-        'address_bn',
-        'short_description',
         'site_link',
         'facebook_link',
         'twitter_link',
@@ -27,12 +25,7 @@ class SiteSetting extends Model
         'instagram_link',
         'youtube_link',
         'team_banner',
-        'notice_banner',
-        'news_banner',
-        'project_banner',
-        'contact_banner',
-        'training_banner',
-        'object_of_project_image_1',
-        'object_of_project_image_2',
+        'advisement_image',
+        'advisement_link',
     ];
 }
