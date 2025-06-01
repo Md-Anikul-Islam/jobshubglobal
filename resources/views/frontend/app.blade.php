@@ -74,6 +74,7 @@
                             >Post a Job</a
                             >
                         </li>
+                        <li><a href="{{route('join.job.fair')}}">Join Fair</a></li>
 
                       {{--multiple language Switcher--}}
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CompanyController;
+use App\Http\Controllers\admin\JobFairController;
 use App\Http\Controllers\admin\JoinCategoryController;
 use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\MigrationCategoryController;
@@ -64,6 +65,10 @@ Route::post('/user-verify-complete', [UserAccountController::class, 'verifyUser'
 
 //Apply Job
 Route::get('/jobs/apply/{job}', [ApplyJobController::class, 'applyJob'])->name('jobs.apply');
+
+//Job Fair
+Route::get('/join-job-fair', [JobFairController::class, 'jobFair'])->name('join.job.fair');
+Route::post('/job-fair-store', [JobFairController::class, 'storeJobFair'])->name('job.fair.store');
 
 //home
 Route::get('/', [FrontendController::class, 'home'])->name('home');
