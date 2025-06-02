@@ -174,12 +174,11 @@
     }
 </script>
 
+{{--<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>--}}
+
+<script src="{{asset('frontend/js/element.js')}}"></script>
 
 
-
-
-
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <!-- Footer -->
 <footer class="footer-area">
     <div class="container">
