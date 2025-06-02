@@ -38,19 +38,6 @@ Route::get('/', function () {
 });
 
 
-
-//Route::group([
-//    'prefix' => LaravelLocalization::setLocale(),
-//    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-//], function() {
-//
-//    Route::get('/', function () {
-//        return view('welcome');
-//    });
-//
-//});
-
-
 //Account Manage
 Route::get('/company-registration', [CompanyRegistrationController::class, 'showCompanyRegistrationForm'])->name('company.registration');
 Route::post('/company-registration-store', [CompanyRegistrationController::class, 'storeCompanyRegisterInfo'])->name('company.registration.store');
@@ -84,6 +71,8 @@ Route::get('/visa-migration', [ElearningController::class, 'visaMigration'])->na
 Route::get('visa-migration-details/{id}', [ElearningController::class, 'detailsVisaMigration'])->name('visa.migration.details');
 
 Route::get('/contact-us', [ContactUsController::class, 'contactUs'])->name('contact.us');
+
+
 
 
 Route::middleware(['auth', 'company'])->group(callback: function () {

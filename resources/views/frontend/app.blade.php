@@ -4,6 +4,8 @@
     $siteSetting = DB::table('site_settings')->first();
 @endphp
 <head>
+    <meta name="google" content="notranslate">
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Hub Global</title>
@@ -11,6 +13,12 @@
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/css/swiper-bundle.min.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}" />
+    <style>
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-gadget-icon {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
 <!-- Ads Alert -->
@@ -78,6 +86,7 @@
 
                       {{--multiple language Switcher--}}
 
+                        <div id="google_translate_element"></div>
 {{--                        <li class="language-switcher">--}}
 {{--                            <div class="dropdown">--}}
 {{--                                <button--}}
@@ -181,6 +190,18 @@
     </div>
 </div>
 @yield('content')
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,bn,fr,es,de,hi', // add your desired languages here
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <!-- Footer -->
 <footer class="footer-area">
     <div class="container">
@@ -299,6 +320,9 @@
         </div>
     </div>
 </footer>
+
+
+
 
 <script src="{{asset('frontend/js/jquery.min.js')}}"></script>
 <script src="{{asset('frontend/js/bootstrap.bundle.min.js')}}"></script>
