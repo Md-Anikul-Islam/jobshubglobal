@@ -15,6 +15,7 @@
         "laravelcollective/html": "^6.4",
         "mcamara/laravel-localization": "^2.3",
         "spatie/laravel-permission": "^6.2",
+        "stichoza/google-translate-php": "^5.3",
         "yoeunes/toastr": "^2.3"
     },
     "require-dev": {
