@@ -4,6 +4,7 @@
     $siteSetting = DB::table('site_settings')->first();
 @endphp
 <head>
+    <meta name="google" content="notranslate">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Hub Global</title>
@@ -11,6 +12,12 @@
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/css/swiper-bundle.min.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}" />
+    <style>
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-gadget-icon {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
 <!-- Ads Alert -->
@@ -75,36 +82,8 @@
                             >
                         </li>
                         <li><a href="{{route('join.job.fair')}}">Join Fair</a></li>
-
-                      {{--multiple language Switcher--}}
-
-{{--                        <li class="language-switcher">--}}
-{{--                            <div class="dropdown">--}}
-{{--                                <button--}}
-{{--                                    class="btn dropdown-toggle"--}}
-{{--                                    type="button"--}}
-{{--                                    id="dropdownMenuButton1"--}}
-{{--                                    data-bs-toggle="dropdown"--}}
-{{--                                    aria-expanded="false"--}}
-{{--                                >--}}
-{{--                                    {{app()->getLocale()}}--}}
-{{--                                </button>--}}
-{{--                                <ul--}}
-{{--                                    class="dropdown-menu"--}}
-{{--                                    aria-labelledby="dropdownMenuButton1"--}}
-{{--                                >--}}
-{{--                                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
-{{--                                        <li>--}}
-{{--                                            <a rel="alternate" hreflang="{{ $localeCode }}"--}}
-{{--                                               href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"--}}
-{{--                                               class="dropdown-item {{ LaravelLocalization::getCurrentLocale() == $localeCode ? 'active' : '' }}">--}}
-{{--                                                {{ $properties['native'] }}--}}
-{{--                                            </a>--}}
-{{--                                        </li>--}}
-{{--                                    @endforeach--}}
-{{--                                </ul>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
+                        {{--multiple language Switcher--}}
+                        <div id="google_translate_element"></div>
 
 
                     </ul>
@@ -181,6 +160,17 @@
     </div>
 </div>
 @yield('content')
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,bn,fr,es,de,hi,ta,th,bo,ar',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
+</script>
+<script src="{{asset('frontend/js/element.js')}}"></script>
 <!-- Footer -->
 <footer class="footer-area">
     <div class="container">
