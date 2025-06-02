@@ -137,6 +137,9 @@ class PermissionTableSeeder extends Seeder
             'user-account',
             'apply-job-list',
 
+            //Fair
+            'fair-join-user-list'
+
         ];
         foreach ($permissions as $permission) {
             if (!Permission::where('name', $permission)->exists()) {

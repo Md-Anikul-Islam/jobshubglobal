@@ -242,6 +242,15 @@
                     </li>
                 @endcan
 
+                @can('fair-join-user-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('fair.join.user')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span> Fair Join User </span>
+                        </a>
+                    </li>
+                @endcan
+
 
 
 

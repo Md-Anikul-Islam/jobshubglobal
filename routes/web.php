@@ -205,7 +205,8 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/user-account-create-or-update/{id?}', [UserAccountController::class, 'createOrUpdateUserAccount'])->name('user.account.create.update');
     Route::get('/applied-job-list', [UserAccountController::class, 'applyJobList'])->name('job.apply');
 
-
+    Route::get('/fair-join-user', [SiteSettingController::class, 'joinUserFairList'])->name('fair.join.user');
+    Route::get('/join-user-fair-destroy/{id}', [SiteSettingController::class, 'destroy'])->name('join.user.fair.destroy');
 });
 
 require __DIR__.'/auth.php';

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\JobFair;
 use App\Models\SiteSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
+use Yoeunes\Toastr\Facades\Toastr;
 
 class SiteSettingController extends Controller
 {
@@ -114,6 +116,24 @@ class SiteSettingController extends Controller
             return redirect()->back()->with('success', 'Advisement image deleted successfully!');
         }
         return redirect()->back()->with('error', 'Advisement image not found!');
+    }
+
+    public function joinUserFairList()
+    {
+        $jobFair = JobFair::latest()->get();
+        return view('admin.pages.siteSetting.jobFairJoinUserList', compact('jobFair'));
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $jobFair = JobFair::find($id);
+            $jobFair->delete();
+            Toastr::success('Deleted Successfully', 'Success');
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
+        }
     }
 
 }
