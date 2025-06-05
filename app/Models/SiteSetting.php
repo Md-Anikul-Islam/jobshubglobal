@@ -24,6 +24,7 @@ class SiteSetting extends Model
         'linkedin_link',
         'instagram_link',
         'youtube_link',
+        'tiktok_link',
         'team_banner',
         'advisement_image',
         'advisement_link',

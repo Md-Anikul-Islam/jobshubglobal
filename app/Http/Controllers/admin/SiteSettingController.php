@@ -48,6 +48,7 @@ class SiteSettingController extends Controller
             'linkedin_link' => 'nullable|url',
             'instagram_link' => 'nullable|url',
             'youtube_link' => 'nullable|url',
+            'tiktok_link' => 'nullable|url',
             'advisement_image' => 'nullable|image|mimes:jpeg,png,jpg,svg,gif|max:5120',
             'advisement_link' => 'nullable|url',
         ];

@@ -17,6 +17,25 @@
         .goog-te-gadget-icon {
             display: none !important;
         }
+        .goog-te-gadget-simple {
+            background-color: #008a22;
+            color: #ffffff;
+            border: none !important;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            display: inline-block;
+            padding: 8px 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .goog-te-gadget-simple:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
     </style>
 </head>
 <body>
@@ -195,7 +214,7 @@
                 </p>
                 <ul class="d-flex align-items-center">
                     <li>
-                        <a href="#">
+                        <a href="{{$siteSetting? $siteSetting->twitter_link:''}}">
                             <svg
                                 width="16"
                                 height="14"
@@ -211,7 +230,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{$siteSetting? $siteSetting->facebook_link:''}}"
                         ><svg
                                 width="10"
                                 height="18"
@@ -227,7 +246,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="{{$siteSetting? $siteSetting->instagram_link:''}}"
                         ><svg
                                 width="21"
                                 height="21"
@@ -250,6 +269,33 @@
                             </svg>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="{{$siteSetting? $siteSetting->youtube_link:''}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                                <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{$siteSetting? $siteSetting->tiktok_link:''}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
+                                <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{$siteSetting? $siteSetting->linkedin_link:''}}">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.8154 0H1.18154C0.528 0 0 0.528 0 1.18154V14.8154C0 15.4693 0.528 16 1.18154 16H14.8154C15.4693 16 16 15.4693 16 14.8154V1.18154C16 0.528 15.4693 0 14.8154 0ZM4.744 13.6308H2.37077V6.07877H4.744V13.6308ZM3.55754 5.048C2.79508 5.048 2.176 4.42892 2.176 3.66646C2.176 2.904 2.79508 2.28492 3.55754 2.28492C4.32 2.28492 4.93908 2.904 4.93908 3.66646C4.93908 4.42892 4.32 5.048 3.55754 5.048ZM13.6308 13.6308H11.2585V9.792C11.2585 8.93846 11.2462 7.85354 10.0868 7.85354C8.91877 7.85354 8.73846 8.77354 8.73846 9.73538V13.6308H6.36677V6.07877H8.64677V7.09231H8.67877C8.96923 6.53169 9.69046 5.93908 10.7468 5.93908C12.952 5.93908 13.6308 7.30585 13.6308 9.40677V13.6308Z" fill="currentColor"/>
+                            </svg>
+                        </a>
+                    </li>
+
+
+
+
+
                 </ul>
             </div>
             <div

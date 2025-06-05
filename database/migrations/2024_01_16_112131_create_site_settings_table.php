@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('linkedin_link')->nullable();
             $table->string('instagram_link')->nullable();
             $table->string('youtube_link')->nullable();
-
+            $table->string('tiktok_link')->nullable();
             $table->string('advisement_image')->nullable();
             $table->string('advisement_link')->nullable();
 
