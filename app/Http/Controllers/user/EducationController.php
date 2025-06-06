@@ -33,9 +33,7 @@ class EducationController extends Controller
             ]);
             $education = new Education();
             $education->institute_name = $request->institute_name;
-            $education->institute_name_bn = $request->institute_name_bn;
             $education->degree_name = $request->degree_name;
-            $education->degree_name_bn = $request->degree_name_bn;
             $education->result = $request->result;
             $education->passing_year = $request->passing_year;
             $education->user_id = auth()->user()->id;
@@ -55,9 +53,7 @@ class EducationController extends Controller
             ]);
             $education = Education::find($id);
             $education->institute_name = $request->institute_name;
-            $education->institute_name_bn = $request->institute_name_bn;
             $education->degree_name = $request->degree_name;
-            $education->degree_name_bn = $request->degree_name_bn;
             $education->result = $request->result;
             $education->passing_year = $request->passing_year;
             $education->save();

@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('institute_name')->nullable();
-            $table->string('institute_name_bn')->nullable();
             $table->string('degree_name')->nullable();
-            $table->string('degree_name_bn')->nullable();
             $table->string('result');
             $table->integer('passing_year');
             $table->timestamps();

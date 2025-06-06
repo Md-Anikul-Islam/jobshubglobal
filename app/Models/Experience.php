@@ -11,9 +11,7 @@ class Experience extends Model
     protected $fillable = [
         'user_id',
         'office_name',
-        'office_name_bn',
         'designation',
-        'designation_bn',
         'year_of_experience',
     ];
 }

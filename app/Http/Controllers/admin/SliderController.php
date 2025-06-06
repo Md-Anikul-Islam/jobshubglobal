@@ -38,9 +38,7 @@ class SliderController extends Controller
 
             $slider = new Slider();
             $slider->title = $request->title;
-            $slider->title_bn = $request->title_bn;
             $slider->details = $request->details;
-            $slider->details_bn = $request->details_bn;
             $slider->link = $request->link;
             $slider->image = $file;
             $slider->save();
@@ -61,9 +59,7 @@ class SliderController extends Controller
             ]);
             $slider = Slider::find($id);
             $slider->title = $request->title;
-            $slider->title_bn = $request->title_bn;
             $slider->details = $request->details;
-            $slider->details_bn = $request->details_bn;
             $slider->link = $request->link;
             $slider->status = $request->status;
             if ($request->image) {

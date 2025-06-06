@@ -37,9 +37,7 @@ class ReviewController extends Controller
             $request->image->move(public_path('images/review'), $file);
             $review = new Review();
             $review->name = $request->name;
-            $review->name_bn = $request->name_bn;
             $review->details = $request->details;
-            $review->details_bn = $request->details_bn;
             $review->image = $file;
             $review->save();
             Toastr::success('Review Added Successfully', 'Success');
@@ -59,9 +57,7 @@ class ReviewController extends Controller
             ]);
             $review = Review::find($id);
             $review->name = $request->name;
-            $review->name_bn = $request->name_bn;
             $review->details = $request->details;
-            $review->details_bn = $request->details_bn;
             $review->status = $request->status;
             if ($request->image) {
                 $file = time() . '.' . $request->image->extension();

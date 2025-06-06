@@ -34,7 +34,6 @@ class SkillController extends Controller
             ]);
             $skill = new Skill();
             $skill->name = $request->name;
-            $skill->name_bn = $request->name_bn;
             $skill->user_id = auth()->user()->id;
             $skill->save();
             Toastr::success('Skill Added Successfully', 'Success');
@@ -53,7 +52,6 @@ class SkillController extends Controller
             ]);
             $skill = Skill::find($id);
             $skill->name = $request->name;
-            $skill->name_bn = $request->name_bn;
             $skill->status = $request->status;
             $skill->save();
             Toastr::success('Skill Updated Successfully', 'Success');

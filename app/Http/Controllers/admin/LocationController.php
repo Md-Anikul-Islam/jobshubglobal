@@ -34,7 +34,6 @@ class LocationController extends Controller
             ]);
             $location = new Location();
             $location->name = $request->name;
-            $location->name_bn = $request->name_bn;
             $location->save();
             Toastr::success('Location Added Successfully', 'Success');
             return redirect()->back();
@@ -51,7 +50,6 @@ class LocationController extends Controller
             ]);
             $location = Location::find($id);
             $location->name = $request->name;
-            $location->name_bn = $request->name_bn;
             $location->status = $request->status;
             $location->save();
             Toastr::success('Location Updated Successfully', 'Success');

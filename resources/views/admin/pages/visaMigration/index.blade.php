@@ -32,8 +32,7 @@
                     <tr>
                         <th>S/N</th>
                         <th>Category</th>
-                        <th>Title En</th>
-                        <th>Title Bn</th>
+                        <th>Title</th>
                         <th>Date</th>
                         <th>Image</th>
                         <th>Status</th>
@@ -46,7 +45,6 @@
                             <td>{{$key+1}}</td>
                             <td>{{$migrationData->migrationCategory->name??''}}</td>
                             <td>{{$migrationData->title}}</td>
-                            <td>{{$migrationData->title_bn}}</td>
                             <td>{{$migrationData->date}}</td>
                             <td>
                                 <img src="{{asset('images/migration/'. $migrationData->image )}}" alt="Current Image" style="max-width: 50px;">
@@ -91,18 +89,12 @@
 
                                                     <div class="col-6">
                                                         <div class="mb-3">
-                                                            <label for="title" class="form-label">Title En</label>
+                                                            <label for="title" class="form-label">Title</label>
                                                             <input type="text" id="title" name="title" value="{{$migrationData->title}}"
                                                                    class="form-control" placeholder="Enter Title" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
-                                                        <div class="mb-3">
-                                                            <label for="title" class="form-label">Title Bn</label>
-                                                            <input type="text" id="title_bn" name="title_bn" value="{{$migrationData->title_bn}}"
-                                                                   class="form-control" placeholder="Enter Title">
-                                                        </div>
-                                                    </div>
+
                                                     <div class="col-6">
                                                         <div class="mb-3">
                                                             <label for="title" class="form-label">Published Date</label>
@@ -142,17 +134,10 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label>Details English </label>
+                                                            <label>Details </label>
                                                             <textarea id="summernoteEdit{{ $migrationData->id }}" name="details">{{ $migrationData->details }}</textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label>Details Bangle</label>
-                                                            <textarea id="summernoteEdit{{ $migrationData->id }}" name="details_bn">{{ $migrationData->details_bn }}</textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div class="d-flex justify-content-end">
                                                     <button class="btn btn-primary" type="submit">Update</button>
                                                 </div>
@@ -216,7 +201,7 @@
 
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <label for="title" class="form-label">Title En</label>
+                                    <label for="title" class="form-label">Title</label>
                                     <input type="text" id="title" name="title"
                                            class="form-control" placeholder="Enter Title" required>
                                 </div>
@@ -253,17 +238,11 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label> Details English</label>
+                                    <label> Details </label>
                                     <textarea id="summernote" name="details"></textarea>
                                 </div>
                             </div>
 
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label> Details Bangle</label>
-                                    <textarea id="summernoteBn" name="details_bn"></textarea>
-                                </div>
-                            </div>
                         </div>
                         <div class="d-flex justify-content-end">
                             <button class="btn btn-primary" type="submit">Submit</button>

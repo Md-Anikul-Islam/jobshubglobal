@@ -11,9 +11,7 @@ class Training extends Model
     protected $fillable = [
         'training_category_id',
         'title',
-        'title_bn',
         'details',
-        'details_bn',
         'training_date',
         'training_time',
         'training_duration',

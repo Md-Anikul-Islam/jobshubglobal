@@ -34,7 +34,6 @@ class MigrationCategoryController extends Controller
             ]);
             $migrationCategory = new MigrationCategory();
             $migrationCategory->name = $request->name;
-            $migrationCategory->name_bn = $request->name_bn;
             $migrationCategory->save();
             Toastr::success('Migration Category Added Successfully', 'Success');
             return redirect()->back();
@@ -52,7 +51,6 @@ class MigrationCategoryController extends Controller
             ]);
             $migrationCategory = MigrationCategory::find($id);
             $migrationCategory->name = $request->name;
-            $migrationCategory->name_bn = $request->name_bn;
             $migrationCategory->status = $request->status;
             $migrationCategory->save();
             Toastr::success('Migration Category Updated Successfully', 'Success');

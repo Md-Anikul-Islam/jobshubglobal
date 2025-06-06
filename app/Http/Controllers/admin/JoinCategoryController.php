@@ -34,7 +34,6 @@ class JoinCategoryController extends Controller
             ]);
             $category = new JoinCategory();
             $category->name = $request->name;
-            $category->name_bn = $request->name_bn;
             $category->save();
             Toastr::success('Join Category Added Successfully', 'Success');
             return redirect()->back();
@@ -52,7 +51,6 @@ class JoinCategoryController extends Controller
             ]);
             $category = JoinCategory::find($id);
             $category->name = $request->name;
-            $category->name_bn = $request->name_bn;
             $category->status = $request->status;
             $category->save();
             Toastr::success('Join Category Updated Successfully', 'Success');

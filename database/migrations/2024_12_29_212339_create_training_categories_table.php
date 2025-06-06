@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('training_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('name_bn')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

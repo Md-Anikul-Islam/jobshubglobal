@@ -31,7 +31,6 @@
                     <tr>
                         <th>S/N</th>
                         <th>Title</th>
-                        <th>Title Bn</th>
                         <th>File</th>
                         <th>Link</th>
                         <th>Status</th>
@@ -43,7 +42,6 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$sliderData->title}}</td>
-                            <td>{{$sliderData->title_bn}}</td>
                             <td>
                                 <img src="{{asset('images/slider/'. $sliderData->image )}}" alt="Current Image" style="max-width: 50px;">
                             </td>
@@ -75,16 +73,9 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label for="title" class="form-label">Title English</label>
+                                                            <label for="title" class="form-label">Title</label>
                                                             <input type="text" id="title" name="title" value="{{$sliderData->title}}"
                                                                    class="form-control" placeholder="Enter Title English" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label for="title_bn" class="form-label">Title Bangle</label>
-                                                            <input type="text" id="title_bn" name="title_bn" value="{{$sliderData->title_bn}}"
-                                                                   class="form-control" placeholder="Enter Title Bangle" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -116,14 +107,8 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label>Details English </label>
+                                                            <label>Details </label>
                                                             <textarea id="summernoteEdit{{ $sliderData->id }}" name="details">{{ $sliderData->details }}</textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label>Details Bangle</label>
-                                                            <textarea id="summernoteEdit{{ $sliderData->id }}" name="details_bn">{{ $sliderData->details_bn }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -174,16 +159,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="title" class="form-label">Title English</label>
+                                    <label for="title" class="form-label">Title</label>
                                     <input type="text" id="title" name="title"
                                            class="form-control" placeholder="Enter Title English" required>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label for="title_bn" class="form-label">Title Bangle</label>
-                                    <input type="text" id="title_bn" name="title_bn"
-                                           class="form-control" placeholder="Enter Title Bangle" required>
                                 </div>
                             </div>
                         </div>
@@ -206,17 +184,8 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="mb-3">
-                                        <label> Details English</label>
+                                        <label> Details</label>
                                         <textarea id="summernote" name="details"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="mb-3">
-                                        <label> Details Bangle</label>
-                                        <textarea id="summernoteBn" name="details_bn"></textarea>
                                     </div>
                                 </div>
                             </div>

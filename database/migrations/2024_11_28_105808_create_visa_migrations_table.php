@@ -15,12 +15,10 @@ return new class extends Migration
             $table->id();
             $table->integer('migration_category_id')->nullable();
             $table->string('title');
-            $table->string('title_bn')->nullable();
             $table->date('date')->nullable();
             $table->string('image')->nullable();
             $table->string('link')->nullable();
             $table->longText('details')->nullable();
-            $table->text('details_bn')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

@@ -14,15 +14,12 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->foreignId('location_id')->constrained('locations')->onDelete('cascade');
             $table->string('title');
-            $table->string('title_bn')->nullable();
             $table->integer('vacancy');
             $table->string('job_type')->nullable();
             $table->string('address');
-            $table->string('address_bn')->nullable();
             $table->string('salary');
             $table->date('deadline');
             $table->longText('details');
-            $table->longText('details_bn')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

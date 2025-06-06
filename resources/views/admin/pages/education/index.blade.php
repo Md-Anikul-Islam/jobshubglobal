@@ -28,10 +28,8 @@
                     <thead>
                     <tr>
                         <th>S/N</th>
-                        <th>Institute Name(En)</th>
-                        <th>Institute Name(Bn)</th>
-                        <th>Degree (En)</th>
-                        <th>Degree (Bn)</th>
+                        <th>Institute Name</th>
+                        <th>Degree </th>
                         <th>Result</th>
                         <th>Passing Year</th>
                         <th>Action</th>
@@ -42,9 +40,7 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$educationData->institute_name}}</td>
-                            <td>{{$educationData->institute_name_bn}}</td>
                             <td>{{$educationData->degree_name}}</td>
-                            <td>{{$educationData->degree_name_bn}}</td>
                             <td>{{$educationData->result}}</td>
                             <td>{{$educationData->passing_year}}</td>
                             <td style="width: 100px;">
@@ -73,31 +69,18 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label for="institute_name" class="form-label">Institute Name(En)</label>
+                                                            <label for="institute_name" class="form-label">Institute Name</label>
                                                             <input type="text" id="institute_name" name="institute_name" value="{{$educationData->institute_name}}"
-                                                                   class="form-control" placeholder="Enter Institute Name(En)" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label for="institute_name_bn" class="form-label">Institute Name(Bn)</label>
-                                                            <input type="text" id="institute_name_bn" name="institute_name_bn" value="{{$educationData->institute_name_bn}}"
-                                                                   class="form-control" placeholder="Enter Institute Name(Bn)" required>
+                                                                   class="form-control" placeholder="Enter Institute Name" required>
                                                         </div>
                                                     </div>
 
+
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label for="degree_name" class="form-label">Degree (En)</label>
+                                                            <label for="degree_name" class="form-label">Degree </label>
                                                             <input type="text" id="degree_name" name="degree_name" value="{{$educationData->degree_name}}"
-                                                                   class="form-control" placeholder="Enter Institute Name(En)" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label for="degree_name_bn" class="form-label">Degree (Bn)</label>
-                                                            <input type="text" id="degree_name_bn" name="degree_name_bn" value="{{$educationData->degree_name_bn}}"
-                                                                   class="form-control" placeholder="Enter Institute Name(Bn)" required>
+                                                                   class="form-control" placeholder="Enter Institute Name" required>
                                                         </div>
                                                     </div>
 
@@ -165,31 +148,17 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="institute_name" class="form-label">Institute Name(En)</label>
+                                    <label for="institute_name" class="form-label">Institute Name</label>
                                     <input type="text" id="institute_name" name="institute_name"
-                                           class="form-control" placeholder="Enter Institute Name(En)" required>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label for="institute_name_bn" class="form-label">Institute Name(Bn)</label>
-                                    <input type="text" id="institute_name_bn" name="institute_name_bn"
-                                           class="form-control" placeholder="Enter Institute Name(Bn)" required>
+                                           class="form-control" placeholder="Enter Institute Name" required>
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="degree_name" class="form-label">Degree (En)</label>
+                                    <label for="degree_name" class="form-label">Degree </label>
                                     <input type="text" id="degree_name" name="degree_name"
-                                           class="form-control" placeholder="Enter Institute Name(En)" required>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label for="degree_name_bn" class="form-label">Degree (Bn)</label>
-                                    <input type="text" id="degree_name_bn" name="degree_name_bn"
-                                           class="form-control" placeholder="Enter Institute Name(Bn)" required>
+                                           class="form-control" placeholder="Enter Institute Name" required>
                                 </div>
                             </div>
 

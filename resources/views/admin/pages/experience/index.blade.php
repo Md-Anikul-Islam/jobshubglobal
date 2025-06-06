@@ -28,10 +28,8 @@
                     <thead>
                     <tr>
                         <th>S/N</th>
-                        <th>Office Name(En)</th>
-                        <th>Office Name(Bn)</th>
-                        <th>Designation (En)</th>
-                        <th>Designation (Bn)</th>
+                        <th>Office Name</th>
+                        <th>Designation</th>
                         <th>Year Of Experience</th>
                         <th>Action</th>
                     </tr>
@@ -41,9 +39,7 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$experiencesData->office_name}}</td>
-                            <td>{{$experiencesData->office_name_bn}}</td>
                             <td>{{$experiencesData->designation}}</td>
-                            <td>{{$experiencesData->designation_bn}}</td>
                             <td>{{$experiencesData->year_of_experience}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
@@ -71,31 +67,16 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label for="office_name" class="form-label">Office Name(En)</label>
+                                                            <label for="office_name" class="form-label">Office Name</label>
                                                             <input type="text" id="office_name" name="office_name" value="{{$experiencesData->office_name}}"
-                                                                   class="form-control" placeholder="Enter Office Name(En)" required>
+                                                                   class="form-control" placeholder="Enter Office Name" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label for="office_name_bn" class="form-label">Office Name(Bn)</label>
-                                                            <input type="text" id="office_name_bn" name="office_name_bn" value="{{$experiencesData->office_name_bn}}"
-                                                                   class="form-control" placeholder="Enter Office Name(Bn)" required>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label for="designation" class="form-label">Designation (En)</label>
+                                                            <label for="designation" class="form-label">Designation</label>
                                                             <input type="text" id="designation" name="designation" value="{{$experiencesData->designation}}"
-                                                                   class="form-control" placeholder="Enter Designation(En)" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label for="designation_bn" class="form-label">Designation (Bn)</label>
-                                                            <input type="text" id="designation_bn" name="designation_bn" value="{{$experiencesData->designation_bn}}"
-                                                                   class="form-control" placeholder="Enter Designation(Bn)" required>
+                                                                   class="form-control" placeholder="Enter Designation" required>
                                                         </div>
                                                     </div>
 
@@ -155,31 +136,18 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="office_name" class="form-label">Office Name(En)</label>
+                                    <label for="office_name" class="form-label">Office Name</label>
                                     <input type="text" id="office_name" name="office_name"
-                                           class="form-control" placeholder="Enter Office Name(En)" required>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label for="office_name_bn" class="form-label">Office Name(Bn)</label>
-                                    <input type="text" id="office_name_bn" name="office_name_bn"
-                                           class="form-control" placeholder="Enter Office Name(Bn)" required>
+                                           class="form-control" placeholder="Enter Office Name" required>
                                 </div>
                             </div>
 
+
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="designation" class="form-label">Designation (En)</label>
+                                    <label for="designation" class="form-label">Designation </label>
                                     <input type="text" id="designation" name="designation"
-                                           class="form-control" placeholder="Enter Designation(En)" required>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label for="designation_bn" class="form-label">Designation (Bn)</label>
-                                    <input type="text" id="designation_bn" name="designation_bn"
-                                           class="form-control" placeholder="Enter Designation(Bn)" required>
+                                           class="form-control" placeholder="Enter Designation" required>
                                 </div>
                             </div>
 

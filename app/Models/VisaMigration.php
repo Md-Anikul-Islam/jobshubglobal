@@ -11,12 +11,10 @@ class VisaMigration extends Model
     protected $fillable = [
         'migration_category_id',
         'title',
-        'title_bn',
         'date',
         'image',
         'link',
         'details',
-        'details_bn',
         'status',
     ];
 

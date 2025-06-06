@@ -34,7 +34,6 @@ class TrainingCategoryController extends Controller
             ]);
             $category = new TrainingCategory();
             $category->name = $request->name;
-            $category->name_bn = $request->name_bn;
             $category->save();
             Toastr::success('Training Category Added Successfully', 'Success');
             return redirect()->back();
@@ -52,7 +51,6 @@ class TrainingCategoryController extends Controller
             ]);
             $category = TrainingCategory::find($id);
             $category->name = $request->name;
-            $category->name_bn = $request->name_bn;
             $category->status = $request->status;
             $category->save();
             Toastr::success('Training Category Updated Successfully', 'Success');

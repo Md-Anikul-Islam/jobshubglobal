@@ -34,9 +34,7 @@ class ExperienceController extends Controller
             ]);
             $experience = new Experience();
             $experience->office_name = $request->office_name;
-            $experience->office_name_bn = $request->office_name_bn;
             $experience->designation = $request->designation;
-            $experience->designation_bn = $request->designation_bn;
             $experience->year_of_experience = $request->year_of_experience;
             $experience->user_id = auth()->user()->id;
             $experience->save();
@@ -55,9 +53,7 @@ class ExperienceController extends Controller
             ]);
             $experience = Experience::find($id);
             $experience->office_name = $request->office_name;
-            $experience->office_name_bn = $request->office_name_bn;
             $experience->designation = $request->designation;
-            $experience->designation_bn = $request->designation_bn;
             $experience->year_of_experience = $request->year_of_experience;
             $experience->save();
             Toastr::success('Experiences Updated Successfully', 'Success');

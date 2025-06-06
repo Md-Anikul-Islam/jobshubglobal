@@ -43,11 +43,9 @@ class VisaMigrationController extends Controller
             $migration = new VisaMigration();
             $migration->migration_category_id = $request->migration_category_id;
             $migration->title = $request->title;
-            $migration->title_bn = $request->title_bn;
             $migration->link = $request->link;
             $migration->date = $request->date;
             $migration->details = $request->details;
-            $migration->details_bn = $request->details_bn;
             $migration->image = $imageName;
             $migration->save();
             Toastr::success('Visa Migration Added Successfully', 'Success');
@@ -67,11 +65,9 @@ class VisaMigrationController extends Controller
             $migration = VisaMigration::find($id);
             $migration->migration_category_id = $request->migration_category_id;
             $migration->title = $request->title;
-            $migration->title_bn = $request->title_bn;
             $migration->link = $request->link;
             $migration->date = $request->date;
             $migration->details = $request->details;
-            $migration->details_bn = $request->details_bn;
             $migration->status = $request->status;
 
             if($request->image){

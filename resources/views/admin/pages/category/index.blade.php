@@ -29,8 +29,7 @@
                     <tr>
                         <th>S/N</th>
                         <th>Image</th>
-                        <th>Name En</th>
-                        <th>Name Bn</th>
+                        <th>Name</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -47,7 +46,6 @@
                                 @endif
                             </td>
                             <td>{{$categoryData->name}}</td>
-                            <td>{{$categoryData->name_bn}}</td>
                             <td>{{$categoryData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
@@ -75,16 +73,9 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label for="name" class="form-label">Name (En)</label>
+                                                            <label for="name" class="form-label">Name</label>
                                                             <input type="text" id="name" name="name" value="{{$categoryData->name}}"
-                                                                   class="form-control" placeholder="Enter Name En" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label for="name_bn" class="form-label">Name (Bn)</label>
-                                                            <input type="text" id="name_bn" name="name_bn" value="{{$categoryData->name_bn}}"
-                                                                   class="form-control" placeholder="Enter Name Bn" required>
+                                                                   class="form-control" placeholder="Enter Name" required>
                                                         </div>
                                                     </div>
 
@@ -157,16 +148,9 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">Name (En)</label>
+                                    <label for="name" class="form-label">Name</label>
                                     <input type="text" id="name" name="name"
-                                           class="form-control" placeholder="Enter Name En" required>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label for="name_bn" class="form-label">Name (Bn)</label>
-                                    <input type="text" id="name_bn" name="name_bn"
-                                           class="form-control" placeholder="Enter Name Bn" required>
+                                           class="form-control" placeholder="Enter Name " required>
                                 </div>
                             </div>
                             <div class="col-12">

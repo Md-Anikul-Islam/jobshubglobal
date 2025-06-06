@@ -33,7 +33,7 @@
                         <th>S/N</th>
                         <th>Image</th>
                         <th>Title Category</th>
-                        <th>Title En</th>
+                        <th>Title</th>
                         <th>Training Date</th>
                         <th>Training Time</th>
                         <th>Training Duration</th>
@@ -94,16 +94,9 @@
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="mb-3">
-                                                            <label for="title" class="form-label">Title En</label>
+                                                            <label for="title" class="form-label">Title</label>
                                                             <input type="text" id="title" name="title" value="{{$trainingData->title}}"
                                                                    class="form-control" placeholder="Enter Title" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="mb-3">
-                                                            <label for="title" class="form-label">Title Bn</label>
-                                                            <input type="text" id="title_bn" name="title_bn" value="{{$trainingData->title_bn}}"
-                                                                   class="form-control" placeholder="Enter Title">
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
@@ -159,14 +152,8 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label>Details English </label>
+                                                            <label>Details </label>
                                                             <textarea id="summernoteEdit{{ $trainingData->id }}" name="details">{{ $trainingData->details }}</textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label>Details Bangle</label>
-                                                            <textarea id="summernoteEdit{{ $trainingData->id }}" name="details_bn">{{ $trainingData->details_bn }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -230,16 +217,9 @@
 
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <label for="title" class="form-label">Title En</label>
+                                    <label for="title" class="form-label">Title</label>
                                     <input type="text" id="title" name="title"
                                            class="form-control" placeholder="Enter Title" required>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="title_bn" class="form-label">Title Bn</label>
-                                    <input type="text" id="title_bn" name="title_bn"
-                                           class="form-control" placeholder="Enter Title">
                                 </div>
                             </div>
                             <div class="col-6">
@@ -283,17 +263,11 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label> Details English</label>
+                                    <label> Details</label>
                                     <textarea id="summernote" name="details"></textarea>
                                 </div>
                             </div>
 
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label> Details Bangle</label>
-                                    <textarea id="summernoteBn" name="details_bn"></textarea>
-                                </div>
-                            </div>
                         </div>
                         <div class="d-flex justify-content-end">
                             <button class="btn btn-primary" type="submit">Submit</button>

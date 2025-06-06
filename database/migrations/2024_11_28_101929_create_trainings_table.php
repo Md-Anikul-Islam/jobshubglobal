@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('training_category_id');
             $table->string('title');
-            $table->string('title_bn')->nullable();
             $table->text('details');
-            $table->text('details_bn')->nullable();
             $table->date('training_date');
             $table->time('training_time');
             $table->string('training_duration');

@@ -46,9 +46,7 @@ class TrainingController extends Controller
             $training = new Training();
             $training->training_category_id = $request->training_category_id;
             $training->title = $request->title;
-            $training->title_bn = $request->title_bn;
             $training->details = $request->details;
-            $training->details_bn = $request->details_bn;
             $training->training_date = $request->training_date;
             $training->training_time = $request->training_time;
             $training->training_duration = $request->training_duration;
@@ -83,9 +81,7 @@ class TrainingController extends Controller
             $training = Training::find($id);
             $training->training_category_id = $request->training_category_id;
             $training->title = $request->title;
-            $training->title_bn = $request->title_bn;
             $training->details = $request->details;
-            $training->details_bn = $request->details_bn;
             $training->training_date = $request->training_date;
             $training->training_time = $request->training_time;
             $training->training_duration = $request->training_duration;

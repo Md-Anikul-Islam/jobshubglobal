@@ -34,7 +34,6 @@ class CategoryController extends Controller
             ]);
             $category = new Category();
             $category->name = $request->name;
-            $category->name_bn = $request->name_bn;
             if ($request->image) {
                 $file = time() . '.' . $request->image->extension();
                 $request->image->move(public_path('images/category'), $file);
@@ -57,7 +56,6 @@ class CategoryController extends Controller
             ]);
             $category = Category::find($id);
             $category->name = $request->name;
-            $category->name_bn = $request->name_bn;
             $category->status = $request->status;
             if ($request->image) {
                 $file = time() . '.' . $request->image->extension();

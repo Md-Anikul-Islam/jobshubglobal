@@ -31,8 +31,7 @@
                     <tr>
                         <th>S/N</th>
                         <th>Image</th>
-                        <th>Name En</th>
-                        <th>Name Bn</th>
+                        <th>Name</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -45,7 +44,6 @@
                                 <img src="{{ asset('images/review/' . $reviewData->image) }}" alt="Product Image" style="max-width: 50px;">
                             </td>
                             <td>{{$reviewData->name}}</td>
-                            <td>{{$reviewData->name_bn}}</td>
                             <td>{{$reviewData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex  gap-1">
@@ -72,16 +70,9 @@
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <div class="mb-3">
-                                                            <label for="name" class="form-label">Name English</label>
+                                                            <label for="name" class="form-label">Name</label>
                                                             <input type="text" id="name" name="name" value="{{$reviewData->name}}"
-                                                                   class="form-control" placeholder="Enter Name English" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="mb-3">
-                                                            <label for="name_bn" class="form-label">Name Bangle</label>
-                                                            <input type="text" id="name_bn" name="name_bn" value="{{$reviewData->name_bn}}"
-                                                                   class="form-control" placeholder="Enter Name Bangle" required>
+                                                                   class="form-control" placeholder="Enter Name" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -107,14 +98,8 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label>Details English </label>
+                                                            <label>Details </label>
                                                             <textarea id="summernoteEdit{{ $reviewData->id }}" name="details">{{ $reviewData->details }}</textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label>Details Bangle</label>
-                                                            <textarea id="summernoteEdit{{ $reviewData->id }}" name="details_bn">{{ $reviewData->details_bn }}</textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -168,16 +153,9 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">Name English</label>
+                                    <label for="name" class="form-label">Name</label>
                                     <input type="text" id="name" name="name"
-                                           class="form-control" placeholder="Enter Name English" required>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="name_bn" class="form-label">Name Bangle</label>
-                                    <input type="text" id="name_bn" name="name_bn"
-                                           class="form-control" placeholder="Enter Name Bangle" required>
+                                           class="form-control" placeholder="Enter Name" required>
                                 </div>
                             </div>
                         </div>
@@ -194,17 +172,8 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="mb-3">
-                                        <label> Details English</label>
+                                        <label> Details</label>
                                         <textarea id="summernote" name="details"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="mb-3">
-                                        <label> Details Bangle</label>
-                                        <textarea id="summernoteBn" name="details_bn"></textarea>
                                     </div>
                                 </div>
                             </div>

@@ -29,7 +29,6 @@
                     <tr>
                         <th>S/N</th>
                         <th>Title</th>
-                        <th>Title(Bn)</th>
                         <th>No Of Vacancy</th>
                         <th>Deadline</th>
                         <th>Salary</th>
@@ -43,7 +42,6 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$jobData->title}}</td>
-                            <td>{{$jobData->title_bn}}</td>
                             <td>{{$jobData->vacancy}}</td>
                             <td>{{$jobData->deadline}}</td>
                             <td>{{$jobData->salary}}</td>
@@ -101,18 +99,12 @@
 
                                                     <div class="col-6">
                                                         <div class="mb-3">
-                                                            <label for="title" class="form-label">Title (En)</label>
+                                                            <label for="title" class="form-label">Title</label>
                                                             <input type="text"  name="title" value="{{$jobData->title}}"
-                                                                   class="form-control" placeholder="Enter Title En" required>
+                                                                   class="form-control" placeholder="Enter Title" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-6">
-                                                        <div class="mb-3">
-                                                            <label for="title_bn" class="form-label">Title (Bn)</label>
-                                                            <input type="text"  name="title_bn" value="{{$jobData->title_bn}}"
-                                                                   class="form-control" placeholder="Enter Title Bn">
-                                                        </div>
-                                                    </div>
+
 
                                                     <div class="col-6">
                                                         <div class="mb-3">
@@ -142,16 +134,9 @@
 
                                                     <div class="col-6">
                                                         <div class="mb-3">
-                                                            <label for="address" class="form-label">Address(En)</label>
+                                                            <label for="address" class="form-label">Address</label>
                                                             <input type="text"  name="address" value="{{$jobData->address}}"
-                                                                   class="form-control" placeholder="Enter Address(En)" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="mb-3">
-                                                            <label for="address_bn" class="form-label">Address(Bn)</label>
-                                                            <input type="text" name="address_bn" value="{{$jobData->address_bn}}"
-                                                                   class="form-control" placeholder="Enter Address(Bn)">
+                                                                   class="form-control" placeholder="Enter Address" required>
                                                         </div>
                                                     </div>
 
@@ -168,14 +153,8 @@
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="mb-3">
-                                                            <label>Short Description(En)</label>
+                                                            <label>Short Description</label>
                                                             <textarea id="summernoteEdit{{ $jobData ? $jobData->id : '' }}" name="details">{{ $jobData ? $jobData->details : '' }}</textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="mb-3">
-                                                            <label>Short Description(Ba)</label>
-                                                            <textarea id="summernoteEdit{{ $jobData ? $jobData->id : '' }}" name="details_bn">{{ $jobData ? $jobData->details_bn : '' }}</textarea>
                                                         </div>
                                                     </div>
 
@@ -263,16 +242,9 @@
 
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <label for="title" class="form-label">Title (En)</label>
+                                    <label for="title" class="form-label">Title</label>
                                     <input type="text"  name="title"
-                                           class="form-control" placeholder="Enter Title En" required>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="title_bn" class="form-label">Title (Bn)</label>
-                                    <input type="text"  name="title_bn"
-                                           class="form-control" placeholder="Enter Title Bn">
+                                           class="form-control" placeholder="Enter Title " required>
                                 </div>
                             </div>
 
@@ -305,16 +277,9 @@
 
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <label for="address" class="form-label">Address(En)</label>
+                                    <label for="address" class="form-label">Address</label>
                                     <input type="text"  name="address"
                                            class="form-control" placeholder="Enter Address(En)" required>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="address_bn" class="form-label">Address(Bn)</label>
-                                    <input type="text" name="address_bn"
-                                           class="form-control" placeholder="Enter Address(Bn)">
                                 </div>
                             </div>
 
@@ -330,14 +295,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <label>Short Description(En)</label>
+                                    <label>Short Description</label>
                                     <textarea id="summernote" name="details"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label>Short Description(Ba)</label>
-                                    <textarea id="summernoteBn" name="details_bn"></textarea>
                                 </div>
                             </div>
                         </div>

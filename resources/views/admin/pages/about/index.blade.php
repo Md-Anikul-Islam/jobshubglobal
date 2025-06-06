@@ -29,16 +29,11 @@
 
 
                                     <div class="mb-3 col-md-4">
-                                        <label for="name" class="form-label">About Title English</label>
+                                        <label for="name" class="form-label">About Title</label>
                                         <input type="text" class="form-control" name="title" value="{{$about?$about->title:''}}"
                                                placeholder="Enter Title English">
                                     </div>
 
-                                    <div class="mb-3 col-md-4">
-                                        <label for="name" class="form-label">About Title Bangle </label>
-                                        <input type="text" class="form-control" name="title_bn" value="{{$about?$about->title_bn:''}}"
-                                               placeholder="Enter Title Bangle">
-                                    </div>
 
                                     <div class="mb-3 col-md-4">
                                         <label for="image" class="form-label">About Image Image</label>
@@ -55,14 +50,8 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="mb-3">
-                                                <label>Short Description English</label>
+                                                <label>Short Description </label>
                                                 <textarea id="summernoteEdit{{ $about ? $about->id : '' }}" name="details">{{ $about ? $about->details : '' }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="mb-3">
-                                                <label>Short Description Bangle</label>
-                                                <textarea id="summernoteEdit{{ $about ? $about->id : '' }}" name="details_bn">{{ $about ? $about->details_bn : '' }}</textarea>
                                             </div>
                                         </div>
                                     </div>

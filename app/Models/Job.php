@@ -13,15 +13,12 @@ class Job extends Model
         'category_id',
         'location_id',
         'title',
-        'title_bn',
         'vacancy',
         'job_type',
         'address',
-        'address_bn',
         'salary',
         'deadline',
         'details',
-        'details_bn',
         'status',
     ];
 
