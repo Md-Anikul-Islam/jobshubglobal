@@ -38,6 +38,12 @@ class PermissionTableSeeder extends Seeder
             'slider-edit',
             'slider-delete',
 
+            //For Menu
+            'menu-list',
+            'menu-create',
+            'menu-edit',
+            'menu-delete',
+
             //For Category
             'category-list',
             'category-create',

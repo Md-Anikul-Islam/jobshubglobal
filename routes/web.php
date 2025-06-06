@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\JobFairController;
 use App\Http\Controllers\admin\JoinCategoryController;
 use App\Http\Controllers\admin\LocationController;
+use App\Http\Controllers\admin\MenuController;
 use App\Http\Controllers\admin\MigrationCategoryController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
@@ -95,6 +96,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/slider-store', [SliderController::class, 'store'])->name('slider.store');
     Route::put('/slider-update/{id}', [SliderController::class, 'update'])->name('slider.update');
     Route::get('/slider-delete/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
+    //Menu Section
+    Route::get('/menu-section', [MenuController::class, 'index'])->name('menu.section');
+    Route::post('/menu-store', [MenuController::class, 'store'])->name('menu.store');
+    Route::put('/menu-update/{id}', [MenuController::class, 'update'])->name('menu.update');
+    Route::get('/menu-delete/{id}', [MenuController::class, 'destroy'])->name('menu.destroy');
+
 
     //Category Section
     Route::get('/category-section', [CategoryController::class, 'index'])->name('category.section');

@@ -87,20 +87,24 @@
                     </a>
                 </div>
                 @endif
+
+                @php
+                  $menu = DB::table('menu_settings')->where('status', 1)->get();
+                @endphp
                 <nav class="d-none d-lg-block">
                     <ul class="d-flex align-items-center">
-                        <li><a href="{{route('about')}}">About Us</a></li>
-                        <li><a href="{{route('all.jobs')}}">All Jobs</a></li>
-                        <li><a href="{{route('eLearning')}}">E-Learning</a></li>
-                        <li><a href="{{route('visa.migration')}}">Migration</a></li>
-                        <li><a href="{{route('user.registration')}}">Sign in or Register</a></li>
-                        <li><a href="{{route('contact.us')}}">Contact Us</a></li>
+                        <li><a href="{{route('about')}}">{{$menu[0]->name}}</a></li>
+                        <li><a href="{{route('all.jobs')}}">{{$menu[1]->name}}</a></li>
+                        <li><a href="{{route('eLearning')}}">{{$menu[2]->name}}</a></li>
+                        <li><a href="{{route('visa.migration')}}">{{$menu[3]->name}}</a></li>
+                        <li><a href="{{route('user.registration')}}">{{$menu[4]->name}}</a></li>
+                        <li><a href="{{route('contact.us')}}">{{$menu[5]->name}}</a></li>
                         <li>
                             <a href="{{route('company.registration')}}" class="post-a-job"
-                            >Post a Job</a
+                            >{{$menu[6]->name}}</a
                             >
                         </li>
-                        <li><a href="{{route('join.job.fair')}}">Join Fair</a></li>
+                        <li><a href="{{route('join.job.fair')}}">{{$menu[7]->name}}</a></li>
                         {{--multiple language Switcher--}}
                         <div id="google_translate_element"></div>
 

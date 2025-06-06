@@ -117,7 +117,11 @@
                     </a>
                     <div class="collapse" id="sidebarPages">
                         <ul class="side-nav-second-level">
-
+                            @can('menu-list')
+                                <li>
+                                    <a href="{{route('menu.section')}}">Menu</a>
+                                </li>
+                            @endcan
                             @can('slider-list')
                                 <li>
                                     <a href="{{route('slider.section')}}">Slider</a>
