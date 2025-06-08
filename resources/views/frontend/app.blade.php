@@ -96,16 +96,14 @@
                         <li><a href="{{route('about')}}">{{$menu[0]->name}}</a></li>
                         <li><a href="{{route('all.jobs')}}">{{$menu[1]->name}}</a></li>
                         <li><a href="{{route('eLearning')}}">{{$menu[2]->name}}</a></li>
+                        <li><a href="{{route('contact.us')}}">{{$menu[5]->name}}</a></li>
                         <li><a href="{{route('visa.migration')}}">{{$menu[3]->name}}</a></li>
                         <li><a href="{{route('user.registration')}}">{{$menu[4]->name}}</a></li>
-                        <li><a href="{{route('contact.us')}}">{{$menu[5]->name}}</a></li>
+
                         <li>
-                            <a href="{{route('company.registration')}}" class="post-a-job"
-                            >{{$menu[6]->name}}</a
-                            >
+                            <a  href="{{route('company.registration')}}" class="post-a-job">{{$menu[6]->name}}</a>
                         </li>
                         <li><a href="{{route('join.job.fair')}}">{{$menu[7]->name}}</a></li>
-                        {{--multiple language Switcher--}}
                         <div id="google_translate_element"></div>
 
 
@@ -169,14 +167,14 @@
     <div class="offcanvas-body">
         <div class="menu-area">
             <ul class="d-flex flex-column">
-                <li><a href="{{route('about')}}">About Us</a></li>
-                <li><a href="{{route('all.jobs')}}">All Jobs</a></li>
-                <li><a href="{{route('eLearning')}}">E-Learning</a></li>
-                <li><a href="#">Migration</a></li>
-                <li><a href="{{route('user.registration')}}">Sign in or Register</a></li>
-                <li><a href="{{route('contact.us')}}">Contact Us</a></li>
+                <li><a href="{{route('about')}}">{{$menu[0]->name}}</a></li>
+                <li><a href="{{route('all.jobs')}}">{{$menu[1]->name}}</a></li>
+                <li><a href="{{route('eLearning')}}">{{$menu[2]->name}}</a></li>
+                <li><a href="#">{{$menu[3]->name}}</a></li>
+                <li><a href="{{route('user.registration')}}">{{$menu[4]->name}}</a></li>
+                <li><a href="{{route('contact.us')}}">{{$menu[5]->name}}</a></li>
                 <li>
-                    <a href="{{route('company.registration')}}" class="post-a-job">Post a Job</a>
+                    <a href="{{route('company.registration')}}" class="post-a-job">{{$menu[6]->name}}</a>
                 </li>
             </ul>
         </div>
