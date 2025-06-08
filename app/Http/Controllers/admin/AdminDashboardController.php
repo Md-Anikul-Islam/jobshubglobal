@@ -52,5 +52,13 @@ class AdminDashboardController extends Controller
         return redirect()->back();
     }
 
+    public function purchaseSubscriptionList()
+    {
+        $purchasedSubscriptions = PurchesSubscription::where('user_id', Auth::id())
+            ->with('subscription')
+            ->get();
+        return view('admin.PAGES.subscription.purchaseSubscriptionlist', compact('purchasedSubscriptions'));
+    }
+
 
 }

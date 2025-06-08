@@ -45,6 +45,8 @@ class PermissionTableSeeder extends Seeder
             'subscription-edit',
             'subscription-delete',
 
+
+
             //For Menu
             'menu-list',
             'menu-create',
@@ -151,7 +153,12 @@ class PermissionTableSeeder extends Seeder
             'apply-job-list',
 
             //Fair
-            'fair-join-user-list'
+            'fair-join-user-list',
+
+
+             //For Subscription Plan
+            'purchased-subscription-list',
+
 
         ];
         foreach ($permissions as $permission) {

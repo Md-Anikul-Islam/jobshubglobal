@@ -180,6 +180,17 @@
                     </li>
                 @endcan
 
+                @can('purchased-subscription-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('purchase.subscription.list')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span>  Purchased Subscriptions </span>
+                        </a>
+                    </li>
+                @endcan
+
+
+
 
                 @can('company-list')
                     <li class="side-nav-item">

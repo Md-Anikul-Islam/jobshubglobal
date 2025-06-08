@@ -97,6 +97,7 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
 
     //Purchase Subscription
     Route::post('/purchase-subscription', [AdminDashboardController::class, 'purchaseSubscription'])->name('purchase.subscription');
+    Route::get('/purchase-subscription-list', [AdminDashboardController::class, 'purchaseSubscriptionList'])->name('purchase.subscription.list');
 
     //Slider Section
     Route::get('/slider-section', [SliderController::class, 'index'])->name('slider.section');
