@@ -275,38 +275,21 @@
             </div>
         </div>
 
+        @foreach($subscription as $plan)
         <div class="col-12 col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
-                    <h6 class="card-title fw-bold">Basic Plan Fee</h6>
-                    <p class="card-text">1. Get Professional 50 People.</p>
-                    <p class="card-text">2. Get CV Category 50 Wise.</p>
-                    <button class="btn btn-success mt-3">50 Tk</button>
-                </div>
-            </div>
-        </div>
+                    <h6 class="card-title fw-bold">{{$plan->title}}</h6>
+                    <p class="card-text">
+                        {!! $plan->details !!}
 
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h6 class="card-title fw-bold">Premium Plan</h6>
-                    <p class="card-text">1. Get Professional 100 People.</p>
-                    <p class="card-text">2. Get CV Category 100 Wise.</p>
-                    <button class="btn btn-success mt-3">100 Tk</button>
+                    </p>
+                    <button class="btn btn-success mt-3">{{$plan->price}} Tk</button>
                 </div>
             </div>
         </div>
+        @endforeach
 
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h6 class="card-title fw-bold">Premium Plan++</h6>
-                    <p class="card-text">1. Get Professional Unlimited People.</p>
-                    <p class="card-text">2. Get CV Category Unlimited Wise.</p>
-                    <button class="btn btn-success mt-3">300 Tk</button>
-                </div>
-            </div>
-        </div>
 
     </div>
 </div>

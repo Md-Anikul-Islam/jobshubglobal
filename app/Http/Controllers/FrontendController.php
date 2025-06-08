@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Job;
 use App\Models\Location;
 use App\Models\Slider;
+use App\Models\Subscription;
 use App\Models\Training;
 use App\Models\User;
 use App\Models\VisaMigration;
@@ -23,8 +24,9 @@ class FrontendController extends Controller
         $job = Job::with('company')->where('deadline', '>=', now()->toDateString())->latest()->limit(50)->get();
         $training = Training::latest()->limit(10)->get();
         $visaMigration = VisaMigration::latest()->limit(10)->get();
+        $subscription = Subscription::where('status',1)->orderBy('id', 'asc')->get();
         return view('frontend.home',compact('locations','categories',
-        'jobTotal','job','company','jobVacancy','training','visaMigration'));
+        'jobTotal','job','company','jobVacancy','training','visaMigration','subscription'));
     }
 
 }
