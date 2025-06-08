@@ -38,6 +38,13 @@ class PermissionTableSeeder extends Seeder
             'slider-edit',
             'slider-delete',
 
+
+            //subscription
+            'subscription-list',
+            'subscription-create',
+            'subscription-edit',
+            'subscription-delete',
+
             //For Menu
             'menu-list',
             'menu-create',

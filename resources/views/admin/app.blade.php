@@ -158,6 +158,13 @@
                                 </li>
                             @endcan
 
+                            @can('subscription-list')
+                                <li>
+                                    <a href="{{route('subscription.section')}}">Premium Subscription</a>
+                                </li>
+                            @endcan
+
+
                         </ul>
                     </div>
                 </li>

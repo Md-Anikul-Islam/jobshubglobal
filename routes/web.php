@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\JoinCategoryController;
 use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\MenuController;
 use App\Http\Controllers\admin\MigrationCategoryController;
+use App\Http\Controllers\admin\PremiumSubscriptionController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
@@ -96,6 +97,13 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/slider-store', [SliderController::class, 'store'])->name('slider.store');
     Route::put('/slider-update/{id}', [SliderController::class, 'update'])->name('slider.update');
     Route::get('/slider-delete/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
+
+    //subscription Section
+    Route::get('/subscription-section', [PremiumSubscriptionController::class, 'index'])->name('subscription.section');
+    Route::post('/subscription-store', [PremiumSubscriptionController::class, 'store'])->name('subscription.store');
+    Route::put('/subscription-update/{id}', [PremiumSubscriptionController::class, 'update'])->name('subscription.update');
+    Route::get('/subscription-delete/{id}', [PremiumSubscriptionController::class, 'destroy'])->name('subscription.destroy');
+
     //Menu Section
     Route::get('/menu-section', [MenuController::class, 'index'])->name('menu.section');
     Route::post('/menu-store', [MenuController::class, 'store'])->name('menu.store');
