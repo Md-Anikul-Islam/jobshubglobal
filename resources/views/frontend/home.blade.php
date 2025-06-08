@@ -266,9 +266,33 @@
     </div>
 </div>
 
-<div class="container mt-4">
-    <div class="row gy-4"> <!-- Use gy-4 for vertical spacing between rows -->
+{{--<div class="container mt-4">--}}
+{{--    <div class="row gy-4">--}}
+{{--        <div class="col-12">--}}
+{{--            <div class="section-heading mb-3">--}}
+{{--                <h2>Premium Subscription</h2>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        @foreach($subscription as $plan)--}}
+{{--        <div class="col-12 col-md-6 col-lg-4">--}}
+{{--            <div class="card h-100 shadow-sm">--}}
+{{--                <div class="card-body">--}}
+{{--                    <h6 class="card-title fw-bold">{{$plan->title}}</h6>--}}
+{{--                    <p class="card-text">--}}
+{{--                        {!! $plan->details !!}--}}
 
+{{--                    </p>--}}
+{{--                    <button class="btn btn-success mt-3">{{$plan->price}} Tk</button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        @endforeach--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--<br>--}}
+
+<div class="container mt-4">
+    <div class="row gy-4">
         <div class="col-12">
             <div class="section-heading mb-3">
                 <h2>Premium Subscription</h2>
@@ -276,22 +300,28 @@
         </div>
 
         @foreach($subscription as $plan)
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h6 class="card-title fw-bold">{{$plan->title}}</h6>
-                    <p class="card-text">
-                        {!! $plan->details !!}
-
-                    </p>
-                    <button class="btn btn-success mt-3">{{$plan->price}} Tk</button>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h6 class="card-title fw-bold">{{$plan->title}}</h6>
+                        <p class="card-text">
+                            {!! $plan->details !!}
+                        </p>
+                        @auth
+                            <form method="POST" action="{{ route('purchase.subscription') }}">
+                                @csrf
+                                <input type="hidden" name="subscription_id" value="{{ $plan->id }}">
+                                <button type="submit" class="btn btn-success mt-3">{{$plan->price}} Tk</button>
+                            </form>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-success mt-3">{{$plan->price}} Tk</a>
+                        @endauth
+                    </div>
                 </div>
             </div>
-        </div>
         @endforeach
-
-
     </div>
 </div>
 <br>
+
 @endsection

@@ -88,9 +88,15 @@ Route::get('visa-migration-details/{id}', [ElearningController::class, 'detailsV
 Route::get('/contact-us', [ContactUsController::class, 'contactUs'])->name('contact.us');
 
 
+
+
+
 Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/unauthorized-action', [AdminDashboardController::class, 'unauthorized'])->name('unauthorized.action');
+
+    //Purchase Subscription
+    Route::post('/purchase-subscription', [AdminDashboardController::class, 'purchaseSubscription'])->name('purchase.subscription');
 
     //Slider Section
     Route::get('/slider-section', [SliderController::class, 'index'])->name('slider.section');

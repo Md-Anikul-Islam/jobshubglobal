@@ -4,14 +4,11 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\LoginLog;
-use App\Models\News;
-use App\Models\Project;
-use App\Models\ProjectFile;
-use App\Models\Showcase;
-use App\Models\Team;
-use App\Models\Training;
-use App\Models\Venue;
+use App\Models\PurchesSubscription;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Yoeunes\Toastr\Facades\Toastr;
 
 class AdminDashboardController extends Controller
 {
@@ -26,8 +23,34 @@ class AdminDashboardController extends Controller
         return view('admin.unauthorized');
     }
 
+    public function purchaseSubscription(Request $request)
+    {
+        $request->validate([
+            'subscription_id' => 'required|exists:subscriptions,id'
+        ]);
 
+        // Check if user already has this subscription
+        $existing = PurchesSubscription::where('user_id', Auth::id())
+            ->where('subscription_id', $request->subscription_id)
+            ->first();
 
+        if ($existing) {
+            return redirect()->back()->with('error', 'You already have this subscription!');
+        }
+
+        //dd($request->all());
+
+        $price = Subscription::find($request->subscription_id)->price;
+
+        // Create new purchase
+        PurchesSubscription::create([
+            'user_id' => Auth::id(),
+            'price' => $price,
+            'subscription_id' => $request->subscription_id
+        ]);
+        Toastr::success('Subscription purchased successfully Check Portal and Payment.', 'Success');
+        return redirect()->back();
+    }
 
 
 }
