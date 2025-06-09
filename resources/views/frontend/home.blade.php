@@ -324,4 +324,48 @@
 </div>
 <br>
 
+
+<!-- Category -->
+<section class="category-section-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h2>Tender/EOI</h2>
+                </div>
+            </div>
+        </div>
+        <div class="category-card-wrap d-flex flex-wrap">
+            @foreach($tender as $tenderData)
+                <a href="{{asset('files/tender/'.$tenderData->file)}}" target="_blank" class="category-card d-flex align-items-center">
+                    <div class="category-image-wrap">
+                        @if($tenderData->user->profile!==null)
+                            <img
+                                src="{{ asset('images/logo/' . $tenderData->user->profile) }}"
+                                draggable="false"
+                                alt="Category Image"
+                            />
+                        @else
+                            <img
+                                src="{{ asset('images/logos/1748790248.png') }}"
+                                draggable="false"
+                                alt="Category Image"
+                            />
+                        @endif
+
+                    </div>
+                    <div class="category-content d-flex flex-column justify-content-between">
+                        <h3>{{ $tenderData->title }}</h3>
+                        <div class="category-content-bottom d-flex">
+                          <p>{!! $tenderData->description !!}</p>
+                        </div>
+
+                    </div>
+                </a>
+            @endforeach
+
+        </div>
+    </div>
+</section>
+
 @endsection
