@@ -180,6 +180,15 @@
                     </li>
                 @endcan
 
+                @can('tender-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('tender.section')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span>Tender/EOI </span>
+                        </a>
+                    </li>
+                @endcan
+
                 @can('purchased-subscription-list')
                     <li class="side-nav-item">
                         <a href="{{route('purchase.subscription.list')}}" class="side-nav-link">

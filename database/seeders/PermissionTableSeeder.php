@@ -148,6 +148,12 @@ class PermissionTableSeeder extends Seeder
             'skill-edit',
             'skill-delete',
 
+            //For Tender
+            'tender-list',
+            'tender-create',
+            'tender-edit',
+            'tender-delete',
+
             //Apply Job
             'user-account',
             'apply-job-list',

@@ -15,6 +15,7 @@ use App\Http\Controllers\admin\PremiumSubscriptionController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
+use App\Http\Controllers\admin\TenderController;
 use App\Http\Controllers\admin\TrainingCategoryController;
 use App\Http\Controllers\admin\TrainingController;
 use App\Http\Controllers\admin\VisaMigrationController;
@@ -104,6 +105,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/slider-store', [SliderController::class, 'store'])->name('slider.store');
     Route::put('/slider-update/{id}', [SliderController::class, 'update'])->name('slider.update');
     Route::get('/slider-delete/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
+
+    //Tender Section
+    Route::get('/tender-section', [TenderController::class, 'index'])->name('tender.section');
+    Route::post('/tender-store', [TenderController::class, 'store'])->name('tender.store');
+    Route::put('/tender-update/{id}', [TenderController::class, 'update'])->name('tender.update');
+    Route::get('/tender-delete/{id}', [TenderController::class, 'destroy'])->name('tender.destroy');
 
     //subscription Section
     Route::get('/subscription-section', [PremiumSubscriptionController::class, 'index'])->name('subscription.section');
