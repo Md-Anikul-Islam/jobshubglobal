@@ -370,7 +370,7 @@
 </section>
 
 
-
+@if($advisement && $advisement->count() > 0)
 <div class="modal fade" id="bannerModal" tabindex="-1" aria-labelledby="bannerModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- Added modal-lg for larger size -->
         <div class="modal-content">
@@ -382,17 +382,17 @@
                 <div class="row">
                     <!-- Image on the left -->
                     <div class="col-md-6">
-                        <img src="http://127.0.0.1:8000/backend/images/reg.png" alt="Banner" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                        @if($advisement->image)
+                            <img src="{{ asset('images/advisement/' . $advisement->image) }}" alt="Banner" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                        @else
+                        <img src="{{URL::to('backend/images/reg.png')}}" alt="Banner" class="img-fluid rounded" style="max-width: 100%; height: auto;">
+                        @endif
                     </div>
                     <!-- Content on the right -->
                     <div class="col-md-6 d-flex flex-column justify-content-center">
-                        <h3>Limited Time Offer</h3>
-                        <p class="mt-2">Get 20% off on all our premium products this week only. Don't miss this amazing opportunity!</p>
-                        <ul class="mt-2">
-                            <li>High quality materials</li>
-                            <li>Free shipping available</li>
-                            <li>30-day money back guarantee</li>
-                        </ul>
+                        <h3>{{$advisement->title}}r</h3>
+                        <p class="mt-2">{!! $advisement->details !!}</p>
+
                     </div>
                 </div>
             </div>
@@ -406,4 +406,7 @@
         bannerModal.show();
     });
 </script>
+@endif
+
+
 @endsection

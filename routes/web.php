@@ -4,6 +4,7 @@
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminDashboardController;
+use App\Http\Controllers\admin\AdvismentController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\JobFairController;
@@ -111,6 +112,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/tender-store', [TenderController::class, 'store'])->name('tender.store');
     Route::put('/tender-update/{id}', [TenderController::class, 'update'])->name('tender.update');
     Route::get('/tender-delete/{id}', [TenderController::class, 'destroy'])->name('tender.destroy');
+
+    //advisement
+    Route::get('/advisement-section', [AdvismentController::class, 'index'])->name('advisement.section');
+    Route::post('/advisement-store', [AdvismentController::class, 'store'])->name('advisement.store');
+    Route::put('/advisement-update/{id}', [AdvismentController::class, 'update'])->name('advisement.update');
+    Route::get('/advisement-section-delete/{id}', [AdvismentController::class, 'destroy'])->name('advisement.section.destroy');
 
     //subscription Section
     Route::get('/subscription-section', [PremiumSubscriptionController::class, 'index'])->name('subscription.section');

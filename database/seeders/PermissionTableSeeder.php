@@ -154,6 +154,12 @@ class PermissionTableSeeder extends Seeder
             'tender-edit',
             'tender-delete',
 
+            //advisement
+            'advisement-list',
+            'advisement-create',
+            'advisement-edit',
+            'advisement-delete',
+
             //Apply Job
             'user-account',
             'apply-job-list',

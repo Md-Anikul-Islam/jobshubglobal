@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advisment;
 use App\Models\Category;
 use App\Models\Job;
 use App\Models\Location;
@@ -27,8 +28,9 @@ class FrontendController extends Controller
         $visaMigration = VisaMigration::latest()->limit(10)->get();
         $subscription = Subscription::where('status',1)->orderBy('id', 'asc')->get();
         $tender = Tender::where('status',1)->with('user')->latest()->get();
+        $advisement = Advisment::where('status',1)->first();
         return view('frontend.home',compact('locations','categories',
-        'jobTotal','job','company','jobVacancy','training','visaMigration','subscription','tender'));
+        'jobTotal','job','company','jobVacancy','training','visaMigration','subscription','tender','advisement'));
     }
 
 }

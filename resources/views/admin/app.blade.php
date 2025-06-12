@@ -164,6 +164,16 @@
                                 </li>
                             @endcan
 
+                            @can('advisement-list')
+                                <li>
+                                    <a href="{{route('advisement.section')}}">Advisement</a>
+                                </li>
+                            @endcan
+
+
+
+
+
 
                         </ul>
                     </div>
