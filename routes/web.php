@@ -243,6 +243,8 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
 
     Route::get('/fair-join-user', [SiteSettingController::class, 'joinUserFairList'])->name('fair.join.user');
     Route::get('/join-user-fair-destroy/{id}', [SiteSettingController::class, 'destroy'])->name('join.user.fair.destroy');
+
+    Route::get('/subscription-package-user-data', [PremiumSubscriptionController::class, 'subscriptionPackageUserData'])->name('subscription.package.user.data');
 });
 
 require __DIR__.'/auth.php';

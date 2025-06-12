@@ -50,7 +50,12 @@
 
                             </td>
                             <td style="width: 100px;">
-                                <a class="btn btn-success" href="">Payment</a>
+                                @if($purchasedSubscriptionsData->payment_status == 'pending')
+                                    <a class="btn btn-success" href="">Payment</a>
+                                @elseif($purchasedSubscriptionsData->payment_status == 'completed')
+                                    <a class="btn btn-info" href="{{route('subscription.package.user.data')}}">Data</a>
+                                @endif
+
                             </td>
                            </tr>
                     @endforeach

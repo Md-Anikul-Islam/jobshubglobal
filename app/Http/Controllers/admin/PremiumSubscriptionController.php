@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Subscription;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Yoeunes\Toastr\Facades\Toastr;
@@ -72,6 +73,17 @@ class PremiumSubscriptionController extends Controller
             $subscription->delete();
             Toastr::success('Subscription Deleted Successfully', 'Success');
             return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
+        }
+    }
+
+    public function subscriptionPackageUserData()
+    {
+        try {
+            $subscription = User::where('is_registration_by','User')->get();
+
+            return view('admin.pages.user.userList', compact('subscription'));
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
