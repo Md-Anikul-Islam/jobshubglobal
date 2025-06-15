@@ -55,7 +55,9 @@ class UserAccountController extends Controller
             ]);
 
             // Send verification email
-            Mail::to($request->email)->send(new AccountVerificationMail($user));
+            //Mail::to($request->email)->send(new AccountVerificationMail($user));
+            // Send OTP via SMS here
+            $this->sendSms($request->phone, 'Your OTP is: ' . $verificationCode);
             Toastr::success('Account created, please verify', 'Success');
             return redirect()->route('company.verification');
         } catch (QueryException $e) {
@@ -64,6 +66,24 @@ class UserAccountController extends Controller
             }
             return back()->withErrors(['email' => 'An error occurred. Please try again later.']);
         }
+    }
+
+    private function sendSms($mobile, $sms)
+    {
+        $url = 'http://bulksms.teletalk.com.bd/link_sms_send.php?' . http_build_query([
+                'op'      => 'SMS',
+                'user'    => env('SMS_API_USERNAME', 'Parliament'),
+                'pass'    => env('SMS_API_PASSWORD', ''),
+                'mobile'  => $mobile,
+                'charset' => 'UTF-8',
+                'sms'     => $sms
+            ]);
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
     }
 
 

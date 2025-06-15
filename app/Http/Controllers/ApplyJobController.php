@@ -19,6 +19,7 @@ class ApplyJobController extends Controller
         $existingApplication = JobApplication::where('job_id', $job->id)
             ->where('user_id', $user->id)
             ->exists();
+        //dd($job);
 
         if ($existingApplication) {
             Toastr::error('You have already applied for this job.', 'Error');
@@ -31,9 +32,29 @@ class ApplyJobController extends Controller
             'user_id' => $user->id,
             'company_id' => $job->company_id,
         ]);
-
+        $this->sendSms($user->phone, 'Successfully applied for the job , Job ID' . $job->id);
         Toastr::success('Successfully applied for the job.', 'Success');
         return redirect()->back();
+    }
+
+
+
+    private function sendSms($mobile, $sms)
+    {
+        $url = 'http://bulksms.teletalk.com.bd/link_sms_send.php?' . http_build_query([
+                'op'      => 'SMS',
+                'user'    => env('SMS_API_USERNAME', 'Parliament'),
+                'pass'    => env('SMS_API_PASSWORD', ''),
+                'mobile'  => $mobile,
+                'charset' => 'UTF-8',
+                'sms'     => $sms
+            ]);
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
     }
 
 
