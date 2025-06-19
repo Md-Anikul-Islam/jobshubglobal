@@ -103,6 +103,7 @@
                         <li>
                             <a  href="{{route('company.registration')}}" class="post-a-job">{{$menu[6]->name}}</a>
                         </li>
+                        <li><a href="{{route('elearning')}}">{{$menu[8]->name}}</a></li>
                         <li><a href="{{route('join.job.fair')}}">{{$menu[7]->name}}</a></li>
                         <div id="google_translate_element"></div>
 
@@ -170,7 +171,7 @@
                 <li><a href="{{route('about')}}">{{$menu[0]->name}}</a></li>
                 <li><a href="{{route('all.jobs')}}">{{$menu[1]->name}}</a></li>
                 <li><a href="{{route('training')}}">{{$menu[2]->name}}</a></li>
-                <li><a href="#">{{$menu[3]->name}}</a></li>
+                <li><a href="{{route('visa.migration')}}">{{$menu[3]->name}}</a></li>
                 <li><a href="{{route('user.registration')}}">{{$menu[4]->name}}</a></li>
                 <li><a href="{{route('contact.us')}}">{{$menu[5]->name}}</a></li>
                 <li>
