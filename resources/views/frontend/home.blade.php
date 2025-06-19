@@ -227,7 +227,7 @@
                 <div class="training-wrap">
                     <h2>Training</h2>
                     @foreach($training as $trainingData)
-                    <a href="{{route('eLearning.details',$trainingData->id)}}" class="training-item d-flex">
+                    <a href="{{route('training.details',$trainingData->id)}}" class="training-item d-flex">
                         <div class="icon-wrap">
                             <img
                                 src="{{asset('images/training/'. $trainingData->image )}}"

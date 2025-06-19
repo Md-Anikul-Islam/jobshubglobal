@@ -28,6 +28,7 @@ use App\Http\Controllers\ElearningController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\JobManageController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TrainingAndMigrationController;
 use App\Http\Controllers\user\EducationController;
 use App\Http\Controllers\user\ExperienceController;
 use App\Http\Controllers\user\SkillController;
@@ -81,11 +82,11 @@ Route::get('/all-jobs', [JobManageController::class, 'searchJobs'])->name('all.j
 Route::get('/job-details/{id}', [JobManageController::class, 'jobDetails'])->name('job.details');
 
 Route::get('/about-us', [AboutUsController::class, 'about'])->name('about');
-Route::get('/e-learning', [ElearningController::class, 'eLearning'])->name('eLearning');
-Route::get('learning-details/{id}', [ElearningController::class, 'detailsTraining'])->name('eLearning.details');
+Route::get('/training', [TrainingAndMigrationController::class, 'training'])->name('training');
+Route::get('training-details/{id}', [TrainingAndMigrationController::class, 'detailsTraining'])->name('training.details');
 
-Route::get('/visa-migration', [ElearningController::class, 'visaMigration'])->name('visa.migration');
-Route::get('visa-migration-details/{id}', [ElearningController::class, 'detailsVisaMigration'])->name('visa.migration.details');
+Route::get('/visa-migration', [TrainingAndMigrationController::class, 'visaMigration'])->name('visa.migration');
+Route::get('visa-migration-details/{id}', [TrainingAndMigrationController::class, 'detailsVisaMigration'])->name('visa.migration.details');
 
 Route::get('/contact-us', [ContactUsController::class, 'contactUs'])->name('contact.us');
 

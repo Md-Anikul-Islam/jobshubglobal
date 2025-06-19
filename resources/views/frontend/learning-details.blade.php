@@ -86,13 +86,13 @@
             <div class="col-lg-3 col-md-6 col-12">
                     <div class="learning-card">
                         <div class="learning-card-image">
-                            <a href="{{route('eLearning.details',$trainingData->id)}}">
+                            <a href="{{route('training.details',$trainingData->id)}}">
                                 <img src="{{asset('images/training/'. $trainingData->image )}}" alt="">
                             </a>
                         </div>
                         <div class="learning-card-content">
                             <div class="top">
-                                <a href="{{route('eLearning.details',$trainingData->id)}}">
+                                <a href="{{route('training.details',$trainingData->id)}}">
                                     <h3>{{$trainingData->title}}</h3>
                                 </a>
                                 <p>

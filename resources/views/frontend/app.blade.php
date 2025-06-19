@@ -95,7 +95,7 @@
                     <ul class="d-flex align-items-center">
                         <li><a href="{{route('about')}}">{{$menu[0]->name}}</a></li>
                         <li><a href="{{route('all.jobs')}}">{{$menu[1]->name}}</a></li>
-                        <li><a href="{{route('eLearning')}}">{{$menu[2]->name}}</a></li>
+                        <li><a href="{{route('training')}}">{{$menu[2]->name}}</a></li>
                         <li><a href="{{route('contact.us')}}">{{$menu[5]->name}}</a></li>
                         <li><a href="{{route('visa.migration')}}">{{$menu[3]->name}}</a></li>
                         <li><a href="{{route('user.registration')}}">{{$menu[4]->name}}</a></li>
@@ -169,7 +169,7 @@
             <ul class="d-flex flex-column">
                 <li><a href="{{route('about')}}">{{$menu[0]->name}}</a></li>
                 <li><a href="{{route('all.jobs')}}">{{$menu[1]->name}}</a></li>
-                <li><a href="{{route('eLearning')}}">{{$menu[2]->name}}</a></li>
+                <li><a href="{{route('training')}}">{{$menu[2]->name}}</a></li>
                 <li><a href="#">{{$menu[3]->name}}</a></li>
                 <li><a href="{{route('user.registration')}}">{{$menu[4]->name}}</a></li>
                 <li><a href="{{route('contact.us')}}">{{$menu[5]->name}}</a></li>
@@ -308,7 +308,7 @@
                     <ul>
                         <li><a href="{{route('about')}}">About Us</a></li>
                         <li><a href="{{route('all.jobs')}}">My Jobs</a></li>
-                        <li><a href="{{route('eLearning')}}">Training</a></li>
+                        <li><a href="{{route('training')}}">Training</a></li>
                         <li><a href="#">Migration</a></li>
                     </ul>
                 </div>
