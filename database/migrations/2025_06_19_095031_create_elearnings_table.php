@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('elearnings', function (Blueprint $table) {
             $table->id();
+            $table->integer('elearning_category_id');
+            $table->string('title');
+            $table->text('details')->nullable();
+            $table->decimal('fee', 10, 2)->default(0.00);
+            $table->string('image')->nullable();
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

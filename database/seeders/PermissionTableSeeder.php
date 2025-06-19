@@ -172,6 +172,14 @@ class PermissionTableSeeder extends Seeder
             'purchased-subscription-list',
 
 
+            //For eLearning Category
+            'eLearning-manage',
+            'eLearning-category-list',
+            'eLearning-category-create',
+            'eLearning-category-edit',
+            'eLearning-category-delete',
+
+
         ];
         foreach ($permissions as $permission) {
             if (!Permission::where('name', $permission)->exists()) {

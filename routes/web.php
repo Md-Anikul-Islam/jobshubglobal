@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\AdvismentController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CompanyController;
+use App\Http\Controllers\admin\ElearningCategoryController;
 use App\Http\Controllers\admin\JobFairController;
 use App\Http\Controllers\admin\JoinCategoryController;
 use App\Http\Controllers\admin\LocationController;
@@ -183,6 +184,13 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/training-category-store', [TrainingCategoryController::class, 'store'])->name('training.category.store');
     Route::put('/training-category-update/{id}', [TrainingCategoryController::class, 'update'])->name('training.category.update');
     Route::get('/training-category-delete/{id}', [TrainingCategoryController::class, 'destroy'])->name('training.category.destroy');
+
+
+    //eLearning Category Section
+    Route::get('/eLearning-category-section', [ElearningCategoryController::class, 'index'])->name('eLearning.category.section');
+    Route::post('/eLearning-category-store', [ElearningCategoryController::class, 'store'])->name('eLearning.category.store');
+    Route::put('/eLearning-category-update/{id}', [ElearningCategoryController::class, 'update'])->name('eLearning.category.update');
+    Route::get('/eLearning-category-delete/{id}', [ElearningCategoryController::class, 'destroy'])->name('eLearning.category.destroy');
 
     //Company Manage
     Route::get('/training-list', [TrainingController::class, 'index'])->name('training.section');

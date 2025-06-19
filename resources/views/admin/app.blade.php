@@ -224,7 +224,7 @@
                 @can('training-manage')
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarPages1000" aria-expanded="false" aria-controls="sidebarPages1000" class="side-nav-link">
-                            <i class="ri-rotate-lock-line"></i>
+                            <i class="ri-drag-move-fill"></i>
                             <span>Training Manage </span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -243,6 +243,29 @@
                                         <a href="{{route('training.section')}}">Training</a>
                                     </li>
                                 @endcan
+                            </ul>
+                        </div>
+                    </li>
+                @endcan
+
+                @can('eLearning-manage')
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarPages10000" aria-expanded="false" aria-controls="sidebarPages10000" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span>E-Learning Manage </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarPages10000">
+                            <ul class="side-nav-second-level">
+
+
+                                @can('eLearning-category-list')
+                                    <li>
+                                        <a href="{{route('eLearning.category.section')}}">E-Learning Category</a>
+                                    </li>
+                                @endcan
+
+
                             </ul>
                         </div>
                     </li>
