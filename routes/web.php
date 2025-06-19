@@ -26,6 +26,7 @@ use App\Http\Controllers\ApplyJobController;
 use App\Http\Controllers\company\CompanyRegistrationController;
 use App\Http\Controllers\company\JobController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\ElerningManageController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\JobManageController;
 use App\Http\Controllers\RoleController;
@@ -43,18 +44,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-//Route::group([
-//    'prefix' => LaravelLocalization::setLocale(),
-//    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-//], function() {
-//
-//    Route::get('/', function () {
-//        return view('welcome');
-//    });
-//
-//});
 
 
 //Account Manage
@@ -90,7 +79,7 @@ Route::get('/visa-migration', [TrainingAndMigrationController::class, 'visaMigra
 Route::get('visa-migration-details/{id}', [TrainingAndMigrationController::class, 'detailsVisaMigration'])->name('visa.migration.details');
 
 Route::get('/contact-us', [ContactUsController::class, 'contactUs'])->name('contact.us');
-
+Route::get('/elearning', [ElerningManageController::class, 'elearning'])->name('elearning');
 
 
 

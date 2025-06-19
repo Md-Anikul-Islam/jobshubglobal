@@ -120,7 +120,7 @@
                                         </div>
                                     </div>
                                     <div class="register-now">
-                                        <a href="{{route('login')}}">Register</a>
+                                        <a href="#">Join {{$trainingData->training_fee}} Tk</a>
                                     </div>
                                 </div>
                             </div>

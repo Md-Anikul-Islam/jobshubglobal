@@ -30,8 +30,7 @@
 						</li>
 					</ul>
 					<div class="learning-details-pricing">
-						<h2>Price: TK  {{$training->training_fee}}</h2>
-						<a href="{{route('login')}}">Register</a>
+						<a href="{{route('login')}}">Join {{$training->training_fee}} Tk</a>
 						<div class="contact-details">
 							<div class="contact-item">
 								<h3>
@@ -161,7 +160,7 @@
                             </div>
                         </div>
                         <div class="register-now">
-                            <a href="#">Register</a>
+                            <a href="#">Join {{$trainingData->training_fee}} Tk</a>
                         </div>
                     </div>
                 </div>
