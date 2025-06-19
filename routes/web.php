@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\AdvismentController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\ElearningCategoryController;
+use App\Http\Controllers\admin\ElearningController;
 use App\Http\Controllers\admin\JobFairController;
 use App\Http\Controllers\admin\JoinCategoryController;
 use App\Http\Controllers\admin\LocationController;
@@ -25,7 +26,6 @@ use App\Http\Controllers\ApplyJobController;
 use App\Http\Controllers\company\CompanyRegistrationController;
 use App\Http\Controllers\company\JobController;
 use App\Http\Controllers\ContactUsController;
-use App\Http\Controllers\ElearningController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\JobManageController;
 use App\Http\Controllers\RoleController;
@@ -197,6 +197,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/training-store', [TrainingController::class, 'store'])->name('training.store');
     Route::put('/training-update/{id}', [TrainingController::class, 'update'])->name('training.update');
     Route::get('/training-delete/{id}', [TrainingController::class, 'destroy'])->name('training.destroy');
+
+    //eLearning
+    Route::get('/eLearning-list', [ElearningController::class, 'index'])->name('eLearning.section');
+    Route::post('/eLearning-store', [ElearningController::class, 'store'])->name('eLearning.store');
+    Route::put('/eLearning-update/{id}', [ElearningController::class, 'update'])->name('eLearning.update');
+    Route::get('/eLearning-delete/{id}', [ElearningController::class, 'destroy'])->name('eLearning.destroy');
 
     //Company migration
     Route::get('/migration-list', [VisaMigrationController::class, 'index'])->name('migration.section');

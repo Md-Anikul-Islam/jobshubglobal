@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="found-jobs-count-wrap e-learning-top d-flex flex-column flex-md-row align-items-center justify-content-between">
-                        <h3>E-Learning</h3>
+                        <h3>Training</h3>
                         <form class="find-a-jobs-wrap" action="{{ route('training') }}" method="GET">
                             <div class="input-group search-jobs e-learning-input">
                                 <div class="search-icon">

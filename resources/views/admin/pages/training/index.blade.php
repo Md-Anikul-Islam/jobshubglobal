@@ -8,10 +8,10 @@
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Jobs Hub Global</a></li>
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Resource</a></li>
-                        <li class="breadcrumb-item active">News!</li>
+                        <li class="breadcrumb-item active">Training!</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Resource!</h4>
+                <h4 class="page-title">Training!</h4>
             </div>
         </div>
     </div>
@@ -199,7 +199,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{route('training.store')}}">
+                    <form method="post" action="{{route('training.store')}}" enctype="multipart/form-data" >
                         @csrf
                         <div class="row">
 
