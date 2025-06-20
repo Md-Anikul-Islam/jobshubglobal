@@ -57,10 +57,20 @@
                                         </div>
                                     </div>
                                     <div class="register-now">
-                                        <a href="#">{{$elearningData->fee}} Tk</a>
+                                        @auth
+                                            <form method="post" action="{{ route('purchase.elearning') }}">
+                                                @csrf
+                                                <input type="hidden" name="e_learning_id" value="{{ $elearningData->id }}">
+                                                <button type="submit" class="btn btn-success mt-3  w-100">{{$elearningData->fee}} Tk</button>
+                                            </form>
+                                        @else
+                                            <a href="{{ route('login') }}" class="btn btn-success mt-3 w-100">{{$elearningData->fee}} Tk</a>
+                                        @endauth
                                     </div>
                                 </div>
                             </div>
+
+
                         @endforeach
                     </div>
                 </div>

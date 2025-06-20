@@ -92,6 +92,13 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/purchase-subscription', [AdminDashboardController::class, 'purchaseSubscription'])->name('purchase.subscription');
     Route::get('/purchase-subscription-list', [AdminDashboardController::class, 'purchaseSubscriptionList'])->name('purchase.subscription.list');
 
+
+    Route::post('/purchase-elearning', [AdminDashboardController::class, 'purchaseElearning'])->name('purchase.elearning');
+    Route::get('/purchase-elearning-list', [AdminDashboardController::class, 'purchaseElearningList'])->name('purchase.elearning.list');
+
+    Route::post('/purchase-training', [AdminDashboardController::class, 'purchaseTraining'])->name('purchase.training');
+    Route::get('/purchase-training-list', [AdminDashboardController::class, 'purchaseTrainingList'])->name('purchase.training.list');
+
     //Slider Section
     Route::get('/slider-section', [SliderController::class, 'index'])->name('slider.section');
     Route::post('/slider-store', [SliderController::class, 'store'])->name('slider.store');

@@ -30,7 +30,18 @@
 						</li>
 					</ul>
 					<div class="learning-details-pricing">
-						<a href="{{route('login')}}">Join {{$training->training_fee}} Tk</a>
+{{--						<a href="{{route('login')}}">Join {{$training->training_fee}} Tk</a>--}}
+
+                        @auth
+                            <form method="post" action="{{ route('purchase.training') }}">
+                                @csrf
+                                <input type="hidden" name="training_id" value="{{ $training->id }}">
+                                <button type="submit" class="btn btn-success mt-3  w-100">{{$training->training_fee}} Tk</button>
+                            </form>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-success mt-3 w-100">{{$training->training_fee}} Tk</a>
+                        @endauth
+
 						<div class="contact-details">
 							<div class="contact-item">
 								<h3>
