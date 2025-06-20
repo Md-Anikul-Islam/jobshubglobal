@@ -170,6 +170,8 @@ class PermissionTableSeeder extends Seeder
 
              //For Subscription Plan
             'purchased-subscription-list',
+            'purchased-learning-list',
+            'purchased-training-list',
 
 
             //For eLearning Category

@@ -211,6 +211,8 @@
 
 
 
+
+
                 @can('company-list')
                     <li class="side-nav-item">
                         <a href="{{route('company.section')}}" class="side-nav-link">
@@ -391,6 +393,24 @@
                         <a href="{{route('job.apply')}}" class="side-nav-link">
                             <i class="ri-drag-move-fill"></i>
                             <span> Apply Job </span>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('purchased-learning-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('purchase.elearning.list')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span>  Purchased E-Learning </span>
+                        </a>
+                    </li>
+                @endcan
+
+                @can('purchased-training-list')
+                    <li class="side-nav-item">
+                        <a href="{{route('purchase.training.list')}}" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span>  Purchased Training </span>
                         </a>
                     </li>
                 @endcan
