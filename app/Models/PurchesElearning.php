@@ -22,6 +22,6 @@ class PurchesElearning extends Model
 
     public function eLearning()
     {
-        return $this->belongsTo(ELearning::class, 'e_learning_id');
+        return $this->belongsTo(Elearning::class, 'e_learning_id');
     }
 }

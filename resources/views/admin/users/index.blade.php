@@ -60,7 +60,10 @@
     </table>
 
 
-    {!! $data->render() !!}
+
+    <div class="d-flex justify-content-center mt-4">
+        {{ $data->links('pagination::bootstrap-4') }}
+    </div>
 
 
 @endsection
