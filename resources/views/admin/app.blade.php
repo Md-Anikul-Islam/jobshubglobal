@@ -280,26 +280,52 @@
                 @endcan
 
 
-
-
-
-                @can('migration-category-list')
+                @can('migration-manage')
                     <li class="side-nav-item">
-                        <a href="{{route('migration.category.section')}}" class="side-nav-link">
-                            <i class="ri-drag-move-fill"></i>
-                            <span> Migration Category</span>
+                        <a data-bs-toggle="collapse" href="#sidebarPages120" aria-expanded="false" aria-controls="sidebarPages120" class="side-nav-link">
+                            <i class="ri-rotate-lock-line"></i>
+                            <span>Migration Manage </span>
+                            <span class="menu-arrow"></span>
                         </a>
+                        <div class="collapse" id="sidebarPages120">
+                            <ul class="side-nav-second-level">
+                                @can('migration-category-list')
+                                    <li>
+                                        <a href="{{route('migration.category.section')}}">Category</a>
+                                    </li>
+                                @endcan
+
+                                    @can('migration-list')
+                                    <li>
+                                        <a href="{{route('migration.section')}}">Migration</a>
+                                    </li>
+                                @endcan
+                            </ul>
+                        </div>
                     </li>
                 @endcan
 
-                @can('migration-list')
-                    <li class="side-nav-item">
-                        <a href="{{route('migration.section')}}" class="side-nav-link">
-                            <i class="ri-drag-move-fill"></i>
-                            <span> Migration </span>
-                        </a>
-                    </li>
-                @endcan
+
+
+
+
+{{--                @can('migration-category-list')--}}
+{{--                    <li class="side-nav-item">--}}
+{{--                        <a href="{{route('migration.category.section')}}" class="side-nav-link">--}}
+{{--                            <i class="ri-drag-move-fill"></i>--}}
+{{--                            <span> Migration Category</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                @endcan--}}
+
+{{--                @can('migration-list')--}}
+{{--                    <li class="side-nav-item">--}}
+{{--                        <a href="{{route('migration.section')}}" class="side-nav-link">--}}
+{{--                            <i class="ri-drag-move-fill"></i>--}}
+{{--                            <span> Migration </span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                @endcan--}}
 
 
 

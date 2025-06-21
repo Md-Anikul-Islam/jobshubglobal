@@ -21,7 +21,7 @@
             <div class="card-header">
                 <div class="d-flex justify-content-end">
                     <!-- Large modal -->
-                    @can('news-create')
+                    @can('migration-create')
                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewModalId">Add New</button>
                     @endcan
                 </div>
@@ -52,14 +52,34 @@
                             <td>{{$migrationData->status==1? 'Active':'Inactive'}}</td>
                             <td style="width: 100px;">
                                 <div class="d-flex justify-content-end gap-1">
-                                    @can('news-edit')
+                                    @can('migration-edit')
                                         <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#editNewModalId{{$migrationData->id}}">Edit</button>
                                     @endcan
-                                    @can('news-delete')
+
+                                    @can('migration-delete')
                                         <a href="{{route('migration.destroy',$migrationData->id)}}"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#danger-header-modal{{$migrationData->id}}">Delete</a>
                                     @endcan
                                 </div>
                             </td>
+
+                            <div id="danger-header-modal{{$migrationData->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="danger-header-modalLabel{{$migrationData->id}}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header modal-colored-header bg-danger">
+                                            <h4 class="modal-title" id="danger-header-modalLabe{{$migrationData->id}}l">Delete</h4>
+                                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5 class="mt-0">Are You Went to Delete this ? </h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                            <a href="{{route('migration.destroy',$migrationData->id)}}" class="btn btn-danger">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!--Edit Modal -->
                             <div class="modal fade" id="editNewModalId{{$migrationData->id}}" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="editNewModalLabel{{$migrationData->id}}" aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -146,24 +166,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Delete Modal -->
-                            <div id="danger-header-modal{{$migrationData->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="danger-header-modalLabel{{$migrationData->id}}" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header modal-colored-header bg-danger">
-                                            <h4 class="modal-title" id="danger-header-modalLabe{{$migrationData->id}}l">Delete</h4>
-                                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <h5 class="mt-0">Are You Went to Delete this ? </h5>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <a href="{{route('migration.destroy',$migrationData->id)}}" class="btn btn-danger">Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+
                         </tr>
                     @endforeach
                     </tbody>
@@ -204,13 +208,6 @@
                                     <label for="title" class="form-label">Title</label>
                                     <input type="text" id="title" name="title"
                                            class="form-control" placeholder="Enter Title" required>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <label for="title_bn" class="form-label">Title Bn</label>
-                                    <input type="text" id="title_bn" name="title_bn"
-                                           class="form-control" placeholder="Enter Title">
                                 </div>
                             </div>
                             <div class="col-6">

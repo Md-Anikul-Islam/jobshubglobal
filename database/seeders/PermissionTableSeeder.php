@@ -186,6 +186,8 @@ class PermissionTableSeeder extends Seeder
             'eLearning-edit',
             'eLearning-delete',
 
+            'migration-manage',
+
 
         ];
         foreach ($permissions as $permission) {
