@@ -65,6 +65,12 @@ class PermissionTableSeeder extends Seeder
             'expense-category-edit',
             'expense-category-delete',
 
+            //For Expense
+            'expense-list',
+            'expense-create',
+            'expense-edit',
+            'expense-delete',
+
             //For Location
             'location-list',
             'location-create',

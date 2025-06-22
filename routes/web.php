@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\ElearningCategoryController;
 use App\Http\Controllers\admin\ElearningController;
 use App\Http\Controllers\admin\ExpenseCategoryController;
+use App\Http\Controllers\admin\ExpenseController;
 use App\Http\Controllers\admin\JobFairController;
 use App\Http\Controllers\admin\JoinCategoryController;
 use App\Http\Controllers\admin\LocationController;
@@ -142,6 +143,14 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/expense-category-store', [ExpenseCategoryController::class, 'store'])->name('expense.category.store');
     Route::put('/expense-category-update/{id}', [ExpenseCategoryController::class, 'update'])->name('expense.category.update');
     Route::get('/expense-category-delete/{id}', [ExpenseCategoryController::class, 'destroy'])->name('expense.category.destroy');
+
+
+    //Expense Section
+    Route::get('/expense-section', [ExpenseController::class, 'index'])->name('expense.section');
+    Route::post('/expense-store', [ExpenseController::class, 'store'])->name('expense.store');
+    Route::put('/expense-update/{id}', [ExpenseController::class, 'update'])->name('expense.update');
+    Route::get('/expense-delete/{id}', [ExpenseController::class, 'destroy'])->name('expense.destroy');
+
 
     //Join Category Section
     Route::get('/join-category-section', [JoinCategoryController::class, 'index'])->name('join.category.section');

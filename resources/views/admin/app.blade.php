@@ -321,6 +321,12 @@
                                     </li>
                                 @endcan
 
+                                @can('expense-list')
+                                    <li>
+                                        <a href="{{route('expense.section')}}">Expense</a>
+                                    </li>
+                                @endcan
+
                             </ul>
                         </div>
                     </li>
