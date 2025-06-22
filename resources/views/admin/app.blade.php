@@ -306,6 +306,27 @@
                 @endcan
 
 
+                @can('account-manage')
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarPages26" aria-expanded="false" aria-controls="sidebarPages26" class="side-nav-link">
+                            <i class="ri-rotate-lock-line"></i>
+                            <span>Account Manage </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarPages26">
+                            <ul class="side-nav-second-level">
+                                @can('expense-category-list')
+                                    <li>
+                                        <a href="{{route('expense.category.section')}}">Expense Category</a>
+                                    </li>
+                                @endcan
+
+                            </ul>
+                        </div>
+                    </li>
+                @endcan
+
+
 
 
 

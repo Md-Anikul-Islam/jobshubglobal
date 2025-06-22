@@ -59,6 +59,12 @@ class PermissionTableSeeder extends Seeder
             'category-edit',
             'category-delete',
 
+            //For Expense Category
+            'expense-category-list',
+            'expense-category-create',
+            'expense-category-edit',
+            'expense-category-delete',
+
             //For Location
             'location-list',
             'location-create',
@@ -187,6 +193,8 @@ class PermissionTableSeeder extends Seeder
             'eLearning-delete',
 
             'migration-manage',
+
+            'account-manage',
 
 
         ];
