@@ -9,6 +9,7 @@ use App\Models\JoinCategory;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -23,6 +24,52 @@ class UserAccountController extends Controller
         return view('auth.registrationFormForUser', compact('joinCategories'));
     }
 
+//    public function storeUserRegisterInfo(Request $request)
+//    {
+//        // Validate input
+//        $this->validate($request, [
+//            'is_registration_by' => 'required',
+//            'name' => 'required',
+//            'phone' => 'required',
+//            'email' => 'required|email|unique:users,email',
+//            'password' => 'required',
+//        ]);
+//
+//        $input = $request->all();
+//        $input['password'] = Hash::make($input['password']);
+//        $verificationCode = rand(100000, 999999);
+//
+//
+//
+//        try {
+//            // Create user with verification code
+//            $user = User::create([
+//                'name' => $input['name'],
+//                'email' => $input['email'],
+//                'phone' => $input['phone'],
+//                'address' => $input['address'],
+//                'join_category_id' => $input['join_category_id'],
+//                'password' => $input['password'],
+//                'verification_code' => $verificationCode,
+//                'status' => 0,
+//                'is_registration_by' => $input['is_registration_by'],
+//            ]);
+//
+//            // Send verification email
+//            //Mail::to($request->email)->send(new AccountVerificationMail($user));
+//            // Send OTP via SMS here
+//            $this->sendSms($request->phone, 'Your OTP is: ' . $verificationCode);
+//            Toastr::success('Account created, please verify', 'Success');
+//            return redirect()->route('company.verification');
+//        } catch (QueryException $e) {
+//            if ($e->getCode() === '23000') {
+//                return back()->withErrors(['email' => 'The email has already been taken. Please choose a different email.']);
+//            }
+//            return back()->withErrors(['email' => 'An error occurred. Please try again later.']);
+//        }
+//    }
+
+
     public function storeUserRegisterInfo(Request $request)
     {
         // Validate input
@@ -32,15 +79,32 @@ class UserAccountController extends Controller
             'phone' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required',
+            'join_category_id' => 'required',
         ]);
 
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-        $verificationCode = rand(100000, 999999);
-
-
+        DB::beginTransaction();
 
         try {
+            $input = $request->all();
+            $input['password'] = Hash::make($input['password']);
+            $verificationCode = rand(100000, 999999);
+
+            // Check if "Other" category was selected
+            if ($input['join_category_id'] === 'other') {
+                // Validate the other category field
+                $this->validate($request, [
+                    'other_category' => 'required|string|max:255'
+                ]);
+
+                // Create new category
+                $newCategory = JoinCategory::create([
+                    'name' => $input['other_category'],
+                    'status' => 1
+                ]);
+
+                $input['join_category_id'] = $newCategory->id;
+            }
+
             // Create user with verification code
             $user = User::create([
                 'name' => $input['name'],
@@ -56,15 +120,23 @@ class UserAccountController extends Controller
 
             // Send verification email
             //Mail::to($request->email)->send(new AccountVerificationMail($user));
+
             // Send OTP via SMS here
             $this->sendSms($request->phone, 'Your OTP is: ' . $verificationCode);
+
+            DB::commit();
+
             Toastr::success('Account created, please verify', 'Success');
             return redirect()->route('company.verification');
         } catch (QueryException $e) {
+            DB::rollBack();
             if ($e->getCode() === '23000') {
                 return back()->withErrors(['email' => 'The email has already been taken. Please choose a different email.']);
             }
             return back()->withErrors(['email' => 'An error occurred. Please try again later.']);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withErrors(['error' => 'An error occurred. Please try again later.']);
         }
     }
 

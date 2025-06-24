@@ -60,12 +60,18 @@
 
                                         <div class="mb-3">
                                             <label  class="form-label">Join As</label>
-                                            <select name="join_category_id" class="form-select">
+                                            <select name="join_category_id" id="join_category" class="form-select" onchange="checkOtherCategory(this)">
                                                 <option selected>Join Us our Platform As Select</option>
                                                 @foreach($joinCategories as $joinCategory)
                                                     <option value="{{$joinCategory->id}}">{{$joinCategory->name}}</option>
                                                 @endforeach
+                                                <option value="other">Other (Please specify)</option>
                                             </select>
+                                        </div>
+
+                                        <div class="mb-3" id="other_category_div" style="display: none;">
+                                            <label class="form-label">Specify Your Category</label>
+                                            <input class="form-control" type="text" name="other_category" id="other_category" placeholder="Enter your category">
                                         </div>
 
 
@@ -103,11 +109,23 @@
         </div>
     </div>
 </div>
+<script>
+    function checkOtherCategory(select) {
+        const otherDiv = document.getElementById('other_category_div');
+        if (select.value === 'other') {
+            otherDiv.style.display = 'block';
+        } else {
+            otherDiv.style.display = 'none';
+        }
+    }
+</script>
 <footer class="footer footer-alt fw-medium">
     <span class="text-dark">
         <script>document.write(new Date().getFullYear())</script> © Powered By Job Hub Global
     </span>
 </footer>
+
+
 <script src="{{ asset('backend/js/vendor.min.js') }}"></script>
 <script src="{{ asset('backend/js/app.min.js') }}"></script>
 <script>
