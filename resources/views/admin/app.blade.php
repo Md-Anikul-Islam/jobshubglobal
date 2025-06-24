@@ -327,6 +327,25 @@
                                     </li>
                                 @endcan
 
+                                @can('elearning-income-list')
+                                    <li>
+                                        <a href="{{route('elearning.income.section')}}">Income E-Leraning</a>
+                                    </li>
+                                @endcan
+
+                                @can('subscription-income-list')
+                                    <li>
+                                        <a href="{{route('subscription.income.section')}}">Income Subscription</a>
+                                    </li>
+                                @endcan
+
+                                @can('training-income-list')
+                                    <li>
+                                        <a href="{{route('training.income.section')}}">Income Training</a>
+                                    </li>
+                                @endcan
+
+
                             </ul>
                         </div>
                     </li>

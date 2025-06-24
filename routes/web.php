@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\ElearningCategoryController;
 use App\Http\Controllers\admin\ElearningController;
 use App\Http\Controllers\admin\ExpenseCategoryController;
 use App\Http\Controllers\admin\ExpenseController;
+use App\Http\Controllers\admin\IncomeController;
 use App\Http\Controllers\admin\JobFairController;
 use App\Http\Controllers\admin\JoinCategoryController;
 use App\Http\Controllers\admin\LocationController;
@@ -271,6 +272,16 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::get('/join-user-fair-destroy/{id}', [SiteSettingController::class, 'destroy'])->name('join.user.fair.destroy');
 
     Route::get('/subscription-package-user-data', [PremiumSubscriptionController::class, 'subscriptionPackageUserData'])->name('subscription.package.user.data');
+
+    //Income Section
+    Route::get('/subscription-income-section', [IncomeController::class, 'subscriptionIncome'])->name('subscription.income.section');
+    Route::get('/subscription-income-delete/{id}', [IncomeController::class, 'subscriptionDestroy'])->name('subscription.income.destroy');
+
+    Route::get('/training-income-section', [IncomeController::class, 'trainingIncome'])->name('training.income.section');
+    Route::get('/training-income-delete/{id}', [IncomeController::class, 'trainingDestroy'])->name('training.income.destroy');
+
+    Route::get('/elearning-income-section', [IncomeController::class, 'elearningIncome'])->name('elearning.income.section');
+    Route::get('/elearning-income-delete/{id}', [IncomeController::class, 'elearningDestroy'])->name('elearning.income.destroy');
 });
 
 require __DIR__.'/auth.php';

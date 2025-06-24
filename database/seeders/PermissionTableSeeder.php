@@ -202,6 +202,20 @@ class PermissionTableSeeder extends Seeder
 
             'account-manage',
 
+            'elearning-income-list',
+            'elearning-income-delete',
+
+
+            'subscription-income-list',
+            'subscription-income-delete',
+
+            'training-income-list',
+            'training-income-delete',
+
+
+
+
+
 
         ];
         foreach ($permissions as $permission) {

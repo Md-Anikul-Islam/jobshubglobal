@@ -235,7 +235,7 @@
             for (let i = 0; i < rows.length; i++) {
                 let row = [],
                     cols = rows[i].querySelectorAll("td, th");
-                for (let j = 0; j < cols.length; j++)  // <- Fixed here
+                for (let j = 0; j < cols.length - 1; j++)  // <- Fixed here
                     row.push(cols[j].innerText);
                 data.push(row);
             }
