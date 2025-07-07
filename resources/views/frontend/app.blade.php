@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/css/swiper-bundle.min.css')}}" />
     <link rel="stylesheet" href="{{asset('frontend/css/style.css')}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .goog-te-banner-frame.skiptranslate,
         .goog-te-gadget-icon {

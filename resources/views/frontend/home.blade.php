@@ -295,8 +295,11 @@
 <div class="container mt-4">
     <div class="row gy-4">
         <div class="col-12">
-            <div class="section-heading mb-3">
-                <h2>Premium Subscription</h2>
+            <div class="section-heading mb-3 d-flex align-items-center">
+                <h2 class="mb-0 me-2">Premium Subscription</h2>
+                <span class="text-muted" data-bs-toggle="tooltip" title="Get access to exclusive features&#10;with our premium plans">
+                    <i class="fas fa-question-circle"></i>
+                </span>
             </div>
         </div>
 
@@ -330,11 +333,14 @@
 <section class="category-section-area section-padding">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="section-heading">
-                    <h2>Tender/EOI</h2>
-                </div>
+            <div class="section-heading mb-3 d-flex align-items-center">
+                <h2 class="mb-0 me-2">Tender/EOI</h2>
+                <span class="text-muted" data-bs-toggle="tooltip" title="Get Download to exclusive PDF&#10;with your choice Tender">
+                    <i class="fas fa-question-circle"></i>
+                </span>
             </div>
+
+
         </div>
         <div class="category-card-wrap d-flex flex-wrap">
             @foreach($tender as $tenderData)
@@ -399,7 +405,6 @@
         </div>
     </div>
 </div>
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var bannerModal = new bootstrap.Modal(document.getElementById('bannerModal'));
@@ -408,5 +413,11 @@
 </script>
 @endif
 
-
+<script>
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+</script>
 @endsection
