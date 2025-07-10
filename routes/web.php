@@ -35,6 +35,7 @@ use App\Http\Controllers\ElerningManageController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\JobManageController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StudentCornerManageController;
 use App\Http\Controllers\TrainingAndMigrationController;
 use App\Http\Controllers\user\EducationController;
 use App\Http\Controllers\user\ExperienceController;
@@ -87,6 +88,8 @@ Route::get('/contact-us', [ContactUsController::class, 'contactUs'])->name('cont
 Route::get('/elearning', [ElerningManageController::class, 'elearning'])->name('elearning');
 
 
+Route::get('/student-corner', [StudentCornerManageController::class, 'studentCorner'])->name('student.corner');
+Route::get('student-corner-details/{id}', [StudentCornerManageController::class, 'studentCornerDetails'])->name('student.corner.details');
 
 
 Route::middleware(['auth', 'company'])->group(callback: function () {
