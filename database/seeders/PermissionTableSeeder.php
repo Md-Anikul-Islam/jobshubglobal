@@ -193,6 +193,20 @@ class PermissionTableSeeder extends Seeder
             'eLearning-category-edit',
             'eLearning-category-delete',
 
+            //Student Corner Category
+            'student-corner-category-list',
+            'student-corner-category-create',
+            'student-corner-category-edit',
+            'student-corner-category-delete',
+
+            //Student Corner
+            'student-corner-manage',
+            'student-corner-list',
+            'student-corner-create',
+            'student-corner-edit',
+            'student-corner-delete',
+
+
             'eLearning-list',
             'eLearning-create',
             'eLearning-edit',

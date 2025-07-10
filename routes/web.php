@@ -21,6 +21,8 @@ use App\Http\Controllers\admin\PremiumSubscriptionController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
 use App\Http\Controllers\admin\SliderController;
+use App\Http\Controllers\admin\StudentCornerCategoryController;
+use App\Http\Controllers\admin\StudentCornerController;
 use App\Http\Controllers\admin\TenderController;
 use App\Http\Controllers\admin\TrainingCategoryController;
 use App\Http\Controllers\admin\TrainingController;
@@ -262,6 +264,20 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/skill-store', [SkillController::class, 'store'])->name('skill.store');
     Route::put('/skill-update/{id}', [SkillController::class, 'update'])->name('skill.update');
     Route::get('/skill-delete/{id}', [SkillController::class, 'destroy'])->name('skill.destroy');
+
+
+    //Student Corner Category Section
+    Route::get('/student-corner-category-section', [StudentCornerCategoryController::class, 'index'])->name('student.corner.category.section');
+    Route::post('/student-corner-category-store', [StudentCornerCategoryController::class, 'store'])->name('student.corner.category.store');
+    Route::put('/student-corner-category-update/{id}', [StudentCornerCategoryController::class, 'update'])->name('student.corner.category.update');
+    Route::get('/student-corner-category-delete/{id}', [StudentCornerCategoryController::class, 'destroy'])->name('student.corner.category.destroy');
+
+    //Student Corner Section
+    Route::get('/student-corner-section', [StudentCornerController::class, 'index'])->name('student.corner.section');
+    Route::post('/student-corner-store', [StudentCornerController::class, 'store'])->name('student.corner.store');
+    Route::put('/student-corner-update/{id}', [StudentCornerController::class, 'update'])->name('student.corner.update');
+    Route::get('/student-corner-delete/{id}', [StudentCornerController::class, 'destroy'])->name('student.corner.destroy');
+
 
     //Apply Job User
     Route::get('/user-account', [UserAccountController::class, 'userAccount'])->name('user.account');

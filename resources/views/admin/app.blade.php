@@ -169,12 +169,6 @@
                                     <a href="{{route('advisement.section')}}">Advisement</a>
                                 </li>
                             @endcan
-
-
-
-
-
-
                         </ul>
                     </div>
                 </li>
@@ -207,10 +201,6 @@
                         </a>
                     </li>
                 @endcan
-
-
-
-
 
 
                 @can('company-list')
@@ -283,7 +273,7 @@
                 @can('migration-manage')
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarPages120" aria-expanded="false" aria-controls="sidebarPages120" class="side-nav-link">
-                            <i class="ri-rotate-lock-line"></i>
+                            <i class="ri-pages-line"></i>
                             <span>Migration Manage </span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -306,10 +296,36 @@
                 @endcan
 
 
+                @can('student-corner-manage')
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarPages500" aria-expanded="false" aria-controls="sidebarPages500" class="side-nav-link">
+                            <i class="ri-pages-line"></i>
+                            <span>Student Corner </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarPages500">
+                            <ul class="side-nav-second-level">
+                                @can('student-corner-category-list')
+                                    <li>
+                                        <a href="{{route('student.corner.category.section')}}">Category</a>
+                                    </li>
+                                @endcan
+
+                                @can('student-corner-list')
+                                    <li>
+                                        <a href="{{route('student.corner.section')}}">Student Corner</a>
+                                    </li>
+                                @endcan
+                            </ul>
+                        </div>
+                    </li>
+                @endcan
+
+
                 @can('account-manage')
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarPages26" aria-expanded="false" aria-controls="sidebarPages26" class="side-nav-link">
-                            <i class="ri-rotate-lock-line"></i>
+                            <i class="ri-pages-line"></i>
                             <span>Account Manage </span>
                             <span class="menu-arrow"></span>
                         </a>
