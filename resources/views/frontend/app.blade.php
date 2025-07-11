@@ -94,22 +94,37 @@
                 @endphp
                 <nav class="d-none d-lg-block">
                     <ul class="d-flex align-items-center">
-                        <li><a href="{{route('about')}}">{{$menu[0]->name}}</a></li>
+
+
+                        <li><a href="{{route('student.corner')}}">{{$menu[9]->name}}</a></li>
                         <li><a href="{{route('all.jobs')}}">{{$menu[1]->name}}</a></li>
                         <li><a href="{{route('training')}}">{{$menu[2]->name}}</a></li>
-                        <li><a href="{{route('contact.us')}}">{{$menu[5]->name}}</a></li>
                         <li><a href="{{route('visa.migration')}}">{{$menu[3]->name}}</a></li>
                         <li><a href="{{route('user.registration')}}">{{$menu[4]->name}}</a></li>
 
                         <li>
                             <a  href="{{route('company.registration')}}" class="post-a-job">{{$menu[6]->name}}</a>
                         </li>
-                        <li><a href="{{route('elearning')}}">{{$menu[8]->name}}</a></li>
+
                         <li><a href="{{route('join.job.fair')}}">{{$menu[7]->name}}</a></li>
+                        <li class="dropdown">
+                            <a href="#" role="button" class="dropdown-toggle" data-bs-toggle="dropdown">Resources</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{route('about')}}">{{$menu[0]->name}}</a></li>
+                                <li><a href="{{route('contact.us')}}">{{$menu[5]->name}}</a></li>
+                                <li><a href="{{route('elearning')}}">{{$menu[8]->name}}</a></li>
+                            </ul>
+                        </li>
                         <div id="google_translate_element"></div>
-
-
                     </ul>
+
+
+
+
+
+
+
+
                 </nav>
                 <div class="d-block d-lg-none">
                     <button
