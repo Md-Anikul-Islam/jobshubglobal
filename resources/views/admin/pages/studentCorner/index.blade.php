@@ -32,6 +32,8 @@
                     <tr>
                         <th>S/N</th>
                         <th>Category</th>
+                        <th>Country</th>
+                        <th>Level</th>
                         <th>Title</th>
                         <th>Date</th>
                         <th>Image</th>
@@ -44,6 +46,8 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td>{{$studentCornerData->studentCornerCategory->name??''}}</td>
+                            <td>{{$studentCornerData->country->name??''}}</td>
+                            <td>{{$studentCornerData->level_type}}</td>
                             <td>{{$studentCornerData->title}}</td>
                             <td>{{$studentCornerData->date}}</td>
                             <td>
@@ -102,6 +106,33 @@
                                                                 @foreach($category as $categoryData)
                                                                     <option value="{{$categoryData->id}}" {{ $studentCornerData->student_corner_category_id === $categoryData->id ? 'selected' : '' }}>{{$categoryData->name}}</option>
                                                                 @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        <div class="mb-3">
+                                                            <label for="example-select" class="form-label">Country</label>
+                                                            <select name="country_id" class="form-select">
+                                                                <option selected>Select Country</option>
+                                                                @foreach($country as $countryData)
+                                                                    <option value="{{$countryData->id}}" {{ $studentCornerData->country_id === $countryData->id ? 'selected' : '' }}>{{$countryData->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6">
+                                                        <div class="mb-3">
+                                                            <label for="example-select" class="form-label">Level Type</label>
+                                                            <select name="level_type" class="form-select">
+                                                                <option selected>Select Level Type</option>
+                                                                <option value="SSC" {{ $studentCornerData->level_type === 'SSC' ? 'selected' : '' }}>SSC</option>
+                                                                <option value="HSC" {{ $studentCornerData->level_type === 'HSC' ? 'selected' : '' }}>HSC</option>
+                                                                <option value="University" {{ $studentCornerData->level_type === 'University' ? 'selected' : '' }}>University</option>
+                                                                <option value="Worker" {{ $studentCornerData->level_type === 'Worker' ? 'selected' : '' }}>Worker</option>
+                                                                <option value="Travel" {{ $studentCornerData->level_type === 'Travel' ? 'selected' : '' }}>Travel</option>
+                                                                <option value="Other" {{ $studentCornerData->level_type === 'Other' ? 'selected' : '' }}>Other</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -199,6 +230,41 @@
                                     </select>
                                 </div>
                             </div>
+
+
+
+
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Country</label>
+                                    <select name="country_id" class="form-select">
+                                        <option selected>Select Country</option>
+                                        @foreach($country as $countryData)
+                                            <option value="{{$countryData->id}}">{{$countryData->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="example-select" class="form-label">Level Type</label>
+                                    <select name="level_type" class="form-select" required>
+                                        <option selected>Select Level Type</option>
+                                        <option value="SSC">SSC</option>
+                                        <option value="HSC">HSC</option>
+                                        <option value="University">University</option>
+                                        <option value="Worker">Worker</option>
+                                        <option value="Travel">Travel</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
 
                             <div class="col-6">
                                 <div class="mb-3">

@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('student_corners', function (Blueprint $table) {
             $table->id();
             $table->integer('student_corner_category_id')->nullable();
+            $table->integer('country_id')->nullable();
+            $table->string('level_type')->nullable();
             $table->string('title');
             $table->date('date')->nullable();
             $table->string('image')->nullable();

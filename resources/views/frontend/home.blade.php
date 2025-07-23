@@ -208,8 +208,8 @@
 
                         </div>
 
-                        <div class="apply-btn">
-                            <a href="{{ route('jobs.apply', $jobData->id) }}">Apply Now</a>
+                        <div>
+                            <a href="{{ route('jobs.apply', $jobData->id) }}"  class="btn btn-success">Apply Now</a>
                         </div>
 
                     </div>
@@ -219,161 +219,178 @@
         </div>
     </div>
 </section>
-<!-- Training and Migration -->
-<div class="training-and-migration-area section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-12">
-                <div class="training-wrap">
-                    <h2>Training</h2>
-                    @foreach($training as $trainingData)
-                    <a href="{{route('training.details',$trainingData->id)}}" class="training-item d-flex">
-                        <div class="icon-wrap">
-                            <img
-                                src="{{asset('images/training/'. $trainingData->image )}}"
-                                draggable="false"
-                                alt="Icon"
-                            />
-                        </div>
-                        <div class="training-details">
-                            <h3>{{$trainingData->title}}</h3>
-                            <p>{{ \Carbon\Carbon::parse($trainingData->deadline)->format('d M Y') }}</p>
-                        </div>
-                    </a>
-                    @endforeach
-                </div>
-            </div>
-            <div class="col-md-6 col-12">
-                <div class="training-wrap">
-                    <h2>Migration</h2>
-                    @foreach($visaMigration as $visaMigrationData)
-                    <a href="{{route('visa.migration.details',$visaMigrationData->id)}}" class="training-item d-flex">
-                        <div class="icon-wrap">
-                            <img
-                                src="{{asset('images/migration/'. $visaMigrationData->image )}}"
-                                draggable="false"
-                                alt="Icon"
-                            />
-                        </div>
-                        <div class="training-details">
-                            <h3>{{$visaMigrationData->title}}</h3>
-                            <p>{{ \Carbon\Carbon::parse($visaMigrationData->deadline)->format('d M Y') }}</p>
-                        </div>
-                    </a>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-{{--<div class="container mt-4">--}}
-{{--    <div class="row gy-4">--}}
-{{--        <div class="col-12">--}}
-{{--            <div class="section-heading mb-3">--}}
-{{--                <h2>Premium Subscription</h2>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        @foreach($subscription as $plan)--}}
-{{--        <div class="col-12 col-md-6 col-lg-4">--}}
-{{--            <div class="card h-100 shadow-sm">--}}
-{{--                <div class="card-body">--}}
-{{--                    <h6 class="card-title fw-bold">{{$plan->title}}</h6>--}}
-{{--                    <p class="card-text">--}}
-{{--                        {!! $plan->details !!}--}}
-
-{{--                    </p>--}}
-{{--                    <button class="btn btn-success mt-3">{{$plan->price}} Tk</button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        @endforeach--}}
-{{--    </div>--}}
-{{--</div>--}}
-{{--<br>--}}
-
-<div class="container mt-4">
-    <div class="row gy-4">
-        <div class="col-12">
-            <div class="section-heading mb-3 d-flex align-items-center">
-                <h2 class="mb-0 me-2">Premium Subscription</h2>
-                <span class="text-muted" data-bs-toggle="tooltip" title="Get access to exclusive features&#10;with our premium plans">
-                    <i class="fas fa-question-circle"></i>
-                </span>
-            </div>
-        </div>
-
+<div class="container py-5">
+    <div class="row g-4">
         @foreach($subscription as $plan)
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h6 class="card-title fw-bold">{{$plan->title}}</h6>
-                        <p class="card-text">
-                            {!! $plan->details !!}
-                        </p>
-                        @auth
-                            <form method="POST" action="{{ route('purchase.subscription') }}">
-                                @csrf
-                                <input type="hidden" name="subscription_id" value="{{ $plan->id }}">
-                                <button type="submit" class="btn btn-success mt-3">{{$plan->price}} Tk</button>
-                            </form>
-                        @else
-                            <a href="{{ route('login') }}" class="btn btn-success mt-3">{{$plan->price}} Tk</a>
-                        @endauth
+                <div class="card pricing-card shadow-lg border-0 h-100 text-center">
+
+                    <!-- Card Header (Green) -->
+                    <div class="card-header bg-success text-white py-4">
+                        <h4 class="fw-bold mb-0">{{ $plan->title }}</h4>
                     </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="fw-bold text-success mb-3">
+                            {{ $plan->price }} <small class="text-muted fs-6">Tk</small>
+                        </h2>
+
+                        <div class="plan-details text-start mb-4">
+                            {!! $plan->details !!}
+                        </div>
+
+                        <div class="mt-auto">
+                            @auth
+                                <form method="POST" action="{{ route('purchase.subscription') }}">
+                                    @csrf
+                                    <input type="hidden" name="subscription_id" value="{{ $plan->id }}">
+                                    <button type="submit" class="btn btn-success w-100">Subscribe Now</button>
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-success w-100">Subscribe Now</a>
+                            @endauth
+                        </div>
+                    </div>
+
                 </div>
             </div>
         @endforeach
     </div>
 </div>
-<br>
 
-
-<!-- Category -->
-<section class="category-section-area section-padding">
+<!-- Tender / EOI Section -->
+<section class="category-section-area py-5">
     <div class="container">
-        <div class="row">
-            <div class="section-heading mb-3 d-flex align-items-center">
-                <h2 class="mb-0 me-2">Tender/EOI</h2>
-                <span class="text-muted" data-bs-toggle="tooltip" title="Get Download to exclusive PDF&#10;with your choice Tender">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-5">
+            <h2 class="fw-bold d-inline-flex align-items-center">
+                Tender / EOI
+                <span class="ms-2 text-muted" data-bs-toggle="tooltip" title="Download exclusive PDF with your choice Tender">
                     <i class="fas fa-question-circle"></i>
                 </span>
-            </div>
-
-
+            </h2>
+            <p class="text-muted mt-2">Browse and download the latest tender/EOI documents</p>
         </div>
-        <div class="category-card-wrap d-flex flex-wrap">
-            @foreach($tender as $tenderData)
-                <a href="{{asset('files/tender/'.$tenderData->file)}}" target="_blank" class="category-card d-flex align-items-center">
-                    <div class="category-image-wrap">
-                        @if($tenderData->user->profile!==null)
-                            <img
-                                src="{{ asset('images/logo/' . $tenderData->user->profile) }}"
-                                draggable="false"
-                                alt="Category Image"
-                            />
-                        @else
-                            <img
-                                src="{{ asset('images/logos/1748790248.png') }}"
-                                draggable="false"
-                                alt="Category Image"
-                            />
-                        @endif
 
-                    </div>
-                    <div class="category-content d-flex flex-column justify-content-between">
-                        <h3>{{ $tenderData->title }}</h3>
-                        <div class="category-content-bottom d-flex">
-                          <p>{!! $tenderData->description !!}</p>
+        <!-- Tender Cards -->
+        <div class="row g-4">
+            @foreach($tender as $tenderData)
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 hover-shadow text-center">
+
+                        <!-- Logo -->
+                        <div class="p-4">
+                            @if($tenderData->user->profile !== null)
+                                <img src="{{ asset('images/logo/' . $tenderData->user->profile) }}"
+                                     class="img-fluid rounded mb-3"
+                                     alt="Tender Logo"
+                                     style="max-height: 60px;">
+                            @else
+                                <img src="{{ asset('images/logos/1748790248.png') }}"
+                                     class="img-fluid rounded mb-3"
+                                     alt="Default Logo"
+                                     style="max-height: 60px;">
+                            @endif
+                        </div>
+
+                        <!-- Tender Details -->
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="fw-bold text-success">{{ $tenderData->title }}</h5>
+                            <p class="text-muted small">{!! Str::limit(strip_tags($tenderData->description), 120) !!}</p>
+
+                            <div class="mt-auto">
+                                <a href="{{ asset('files/tender/' . $tenderData->file) }}"
+                                   target="_blank"
+                                   class="btn btn-success w-100">
+                                    <i class="fas fa-download me-1"></i> Download PDF
+                                </a>
+                            </div>
                         </div>
 
                     </div>
-                </a>
+                </div>
             @endforeach
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Training and Migration -->
+<div class="training-and-migration-area py-5">
+    <div class="container">
+        <div class="row g-4">
+
+            <!-- Training Section -->
+            <div class="col-md-6 col-12">
+                <div class="training-wrap">
+                    <h2 class="fw-bold mb-4 text-success">
+                        <i class="fas fa-chalkboard-teacher me-2"></i> Training
+                    </h2>
+
+                    @foreach($training as $trainingData)
+                        <a href="{{ route('training.details', $trainingData->id) }}"
+                           class="training-item card border-0 shadow-sm mb-3 p-3 d-flex flex-row align-items-center hover-shadow">
+
+                            <!-- Icon -->
+                            <div class="icon-wrap me-3">
+                                <img src="{{ asset('images/training/' . $trainingData->image) }}"
+                                     alt="Training Icon"
+                                     class="rounded"
+                                     style="width: 60px; height: 60px; object-fit: cover;">
+                            </div>
+
+                            <!-- Details -->
+                            <div class="training-details">
+                                <h5 class="mb-1 fw-bold text-dark">{{ $trainingData->title }}</h5>
+                                <p class="text-muted small mb-0">
+                                    <i class="far fa-calendar-alt me-1"></i>
+                                    {{ \Carbon\Carbon::parse($trainingData->deadline)->format('d M Y') }}
+                                </p>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+
+            <!-- Migration Section -->
+            <div class="col-md-6 col-12">
+                <div class="training-wrap">
+                    <h2 class="fw-bold mb-4 text-success">
+                        <i class="fas fa-plane-departure me-2"></i> Migration
+                    </h2>
+
+                    @foreach($visaMigration as $visaMigrationData)
+                        <a href="{{ route('visa.migration.details', $visaMigrationData->id) }}"
+                           class="training-item card border-0 shadow-sm mb-3 p-3 d-flex flex-row align-items-center hover-shadow">
+
+                            <!-- Icon -->
+                            <div class="icon-wrap me-3">
+                                <img src="{{ asset('images/migration/' . $visaMigrationData->image) }}"
+                                     alt="Migration Icon"
+                                     class="rounded"
+                                     style="width: 60px; height: 60px; object-fit: cover;">
+                            </div>
+
+                            <!-- Details -->
+                            <div class="training-details">
+                                <h5 class="mb-1 fw-bold text-dark">{{ $visaMigrationData->title }}</h5>
+                                <p class="text-muted small mb-0">
+                                    <i class="far fa-calendar-alt me-1"></i>
+                                    {{ \Carbon\Carbon::parse($visaMigrationData->deadline)->format('d M Y') }}
+                                </p>
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
 
         </div>
     </div>
-</section>
+</div>
 
 
 @if($advisement && $advisement->count() > 0)

@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\AdvismentController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CompanyController;
+use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\ElearningCategoryController;
 use App\Http\Controllers\admin\ElearningController;
 use App\Http\Controllers\admin\ExpenseCategoryController;
@@ -268,6 +269,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::put('/skill-update/{id}', [SkillController::class, 'update'])->name('skill.update');
     Route::get('/skill-delete/{id}', [SkillController::class, 'destroy'])->name('skill.destroy');
 
+
+    //Country Section
+    Route::get('/country-section', [CountryController::class, 'index'])->name('country.section');
+    Route::post('/country-store', [CountryController::class, 'store'])->name('country.store');
+    Route::put('/country-update/{id}', [CountryController::class, 'update'])->name('country.update');
+    Route::get('/country-delete/{id}', [CountryController::class, 'destroy'])->name('country.destroy');
 
     //Student Corner Category Section
     Route::get('/student-corner-category-section', [StudentCornerCategoryController::class, 'index'])->name('student.corner.category.section');

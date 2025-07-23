@@ -203,7 +203,7 @@
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
             pageLanguage: 'en',
-            includedLanguages: 'en,bn,fr,es,de,hi,ta,th,bo,ar',
+            includedLanguages: 'en,bn,fr,es,de,hi,ta,th,bo,ar,zh-CN,zh-TW,ja,ko,ru,pt,vi,ur,fa,pl,uk,id,it,tr,mr,gu,kn,ml,mn,my,ne,nl,sr,bg,hr,cs,da,fi,el,he,no,ro,sk,sq,sv',
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE
         }, 'google_translate_element');
     }

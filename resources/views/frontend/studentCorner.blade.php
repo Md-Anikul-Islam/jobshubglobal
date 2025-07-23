@@ -33,6 +33,35 @@
                                     value="{{ request('find_job') }}"
                                 />
                             </div>
+
+                            {{-- Level Type Filter --}}
+                            <div class="mb-3">
+                                <label class="form-label">Level Type</label>
+                                <select name="level_type" class="form-select">
+                                    <option value="">All Levels</option>
+                                    <option value="SSC" {{ request('level_type') == 'SSC' ? 'selected' : '' }}>SSC</option>
+                                    <option value="HSC" {{ request('level_type') == 'HSC' ? 'selected' : '' }}>HSC</option>
+                                    <option value="University" {{ request('level_type') == 'University' ? 'selected' : '' }}>University</option>
+                                    <option value="Worker" {{ request('level_type') == 'Worker' ? 'selected' : '' }}>Worker</option>
+                                    <option value="Travel" {{ request('level_type') == 'Travel' ? 'selected' : '' }}>Travel</option>
+                                    <option value="Other" {{ request('level_type') == 'Other' ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+
+                            {{-- Country Filter --}}
+                            <div class="mb-3">
+                                <label class="form-label">Country</label>
+                                <select name="country_id" class="form-select">
+                                    <option value="">All Countries</option>
+                                    @foreach($countries as $country)
+                                        <option value="{{ $country->id }}" {{ request('country_id') == $country->id ? 'selected' : '' }}>
+                                            {{ $country->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Filter</button>
                         </form>
 
                     </div>

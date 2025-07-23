@@ -160,6 +160,12 @@ class PermissionTableSeeder extends Seeder
             'skill-edit',
             'skill-delete',
 
+            //Country
+            'country-list',
+            'country-create',
+            'country-edit',
+            'country-delete',
+
             //For Tender
             'tender-list',
             'tender-create',

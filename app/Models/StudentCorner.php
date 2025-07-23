@@ -10,6 +10,8 @@ class StudentCorner extends Model
     use HasFactory;
     protected $fillable = [
         'student_corner_category_id',
+        'country_id',
+        'level_type',
         'title',
         'date',
         'image',
@@ -21,5 +23,10 @@ class StudentCorner extends Model
     public function studentCornerCategory()
     {
         return $this->belongsTo(StudentCornerCategory::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
     }
 }

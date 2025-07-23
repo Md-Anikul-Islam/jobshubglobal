@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Models\StudentCorner;
 use App\Models\StudentCornerCategory;
 use Illuminate\Http\Request;
@@ -25,7 +26,8 @@ class StudentCornerController extends Controller
     {
         $studentCorner = StudentCorner::with('studentCornerCategory')->latest()->get();
         $category = StudentCornerCategory::all();
-        return view('admin.pages.studentCorner.index', compact('studentCorner', 'category'));
+        $country = Country::where('status', 1)->get();
+        return view('admin.pages.studentCorner.index', compact('studentCorner', 'category', 'country'));
     }
 
     public function store(Request $request)
@@ -41,6 +43,8 @@ class StudentCornerController extends Controller
             $request->image->move(public_path('images/studentCorner'), $imageName);
             $studentCorner = new StudentCorner();
             $studentCorner->student_corner_category_id = $request->student_corner_category_id;
+            $studentCorner->country_id = $request->country_id;
+            $studentCorner->level_type = $request->level_type;
             $studentCorner->title = $request->title;
             $studentCorner->link = $request->link;
             $studentCorner->date = $request->date;
@@ -63,6 +67,8 @@ class StudentCornerController extends Controller
             ]);
             $studentCorner = StudentCorner::find($id);
             $studentCorner->student_corner_category_id = $request->student_corner_category_id;
+            $studentCorner->country_id = $request->country_id;
+            $studentCorner->level_type = $request->level_type;
             $studentCorner->title = $request->title;
             $studentCorner->link = $request->link;
             $studentCorner->date = $request->date;
