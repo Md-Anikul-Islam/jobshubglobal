@@ -43,7 +43,7 @@ class ApplyJobController extends Controller
     {
         $url = 'http://bulksms.teletalk.com.bd/link_sms_send.php?' . http_build_query([
                 'op'      => 'SMS',
-                'user'    => env('SMS_API_USERNAME', 'Parliament'),
+                'user'    => env('SMS_API_USERNAME', 'iTuring'),
                 'pass'    => env('SMS_API_PASSWORD', ''),
                 'mobile'  => $mobile,
                 'charset' => 'UTF-8',
