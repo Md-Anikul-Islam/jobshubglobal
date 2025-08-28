@@ -100,11 +100,11 @@
                         <li><a href="{{route('all.jobs')}}">{{$menu[1]->name}}</a></li>
                         <li><a href="{{route('training')}}">{{$menu[2]->name}}</a></li>
                         <li><a href="{{route('visa.migration')}}">{{$menu[3]->name}}</a></li>
-                        <li><a href="{{route('user.registration')}}">{{$menu[4]->name}}</a></li>
 
-                        <li>
-                            <a  href="{{route('company.registration')}}" class="post-a-job">{{$menu[6]->name}}</a>
-                        </li>
+
+
+
+
 
                         <li><a href="{{route('join.job.fair')}}">{{$menu[7]->name}}</a></li>
                         <li class="dropdown">
@@ -115,6 +115,25 @@
                                 <li><a href="{{route('elearning')}}">{{$menu[8]->name}}</a></li>
                             </ul>
                         </li>
+                        @if(Auth::check())
+                            <li class="dropdown">
+                            <li>
+                                @if(Auth::user()->is_registration_by == 'Admin')
+                                    <a href="{{url('/dashboard')}}">My Account</a>
+                                @elseif(Auth::user()->is_registration_by == 'Company')
+                                    <a href="{{url('/dashboard')}}">My Account</a>
+                                @elseif(Auth::user()->is_registration_by == 'User')
+                                    <a href="{{url('/dashboard')}}">My Account</a>
+                                @endif
+                            </li>
+                            </li>
+                        @else
+                            <li><a href="{{route('user.registration')}}">{{$menu[4]->name}}</a></li>
+                            <li>
+                                <a  href="{{route('company.registration')}}" class="post-a-job">{{$menu[6]->name}}</a>
+                            </li>
+
+                        @endif
                         <div id="google_translate_element"></div>
                     </ul>
 

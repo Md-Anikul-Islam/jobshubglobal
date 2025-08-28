@@ -198,6 +198,7 @@ class UserAccountController extends Controller
             'details_bn' => 'nullable',
         ];
 
+        //dd($request->all());
         // Validate the request data
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {

@@ -31,6 +31,8 @@ class SiteSettingController extends Controller
 
     public function createOrUpdate(Request $request, $id = null)
     {
+
+
         // Validation rules
         $rules = [
             'name' => 'nullable',
@@ -52,6 +54,8 @@ class SiteSettingController extends Controller
             'advisement_image' => 'nullable|image|mimes:jpeg,png,jpg,svg,gif|max:5120',
             'advisement_link' => 'nullable|url',
         ];
+
+
 
         // Validate the request data
         $validator = Validator::make($request->all(), $rules);
