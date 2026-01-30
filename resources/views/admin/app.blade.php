@@ -175,6 +175,12 @@
                                     <a href="{{route('country.section')}}">Country</a>
                                 </li>
                             @endcan
+                                @can('help-list')
+                                    <li>
+                                        <a href="{{route('help.section')}}">Help</a>
+                                    </li>
+                                @endcan
+
                         </ul>
                     </div>
                 </li>

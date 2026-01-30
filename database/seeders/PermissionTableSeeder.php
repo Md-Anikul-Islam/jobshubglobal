@@ -232,6 +232,12 @@ class PermissionTableSeeder extends Seeder
             'training-income-list',
             'training-income-delete',
 
+            //For help
+            'help-list',
+            'help-create',
+            'help-edit',
+            'help-delete',
+
 
 
 

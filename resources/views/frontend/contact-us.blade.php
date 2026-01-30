@@ -34,6 +34,12 @@
                                 <p>Email: {{$siteSettings->email}}
                                 </p>
                             </li>
+
+                            <li>
+                                <i class="fa fa-envelope"></i>
+                                <p>Email:  jobshubglobal@gmail.com
+                                </p>
+                            </li>
                         </ul>
                     </div>
                 </div>

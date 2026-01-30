@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\ElearningCategoryController;
 use App\Http\Controllers\admin\ElearningController;
 use App\Http\Controllers\admin\ExpenseCategoryController;
 use App\Http\Controllers\admin\ExpenseController;
+use App\Http\Controllers\admin\HelpController;
 use App\Http\Controllers\admin\IncomeController;
 use App\Http\Controllers\admin\JobFairController;
 use App\Http\Controllers\admin\JoinCategoryController;
@@ -34,7 +35,9 @@ use App\Http\Controllers\company\JobController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ElerningManageController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\HelpPageController;
 use App\Http\Controllers\JobManageController;
+use App\Http\Controllers\PurchasedElearningController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentCornerManageController;
 use App\Http\Controllers\TrainingAndMigrationController;
@@ -91,6 +94,19 @@ Route::get('/elearning', [ElerningManageController::class, 'elearning'])->name('
 
 Route::get('/student-corner', [StudentCornerManageController::class, 'studentCorner'])->name('student.corner');
 Route::get('student-corner-details/{id}', [StudentCornerManageController::class, 'studentCornerDetails'])->name('student.corner.details');
+
+
+
+// Payment start
+Route::get('/pay-now/{id}', [PurchasedElearningController::class, 'payNow'])->name('pay.now');
+
+// Callback URLs
+Route::post('/sslcommerz/success', [PurchasedElearningController::class, 'success'])->name('ssl.success');
+Route::post('/sslcommerz/fail', [PurchasedElearningController::class, 'fail'])->name('ssl.fail');
+Route::post('/sslcommerz/cancel', [PurchasedElearningController::class, 'cancel'])->name('ssl.cancel');
+Route::post('/sslcommerz/ipn', [PurchasedElearningController::class, 'ipn'])->name('ssl.ipn');
+
+Route::get('/help/{slug}', [HelpPageController::class, 'show'])->name('help.page');
 
 
 Route::middleware(['auth', 'company'])->group(callback: function () {
@@ -287,6 +303,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/student-corner-store', [StudentCornerController::class, 'store'])->name('student.corner.store');
     Route::put('/student-corner-update/{id}', [StudentCornerController::class, 'update'])->name('student.corner.update');
     Route::get('/student-corner-delete/{id}', [StudentCornerController::class, 'destroy'])->name('student.corner.destroy');
+
+
+    Route::get('/help-section', [HelpController::class, 'index'])->name('help.section');
+    Route::post('/help-store', [HelpController::class, 'store'])->name('help.store');
+    Route::put('/help-update/{id}', [HelpController::class, 'update'])->name('help.update');
+    Route::get('/help-delete/{id}', [HelpController::class, 'destroy'])->name('help.destroy');
 
 
     //Apply Job User

@@ -49,9 +49,9 @@
                             </td>
                             <td style="width: 100px;">
                                 @if($purchasedElearningData->payment_status == 'pending')
-                                    <a class="btn btn-success" href="">Payment</a>
+                                    <a class="btn btn-success" href="{{ route('pay.now', $purchasedElearningData->id) }}">Pay Now</a>
                                 @elseif($purchasedElearningData->payment_status == 'completed')
-                                    <a class="btn btn-info" href="#">Data</a>
+                                    <a class="btn btn-info" href="#">View</a>
                                 @endif
 
                             </td>

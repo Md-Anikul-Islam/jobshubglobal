@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('training_id')->constrained('trainings')->onDelete('cascade');
             $table->decimal('price', 10, 2)->default(0.00);
             $table->string('payment_status')->default('pending'); //
+            $table->string('tran_id')->nullable();
             $table->timestamps();
         });
     }

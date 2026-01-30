@@ -12,6 +12,7 @@ class PurchesElearning extends Model
         'user_id',
         'e_learning_id',
         'price',
+        'tran_id',
         'payment_status',
     ];
 
