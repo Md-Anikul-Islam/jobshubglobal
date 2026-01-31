@@ -98,13 +98,23 @@ Route::get('student-corner-details/{id}', [StudentCornerManageController::class,
 
 
 // Payment start
-Route::get('/pay-now/{id}', [PurchasedElearningController::class, 'payNow'])->name('pay.now');
+//Route::get('/pay-now/{id}', [PurchasedElearningController::class, 'payNow'])->name('pay.now');
 
 // Callback URLs
-Route::post('/sslcommerz/success', [PurchasedElearningController::class, 'success'])->name('ssl.success');
-Route::post('/sslcommerz/fail', [PurchasedElearningController::class, 'fail'])->name('ssl.fail');
-Route::post('/sslcommerz/cancel', [PurchasedElearningController::class, 'cancel'])->name('ssl.cancel');
+//Route::post('/sslcommerz/success', [PurchasedElearningController::class, 'success'])->name('ssl.success');
+//Route::post('/sslcommerz/fail', [PurchasedElearningController::class, 'fail'])->name('ssl.fail');
+//Route::post('/sslcommerz/cancel', [PurchasedElearningController::class, 'cancel'])->name('ssl.cancel');
+//Route::post('/sslcommerz/ipn', [PurchasedElearningController::class, 'ipn'])->name('ssl.ipn');
+
+
+
+Route::get('/pay-now/{id}', [PurchasedElearningController::class, 'payNow'])->name('pay.now');
+
+Route::match(['get','post'], '/sslcommerz/success', [PurchasedElearningController::class, 'success'])->name('ssl.success');
+Route::match(['get','post'], '/sslcommerz/fail', [PurchasedElearningController::class, 'fail'])->name('ssl.fail');
+Route::match(['get','post'], '/sslcommerz/cancel', [PurchasedElearningController::class, 'cancel'])->name('ssl.cancel');
 Route::post('/sslcommerz/ipn', [PurchasedElearningController::class, 'ipn'])->name('ssl.ipn');
+
 
 Route::get('/help/{slug}', [HelpPageController::class, 'show'])->name('help.page');
 
