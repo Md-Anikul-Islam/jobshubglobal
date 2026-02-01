@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreignId('subscription_id')->constrained('subscriptions')->onDelete('cascade');
             $table->decimal('price', 10, 2)->default(0.00);
+            $table->string('tran_id')->nullable();
             $table->string('payment_status')->default('pending'); // pending, completed, failed
             $table->timestamps();
         });

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreignId('e_learning_id')->constrained('elearnings')->onDelete('cascade');
             $table->decimal('price', 10, 2)->default(0.00);
+            $table->string('tran_id')->nullable();
             $table->string('payment_status')->default('pending'); //
-            $table->string('tran_id')->nullable()->after('payment_status');
             $table->timestamps();
         });
     }

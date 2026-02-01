@@ -13,6 +13,7 @@ class PurchesTraning extends Model
         'user_id',
         'training_id',
         'price',
+        'tran_id',
         'payment_status',
     ];
 

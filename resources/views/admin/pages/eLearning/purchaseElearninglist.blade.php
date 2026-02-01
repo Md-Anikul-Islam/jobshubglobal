@@ -55,13 +55,15 @@
 {{--                                @endif--}}
 
                                 @if($purchasedElearningData->payment_status === 'pending')
-                                    <a href="{{ route('pay.now', $purchasedElearningData->id) }}"
+                                    <a href="{{ route('pay.now', ['type'=>'elearning', 'id'=>$purchasedElearningData->id]) }}"
                                        class="btn btn-success btn-sm">
                                         Pay Now
                                     </a>
                                 @else
                                     <span class="badge bg-success">Paid</span>
                                 @endif
+
+
 
 
                             </td>

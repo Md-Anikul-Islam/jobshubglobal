@@ -12,6 +12,7 @@ class PurchesSubscription extends Model
         'user_id',
         'subscription_id',
         'price',
+        'tran_id',
         'payment_status',
     ];
 

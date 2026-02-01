@@ -37,6 +37,7 @@ use App\Http\Controllers\ElerningManageController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HelpPageController;
 use App\Http\Controllers\JobManageController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PurchasedElearningController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentCornerManageController;
@@ -109,11 +110,20 @@ Route::get('student-corner-details/{id}', [StudentCornerManageController::class,
 
 
 Route::get('/pay-now/{id}', [PurchasedElearningController::class, 'payNow'])->name('pay.now');
-
 Route::match(['get','post'], '/sslcommerz/success', [PurchasedElearningController::class, 'success'])->name('ssl.success');
 Route::match(['get','post'], '/sslcommerz/fail', [PurchasedElearningController::class, 'fail'])->name('ssl.fail');
 Route::match(['get','post'], '/sslcommerz/cancel', [PurchasedElearningController::class, 'cancel'])->name('ssl.cancel');
 Route::post('/sslcommerz/ipn', [PurchasedElearningController::class, 'ipn'])->name('ssl.ipn');
+
+
+Route::get('/pay/{type}/{id}', [PaymentController::class, 'pay'])->name('pay.now');
+Route::post('/ssl/ipn', [PaymentController::class, 'ipn'])->name('ssl.ipn');
+Route::post('/ssl/success', [PaymentController::class, 'success'])->name('ssl.success');
+Route::post('/ssl/fail', [PaymentController::class, 'fail'])->name('ssl.fail');
+Route::post('/ssl/cancel', [PaymentController::class, 'cancel'])->name('ssl.cancel');
+
+
+
 
 
 Route::get('/help/{slug}', [HelpPageController::class, 'show'])->name('help.page');
