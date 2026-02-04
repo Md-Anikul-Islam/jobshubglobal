@@ -56,17 +56,68 @@
                                             </p>
                                         </div>
                                     </div>
+{{--                                    <div class="register-now">--}}
+{{--                                        @auth--}}
+{{--                                            <form method="post" action="{{ route('purchase.elearning') }}">--}}
+{{--                                                @csrf--}}
+{{--                                                <input type="hidden" name="e_learning_id" value="{{ $elearningData->id }}">--}}
+{{--                                                <button type="submit" class="btn btn-success mt-3  w-100">{{$elearningData->fee}} Tk</button>--}}
+{{--                                            </form>--}}
+{{--                                        @else--}}
+{{--                                            <a href="{{ route('login') }}" class="btn btn-success mt-3 w-100">{{$elearningData->fee}} Tk</a>--}}
+{{--                                        @endauth--}}
+{{--                                    </div>--}}
+
                                     <div class="register-now">
                                         @auth
                                             <form method="post" action="{{ route('purchase.elearning') }}">
                                                 @csrf
+
                                                 <input type="hidden" name="e_learning_id" value="{{ $elearningData->id }}">
-                                                <button type="submit" class="btn btn-success mt-3  w-100">{{$elearningData->fee}} Tk</button>
+
+                                                {{-- Agreement Checkbox --}}
+                                                <div class="form-check mt-2">
+                                                    <input
+                                                        class="form-check-input"
+                                                        type="checkbox"
+                                                        name="agree_terms"
+                                                        id="agree_terms_{{ $elearningData->id }}"
+                                                        required
+                                                    >
+
+                                                    <label class="form-check-label" for="agree_terms_{{ $elearningData->id }}" style="font-size:13px;">
+                                                        I agree to the
+                                                        <span
+                                                            style="color:#198754; cursor:pointer; text-decoration:none;"
+                                                            onclick="window.location='{{ route('help.page','terms-conditions') }}'">
+                                                                Terms & Conditions
+                                                        </span>,
+                                                        <span
+                                                            style="color:#198754; cursor:pointer; text-decoration:none;"
+                                                            onclick="window.location='{{ route('help.page','privacy-policy') }}'">
+                                                                Privacy Policy
+                                                        </span> &
+                                                        <span
+                                                            style="color:#198754; cursor:pointer; text-decoration:none;"
+                                                            onclick="window.location='{{ route('help.page','return-refund-policy') }}'">
+                                                            Return Refund Policy
+                                                        </span>
+                                                    </label>
+
+                                                </div>
+
+                                                <button type="submit" class="btn btn-success mt-3 w-100">
+                                                    {{ $elearningData->fee }} Tk
+                                                </button>
                                             </form>
                                         @else
-                                            <a href="{{ route('login') }}" class="btn btn-success mt-3 w-100">{{$elearningData->fee}} Tk</a>
+                                            <a href="{{ route('login') }}" class="btn btn-success mt-3 w-100">
+                                                {{ $elearningData->fee }} Tk
+                                            </a>
                                         @endauth
                                     </div>
+
+
                                 </div>
                             </div>
 

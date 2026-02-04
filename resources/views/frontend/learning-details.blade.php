@@ -36,6 +36,37 @@
                             <form method="post" action="{{ route('purchase.training') }}">
                                 @csrf
                                 <input type="hidden" name="training_id" value="{{ $training->id }}">
+                                <div class="form-check text-start ">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="agree_terms"
+                                        id="agree_terms_{{ $training->id }}"
+                                        required
+                                    >
+
+                                    <label class="form-check-label" for="agree_terms_{{ $training->id }}" style="font-size:13px;">
+                                        <b class="text-dark">I agree to the</b>
+                                        <span
+                                            style="color:#198754; cursor:pointer; text-decoration:none;"
+                                            onclick="window.location='{{ route('help.page','terms-conditions') }}'">
+                                                                Terms & Conditions
+                                                        </span>,
+                                        <span
+                                            style="color:#198754; cursor:pointer; text-decoration:none;"
+                                            onclick="window.location='{{ route('help.page','privacy-policy') }}'">
+                                                                Privacy Policy
+                                                        </span> &
+                                        <span
+                                            style="color:#198754; cursor:pointer; text-decoration:none;"
+                                            onclick="window.location='{{ route('help.page','return-refund-policy') }}'">
+                                                            Return Refund Policy
+                                                        </span>
+                                    </label>
+
+
+
+                                </div>
                                 <button type="submit" class="btn btn-success mt-3  w-100">{{$training->training_fee}} Tk</button>
                             </form>
                         @else

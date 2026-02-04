@@ -246,6 +246,36 @@
                                 <form method="POST" action="{{ route('purchase.subscription') }}">
                                     @csrf
                                     <input type="hidden" name="subscription_id" value="{{ $plan->id }}">
+                                    {{-- Agreement Checkbox --}}
+                                    <div class="form-check mt-2">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            name="agree_terms"
+                                            id="agree_terms_{{ $plan->id }}"
+                                            required
+                                        >
+
+                                        <label class="form-check-label" for="agree_terms_{{ $plan->id }}" style="font-size:13px;">
+                                            I agree to the
+                                            <span
+                                                style="color:#198754; cursor:pointer; text-decoration:none;"
+                                                onclick="window.location='{{ route('help.page','terms-conditions') }}'">
+                                                                Terms & Conditions
+                                                        </span>,
+                                            <span
+                                                style="color:#198754; cursor:pointer; text-decoration:none;"
+                                                onclick="window.location='{{ route('help.page','privacy-policy') }}'">
+                                                                Privacy Policy
+                                                        </span> &
+                                            <span
+                                                style="color:#198754; cursor:pointer; text-decoration:none;"
+                                                onclick="window.location='{{ route('help.page','return-refund-policy') }}'">
+                                                            Return Refund Policy
+                                                        </span>
+                                        </label>
+
+                                    </div>
                                     <button type="submit" class="btn btn-success w-100">Subscribe Now</button>
                                 </form>
                             @else
