@@ -274,7 +274,6 @@
                                                             Return Refund Policy
                                                         </span>
                                         </label>
-
                                     </div>
                                     <button type="submit" class="btn btn-success w-100">Subscribe Now</button>
                                 </form>
