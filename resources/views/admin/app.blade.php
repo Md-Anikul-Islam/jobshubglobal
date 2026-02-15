@@ -380,6 +380,34 @@
                 @endcan
 
 
+                @can('order-manage')
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarPagesorder" aria-expanded="false" aria-controls="sidebarPagesorder" class="side-nav-link">
+                            <i class="ri-drag-move-fill"></i>
+                            <span>Order Manage </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarPagesorder">
+                            <ul class="side-nav-second-level">
+
+
+
+                                <li>
+                                    <a href="{{route('elearning.order')}}">e-Learning</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('training.order')}}">Training</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('subscription.order')}}">Subscription</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                @endcan
+
+
 
 
 

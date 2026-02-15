@@ -239,6 +239,9 @@ class PermissionTableSeeder extends Seeder
             'help-delete',
 
 
+            'order-manage'
+
+
 
 
 

@@ -19,6 +19,7 @@ use App\Http\Controllers\admin\JoinCategoryController;
 use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\admin\MenuController;
 use App\Http\Controllers\admin\MigrationCategoryController;
+use App\Http\Controllers\admin\OrderManageController;
 use App\Http\Controllers\admin\PremiumSubscriptionController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SiteSettingController;
@@ -350,6 +351,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
 
     Route::get('/elearning-income-section', [IncomeController::class, 'elearningIncome'])->name('elearning.income.section');
     Route::get('/elearning-income-delete/{id}', [IncomeController::class, 'elearningDestroy'])->name('elearning.income.destroy');
+
+    //Order manage by admin
+    //Slider Section
+    Route::get('/subscription-order', [OrderManageController::class, 'subscription'])->name('subscription.order');
+    Route::get('/training-order', [OrderManageController::class, 'training'])->name('training.order');
+    Route::get('/elearning-order', [OrderManageController::class, 'elearning'])->name('elearning.order');
 });
 
 require __DIR__.'/auth.php';
