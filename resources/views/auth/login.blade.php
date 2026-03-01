@@ -63,6 +63,12 @@
                                         </div>
 
 
+                                        <div class="form-group">
+                                            <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITEKEY') }}"></div>
+                                        </div>
+                                        <br>
+
+
 
                                         <div class="mb-0 text-start">
                                             <button class="btn btn-soft-primary w-100" type="submit"><i class="ri-login-circle-fill me-1"></i> <span class="fw-bold">Log In</span> </button>
@@ -82,6 +88,7 @@
         <script>document.write(new Date().getFullYear())</script> © Jobs Hub Global
     </span>
 </footer>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="{{ asset('backend/js/vendor.min.js') }}"></script>
 <script src="{{ asset('backend/js/app.min.js') }}"></script>
 <script>
