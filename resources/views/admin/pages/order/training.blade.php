@@ -74,7 +74,7 @@
                                     </a>
 
                                     <!-- Invoice Button -->
-                                    <a href="#"
+                                    <a href="{{route('training.invoice',$trainingData->id)}}"
                                        class="btn btn-sm btn-success">
                                         Invoice
                                     </a>

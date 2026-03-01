@@ -353,10 +353,13 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::get('/elearning-income-delete/{id}', [IncomeController::class, 'elearningDestroy'])->name('elearning.income.destroy');
 
     //Order manage by admin
-    //Slider Section
     Route::get('/subscription-order', [OrderManageController::class, 'subscription'])->name('subscription.order');
     Route::get('/training-order', [OrderManageController::class, 'training'])->name('training.order');
     Route::get('/elearning-order', [OrderManageController::class, 'elearning'])->name('elearning.order');
+
+    Route::get('/subscription-invoice/{id}', [OrderManageController::class, 'subscriptionInvoice'])->name('subscription.invoice');
+    Route::get('/training-invoice/{id}', [OrderManageController::class, 'trainingInvoice'])->name('training.invoice');
+    Route::get('/elearning-invoice/{id}', [OrderManageController::class, 'elearningInvoice'])->name('elearning.invoice');
 });
 
 require __DIR__.'/auth.php';

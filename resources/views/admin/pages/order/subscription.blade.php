@@ -53,7 +53,7 @@
                             <td style="width: 150px;">
                                 <div class="d-flex ">
                                     <!-- Invoice Button -->
-                                    <a href="#"
+                                    <a href="{{route('subscription.invoice',$order->id)}}"
                                        class="btn btn-sm btn-success">
                                         Invoice
                                     </a>

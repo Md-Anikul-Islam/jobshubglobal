@@ -55,7 +55,7 @@
                                        class="btn btn-sm btn-primary">
                                         Send Courier
                                     </a>
-                                    <a href="#" class="btn btn-sm btn-success">Invoice</a>
+                                    <a href="{{route('elearning.invoice',$order->id)}}" class="btn btn-sm btn-success">Invoice</a>
                                 </div>
                             </td>
                         </tr>

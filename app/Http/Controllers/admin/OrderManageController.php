@@ -16,10 +16,22 @@ class OrderManageController extends Controller
         return view('admin.pages.order.subscription',compact('subscription'));
     }
 
+    public function subscriptionInvoice($id)
+    {
+        $subscription = PurchesSubscription::where('id',$id)->with('user','subscription')->latest()->first();
+        return view('admin.pages.order.subscriptionInvoice',compact('subscription'));
+    }
+
     public function training()
     {
         $training = PurchesTraning::with('user','training')->latest()->get();
         return view('admin.pages.order.training',compact('training'));
+    }
+
+    public function trainingInvoice($id)
+    {
+        $training = PurchesTraning::where('id',$id)->with('user','training')->latest()->first();
+        return view('admin.pages.order.trainingInvoice',compact('training'));
     }
 
 
@@ -27,5 +39,11 @@ class OrderManageController extends Controller
     {
         $elearning = PurchesElearning::with('user','eLearning')->latest()->get();
         return view('admin.pages.order.elearning',compact('elearning'));
+    }
+
+    public function elearningInvoice($id)
+    {
+        $elearning = PurchesElearning::where('id',$id)->with('user','eLearning')->latest()->first();
+        return view('admin.pages.order.elearningInvoice',compact('elearning'));
     }
 }
