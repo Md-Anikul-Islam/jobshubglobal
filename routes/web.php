@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\AdvismentController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CompanyController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\ElearningCategoryController;
@@ -79,6 +80,9 @@ Route::post('/job-fair-store', [JobFairController::class, 'storeJobFair'])->name
 
 //home
 Route::get('/', [FrontendController::class, 'home'])->name('home');
+Route::get('/blog', [FrontendController::class, 'blog'])->name('blog');
+Route::get('/blog/{slug}', [FrontendController::class, 'blogDetails'])->name('blogDetails');
+
 Route::get('/all-jobs', [JobManageController::class, 'searchJobs'])->name('all.jobs');
 
 Route::get('/job-details/{id}', [JobManageController::class, 'jobDetails'])->name('job.details');
@@ -181,6 +185,12 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::post('/category-store', [CategoryController::class, 'store'])->name('category.store');
     Route::put('/category-update/{id}', [CategoryController::class, 'update'])->name('category.update');
     Route::get('/category-delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+    //Blog Section
+    Route::get('/blog-section', [BlogController::class, 'index'])->name('blog.section');
+    Route::post('/blog-store', [BlogController::class, 'store'])->name('blog.store');
+    Route::put('/blog-update/{id}', [BlogController::class, 'update'])->name('blog.update');
+    Route::get('/blog-delete/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
 
     //Expense Category Section
     Route::get('/expense-category-section', [ExpenseCategoryController::class, 'index'])->name('expense.category.section');

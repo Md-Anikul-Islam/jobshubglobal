@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Advisment;
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Job;
 use App\Models\Location;
@@ -29,8 +30,30 @@ class FrontendController extends Controller
         $subscription = Subscription::where('status',1)->orderBy('id', 'asc')->get();
         $tender = Tender::where('status',1)->with('user')->latest()->get();
         $advisement = Advisment::where('status',1)->first();
+
+
         return view('frontend.home',compact('locations','categories',
         'jobTotal','job','company','jobVacancy','training','visaMigration','subscription','tender','advisement'));
+    }
+
+
+    public function blog(Request $request)
+    {
+        $blogs = Blog::query()
+            ->when($request->filled('find_job'), function ($query) use ($request) {
+                $query->where('title', 'like', '%' . $request->find_job . '%');
+            })
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('frontend.blog', compact('blogs'));
+    }
+
+    public function blogDetails($slug)
+    {
+        $blog = Blog::where('slug',$slug)->first();
+        return view('frontend.blogDetails', compact('blog'));
     }
 
 }

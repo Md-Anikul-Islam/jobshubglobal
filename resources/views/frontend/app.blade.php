@@ -126,6 +126,7 @@
                                 <li><a href="{{route('about')}}">{{$menu[0]->name}}</a></li>
                                 <li><a href="{{route('contact.us')}}">{{$menu[5]->name}}</a></li>
                                 <li><a href="{{route('elearning')}}">{{$menu[8]->name}}</a></li>
+                                <li><a href="{{route('blog')}}">{{$menu[10]->name}}</a></li>
                             </ul>
                         </li>
 
@@ -178,7 +179,7 @@
         </div>
     </div>
 </header>
-<!-- Offcanvas menu -->
+
 <div
     class="offcanvas offcanvas-end mobile-device-offcanvas"
     tabindex="-1"

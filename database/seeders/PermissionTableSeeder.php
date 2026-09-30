@@ -26,6 +26,13 @@ class PermissionTableSeeder extends Seeder
             //For Resource
             'resource-list',
 
+            //For blog
+            'blog-list',
+            'blog-create',
+            'blog-edit',
+            'blog-delete',
+
+
             //For User
             'user-list',
             'user-create',

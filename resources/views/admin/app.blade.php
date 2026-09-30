@@ -134,6 +134,12 @@
                                 </li>
                             @endcan
 
+                                @can('blog-list')
+                                    <li>
+                                        <a href="{{route('blog.section')}}">Blog</a>
+                                    </li>
+                                @endcan
+
                             @can('location-list')
                                 <li>
                                     <a href="{{route('location.section')}}">Location</a>
