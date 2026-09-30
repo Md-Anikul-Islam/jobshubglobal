@@ -56,7 +56,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+//Test
 
 //Account Manage
 Route::get('/company-registration', [CompanyRegistrationController::class, 'showCompanyRegistrationForm'])->name('company.registration');
