@@ -159,6 +159,8 @@
                                         @endif
                                     </div>
 
+{{--                                    job status--}}
+
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="example-select" class="form-label">Available for Job</label>
