@@ -145,6 +145,9 @@ class PermissionTableSeeder extends Seeder
             //Site Setting
             'site-setting',
 
+            //mail
+            'bulk-mail',
+
             //Dashboard
             'login-log-list',
             'cart-list',

@@ -457,6 +457,16 @@
                     </li>
                 @endcan
 
+                   @can('bulk-mail')
+                    <li class="side-nav-item">
+                        <a href="{{route('bulk.email.index')}}" class="side-nav-link">
+                            <i class="ri-mail-send-fill"></i>
+                            <span> User Bulk SMS</span>
+                        </a>
+                    </li>
+                @endcan
+
+
 
 
 

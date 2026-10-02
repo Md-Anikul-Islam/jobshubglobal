@@ -5,6 +5,7 @@ use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdminDashboardController;
 use App\Http\Controllers\admin\AdvismentController;
+use App\Http\Controllers\admin\BulkEmailController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CompanyController;
@@ -370,6 +371,9 @@ Route::middleware(['auth', 'company'])->group(callback: function () {
     Route::get('/subscription-invoice/{id}', [OrderManageController::class, 'subscriptionInvoice'])->name('subscription.invoice');
     Route::get('/training-invoice/{id}', [OrderManageController::class, 'trainingInvoice'])->name('training.invoice');
     Route::get('/elearning-invoice/{id}', [OrderManageController::class, 'elearningInvoice'])->name('elearning.invoice');
+
+    Route::get('/bulk-email', [BulkEmailController::class, 'index'])->name('bulk.email.index');
+    Route::post('/bulk-email/send', [BulkEmailController::class, 'send'])->name('bulk.email.send');
 });
 
 require __DIR__.'/auth.php';
