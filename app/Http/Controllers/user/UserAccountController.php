@@ -235,6 +235,7 @@ class UserAccountController extends Controller
             'address_bn' => 'nullable',
             'details' => 'nullable',
             'details_bn' => 'nullable',
+            'job_status' => 'nullable',
         ];
 
         //dd($request->all());

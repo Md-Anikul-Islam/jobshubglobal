@@ -42,6 +42,7 @@ class User extends Authenticatable
         'resume',
         'address',
         'address_bn',
+        'job_status',
 
     ];
 

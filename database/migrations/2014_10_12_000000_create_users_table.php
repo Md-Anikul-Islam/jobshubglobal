@@ -42,6 +42,7 @@ return new class extends Migration
             $table->string('address_bn')->nullable();
             $table->string('details')->nullable();
             $table->string('details_bn')->nullable();
+            $table->tinyInteger('job_status')->default(1);
 
 
             $table->rememberToken();

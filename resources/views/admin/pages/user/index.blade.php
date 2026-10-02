@@ -158,6 +158,16 @@
                                             <a href="{{asset($user? $user->resume:'' )}}" target="_blank">Download Resume</a>
                                         @endif
                                     </div>
+
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label for="example-select" class="form-label">Available for Job</label>l>
+                                            <select name="job_status" class="form-select">
+                                                <option value="1" {{ $user->job_status === 1 ? 'selected' : '' }}>Yes</option>
+                                                <option value="0" {{ $user->job_status === 0 ? 'selected' : '' }}>No</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </form>
