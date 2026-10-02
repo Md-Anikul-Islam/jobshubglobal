@@ -161,7 +161,7 @@
 
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="example-select" class="form-label">Available for Job</label>l>
+                                            <label for="example-select" class="form-label">Available for Job</label>
                                             <select name="job_status" class="form-select">
                                                 <option value="1" {{ $user->job_status === 1 ? 'selected' : '' }}>Yes</option>
                                                 <option value="0" {{ $user->job_status === 0 ? 'selected' : '' }}>No</option>
